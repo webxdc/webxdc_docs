@@ -4,3 +4,8 @@ language = "en"
 multilingual = false
 src = "src"
 title = "webxdc"
+
+[output.html]
+git-repository-url = "https://github.com/deltachat/webxdc_docs"
+git-repository-icon = "fa-github"
+edit-url-template = "https://github.com/deltachat/webxdc_docs/edit/master/{path}"
