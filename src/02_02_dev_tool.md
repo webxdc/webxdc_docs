@@ -1,6 +1,7 @@
 # Using the Webxdc Development Tool
 
 This is a little tool to make development of webxdc apps easier.
+It is found on <https://github.com/deltachat/webxdc-dev>.
 
 Advantages:
 

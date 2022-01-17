@@ -2,7 +2,7 @@
 
 ### JavaScript Interface
 
-TODO, please refer to https://github.com/deltachat/deltachat-core-rust/blob/master/draft/webxdc-dev-reference.md in the meantime.
+TODO, please refer to <https://github.com/deltachat/deltachat-core-rust/blob/master/draft/webxdc-dev-reference.md> in the meantime.
 
 (could we generate the markdown from the TS definion file? - one less place to update docs and so on?)
 
