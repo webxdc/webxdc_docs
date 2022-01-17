@@ -10,4 +10,4 @@ Here you can find some example projects. If you have a project that you want to 
 ## Games
 
 - TicTacToe: <https://github.com/Simon-Laux/tictactoe.xdc>
-- 2048: https://github.com/adbenitez/2048.xdc
+- 2048: <https://github.com/adbenitez/2048.xdc>
