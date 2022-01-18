@@ -15,3 +15,8 @@
   - [Optimizing your Icon](./05_04_optimize_icon.md)
 - [Example Projects](./06_example_projects.md)
 - [Community](./07_community.md)
+
+
+# Other
+
+- [UI Implementation instructions](./08_extra_ui_implementation.md)
