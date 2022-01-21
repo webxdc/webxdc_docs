@@ -14,7 +14,7 @@ Advantages:
 The devtool has 2 parts:
 
 - `webxdc.js` which acts as simulator
-- `create-xdc.sh`, a script that packs your app into a `.xdc` for you
+- `create-xdc.sh`, a script that packs your app into a [`.xdc`](./03_api_reference.md#zip-format) for you
 
 ## Use the Simulator
 
