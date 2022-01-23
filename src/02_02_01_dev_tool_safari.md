@@ -5,7 +5,7 @@ under `Develop` -> `Disable Local File Restrictions`:
 
 <p>
 <img
-src="images/dev_tool_settings_safari.jpg"
+src="images/dev_tool_settings_safari.png"
 alt="'Disable Local File Restrictions' entry in the 'Develop' menu in safari"
 style="max-height:40vh"
 />
