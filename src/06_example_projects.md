@@ -12,3 +12,6 @@ Here you can find some example projects. If you have a project that you want to 
 - TicTacToe: <https://github.com/Simon-Laux/tictactoe.xdc>
 - 2048: <https://github.com/adbenitez/2048.xdc>
 - Chess Board: <https://github.com/adbenitez/ChessBoard.xdc>
+
+
+Even more examples can be found searching for the [`#webxdc` Topic on GitHub](https://github.com/topics/webxdc).
