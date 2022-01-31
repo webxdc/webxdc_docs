@@ -25,4 +25,30 @@ style="max-height:40vh"
 
 ## Debug your webxdc app in DeltaChat desktop
 
-TODO, waiting for desktop implementation
+Open the app you want to debug and press `F12` to open the developer tools:
+
+<p>
+<img
+src="images/desktop_debug_open.png"
+alt="screenshot of desktop webxdc window with devtool"
+style="max-height:40vh"
+/>
+</p>
+
+A bit small isn't it? fix it either by resizing the window's **width** or **undock** the developer tools:
+
+<p>
+<img
+src="images/desktop_debug_undock.png"
+alt="undock devtools"
+style="max-height:40vh"
+/>
+</p>
+
+<p>
+<img
+src="images/desktop_debug_extra_window.png"
+alt="undock devtools"
+style="max-height:40vh"
+/>
+</p>
