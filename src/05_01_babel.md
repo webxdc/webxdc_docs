@@ -2,4 +2,10 @@
 
 Older devices might not have the newest javascript features/syntax in their webview, you may want to transpile your code down to an older js version eg. with <https://babeljs.io>
 
-TODO guide
+TODO guide, TODO find out what the oldest browser/webview version is that we support.
+
+Targets:
+
+- Desktop (electron -> is chrome 91)
+- iOS (oldest ios 11? -> webkit ???)
+- android (android 5 -> ???)
