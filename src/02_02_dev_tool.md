@@ -1,24 +1,24 @@
 # Using the Webxdc Development Tool
 
-This is a little tool to make development of webxdc apps easier.
+This is a little tool to make creation of webxdc content easier.
 It is found on <https://github.com/deltachat/webxdc-dev>.
 
 Advantages:
 
 - Super easy to get started.
 - No server or installation required.
-- You don't need your DeltaChat app for testing. (you save the pckaging step)
+- You don't need your DeltaChat app for testing. (you save the packaging step)
 
 ## Contents
 
 The devtool has 2 parts:
 
 - `webxdc.js` which acts as simulator
-- `create-xdc.sh`, a script that packs your app into a [`.xdc`](./03_api_reference.md#zip-format) for you
+- `create-xdc.sh`, a script that packs your webxdc into a [`.xdc`](./03_api_reference.md#zip-format) file for you
 
 ## Use the Simulator
 
-For developing webxdc apps, just copy the [`webxdc.js` from the repo](https://github.com/deltachat/webxdc-dev/blob/master/webxdc.js) beside your `index.html` and you are ready to go.
+For developing your webxdc, just copy the [`webxdc.js` from the repo](https://github.com/deltachat/webxdc-dev/blob/master/webxdc.js) beside your `index.html` and you are ready to go.
 
 > Platform Quirks:
 >
@@ -27,12 +27,12 @@ For developing webxdc apps, just copy the [`webxdc.js` from the repo](https://gi
 
 Click on `Add Peer` to add another instance.
 
-Now you can test your app while developing it with a simple reload, instead of repacking it and testing it inside of deltachat, also you don't need deltachat to develop apps using this method.
+Now you can test your webxdc while developing it with a simple reload, instead of repacking it and testing it inside of deltachat, also you don't need deltachat to develop webxdc content using this method.
 
 > `Clear Storage` resets the simulator (removes all previous state updates).
 
-## Use it as a template for your app
+## Use it as a template for your webxdc project
 
 (fork and) clone `https://github.com/deltachat/webxdc-dev`
 
-modify `index.html` to as you like, then open `index.html` in your webbrowser to start the app.
+modify `index.html` to as you like, then open `index.html` in your webbrowser to try out your webxdc.

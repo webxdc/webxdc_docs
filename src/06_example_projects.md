@@ -4,7 +4,7 @@ Here you can find some example projects. If you have a project that you want to 
 
 ## Productivity
 
-- Poll app: <https://github.com/r10s/webxdc-poll>
+- Poll: <https://github.com/r10s/webxdc-poll>
 - Draw: <https://github.com/adbenitez/draw.xdc>
 
 ## Games

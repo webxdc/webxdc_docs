@@ -9,7 +9,7 @@ type SendingStatusUpdate<T> = {
    * usually only one line of text is shown,
    * use this option sparingly to not spam the chat. */
   info?: string;
-  /** optional, short text, shown beside app icon;
+  /** optional, short text, shown beside the icon;
    * it is recommended to use some aggregated value,
    * eg. "8 votes", "Highscore: 123" */
   summary?: string;
@@ -34,11 +34,11 @@ interface Webxdc<T> {
   setUpdateListener(cb: (statusUpdate: ReceivedStatusUpdate<T>) => void): void;
   /**
    * In case your Webxdc was just started,
-   * you may want to reconstruct the status from the last run - and also incorporate updates that may have arrived while the app was not running.
+   * you may want to reconstruct the status from the last run - and also incorporate updates that may have arrived while the webxdc was not running.
    */
   getAllUpdates(): Promise<ReceivedStatusUpdate<T>[]>;
   /**
-   * Webxdc apps are usually shared in a chat and run independently on each peer. To get a shared status, the peers use sendUpdate() to send updates to each other.
+   * Webxdcs are usually shared in a chat and run independently on each peer. To get a shared status, the peers use sendUpdate() to send updates to each other.
    * @param update status update to send
    * @param description short, human-readable description what this update is about. this is shown eg. as a fallback text in an email program.
    */

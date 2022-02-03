@@ -8,11 +8,11 @@ First, you need to add the following script import to your `index.html`:
 
 This loads the platform specific `webxdc.js` which wraps the platform's internal calls to provide the same interface on all platforms.
 
-There are 3 base cases you should handle in your app:
+There are 3 base cases you should handle in your code:
 
 | case                                | what needs to be done                                                                          |
 | ----------------------------------- | ---------------------------------------------------------------------------------------------- |
-| app was just (re)started            | load the previous state updates with `getAllUpdates()` and process the current state from them |
+| webxdc was just (re)started         | load the previous state updates with `getAllUpdates()` and process the current state from them |
 | state update arrives                | define a handler for incoming state updates with `setUpdateListener()`                         |
 | you want to send a new state update | send state updates with `sendUpdate()`                                                         |
 
@@ -27,21 +27,21 @@ so it is recommended to transpile your code down to an older JS version (see [Tr
 
 ## Packaging
 
-> - a **Webxdc app** is a **ZIP**-file with the extension `.xdc`.
+> - a **Webxdc file** is a **ZIP**-file with the extension `.xdc`.
 > - The zip file needs to contain all files that your `index.html` needs (scripts, css-stylesheets, images, fonts, etc.).
 > - The resulting zipfile should be smaller than `100`KB (kilobytes), we might raise this limit in the future.
 
 So put the following into your zip file:
 
 - your `index.html` file and all resources it needs
-- an app `icon.png` or `icon.jpg` ([info about required format](./03_api_reference.md#app-icon))
-- a `manifest.toml` file with your appname. ([documentation](./03_api_reference.md#manifest-file))
+- an `icon.png` or `icon.jpg` ([info about required format](./03_api_reference.md#app-icon))
+- a `manifest.toml` file with your meta data. ([documentation](./03_api_reference.md#manifest-file))
 
 manifest.toml:
 
 ```toml
-name = "My App Name"
+name = "My Webxdc Name"
 ```
 
 Then rename your file's extention from `.zip` to `.xdc`.
-Now you can send it into a deltachat chat and start using it right away, no app store wait times :).
+Now you can send it into a deltachat chat and start using it right away, there is no certification or other bureaucracy required ;)
