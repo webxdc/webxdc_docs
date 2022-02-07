@@ -1,6 +1,6 @@
 # What is webxdc?
 
-## What kind of Applications can be created with this?
+## What kind of interactive content can be created with this?
 
 Some ideas of what you can already create with webxdc.
 

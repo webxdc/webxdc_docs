@@ -12,7 +12,7 @@ There are several things you can do to shrink down the size of your icon:
 > oxipng icon.png -s -o max
 > ```
 > 
-> If you have png files in your app, you should also do this them to safe even more bytes.
+> If you have png files in your project, you should also do this them to safe even more bytes.
 >
 > Noteworthy parameters:
 > - `--pretend` only calculates gains
