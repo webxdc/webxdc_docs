@@ -546,8 +546,8 @@ style="max-height:40vh"
 <div style="break-before: page; page-break-before: always;"></div><h1 id="ui-implementation-instructions"><a class="header" href="#ui-implementation-instructions">UI Implementation instructions</a></h1>
 <ul>
 <li>Deny all forms of internet access</li>
-<li>Disable DOM storage (local storage, indexed db and co) - we will implement a subsitiude in core soon.</li>
-<li>load resources over the <code>webxdc:</code> scheme and deny others (also, the UI should handle <code>webxdc:</code> internally)</li>
+<li>enable DOM storage (local storage, indexed db and co), but make sure it is scoped to each webxdc so they can not delete or modify the data of other webxdc content.</li>
+<li>load resources over the <code>webxdc:</code> scheme and deny others (also, the UI should handle <code>webxdc:</code> internally) - can be also <code>https</code> if ui does not support the custom scheme properly.</li>
 <li>implement fetching <code>webxdc.js</code> over that scheme, should give back a JavaScript file wrapping all native API's to the interface described above.</li>
 <li>info messages -&gt; click on them should jump to their webxdc message</li>
 </ul>
