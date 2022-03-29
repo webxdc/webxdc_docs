@@ -10,11 +10,11 @@ This loads the platform specific `webxdc.js` which wraps the platform's internal
 
 There are 3 base cases you should handle in your code:
 
-| case                                | what needs to be done                                                                          |
-| ----------------------------------- | ---------------------------------------------------------------------------------------------- |
-| webxdc was just (re)started         | load the previous state updates with `getAllUpdates()` and process the current state from them |
-| state update arrives                | define a handler for incoming state updates with `setUpdateListener()`                         |
-| you want to send a new state update | send state updates with `sendUpdate()`                                                         |
+| case                                | what needs to be done                                                                                                |
+| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| webxdc was just (re)started         | make sure the handler set with `setUpdateListener()` can use the previous state updates to process the current state |
+| state update arrives                | define a handler for incoming state updates with `setUpdateListener()`                                               |
+| you want to send a new state update | send state updates with `sendUpdate()`                                                                               |
 
 > You might find premade code snippet for what you need in our [cookbook](./04_cookbook.md) section, if you just want to add common things like a scoreboard to your game.
 
