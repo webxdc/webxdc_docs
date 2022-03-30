@@ -155,7 +155,7 @@
 <p>This loads the platform specific <code>webxdc.js</code> which wraps the platform's internal calls to provide the same interface on all platforms.</p>
 <p>There are 3 base cases you should handle in your code:</p>
 <table><thead><tr><th>case</th><th>what needs to be done</th></tr></thead><tbody>
-<tr><td>webxdc was just (re)started</td><td>load the previous state updates with <code>getAllUpdates()</code> and process the current state from them</td></tr>
+<tr><td>webxdc was just (re)started</td><td>make sure the handler set with <code>setUpdateListener()</code> can use the previous state updates to process the current state</td></tr>
 <tr><td>state update arrives</td><td>define a handler for incoming state updates with <code>setUpdateListener()</code></td></tr>
 <tr><td>you want to send a new state update</td><td>send state updates with <code>sendUpdate()</code></td></tr>
 </tbody></table>
