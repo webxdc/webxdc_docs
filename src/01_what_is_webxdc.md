@@ -10,3 +10,5 @@ Some ideas of what you can already create with webxdc.
 - Productivity
   - Collaborative Document editors
   - Polls
+
+Follow current developments in the [webxdc GitHub organization](https://github.com/webxdc).
