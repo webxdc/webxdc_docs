@@ -13,12 +13,12 @@ If the ZIP-file contains a manifest.toml in its root directory, some basic infor
 the manifest.toml has the following format
 
 ```toml
-name = "My Webxdc Name"
+name = "My App"
 ```
 
-- `name` - The name of the webxdc. If no name is set or if there is no manifest, the filename is used as the name.
+- `name` - The name of the app. If no name is set or if there is no manifest, the filename is used as the name.
 
-### Webxdc Icon <a id="icon"></a>
+### App Icon <a id="icon"></a>
 
 If the ZIP-root contains an `icon.png` or `icon.jpg`, these files are used as the icon shown in deltachat. The icon should be a square at reasonable width/height; round corners etc. will be added by the implementations as needed. If no icon is set, a default icon will be used.
 
