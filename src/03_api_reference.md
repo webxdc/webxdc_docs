@@ -14,9 +14,11 @@ the manifest.toml has the following format
 
 ```toml
 name = "My Webxdc Name"
+source_code_url = "https://github.com/deltachat/webxdc_docs"
 ```
 
 - `name` - The name of the webxdc. If no name is set or if there is no manifest, the filename is used as the name.
+- (optional) `source_code_url` - URL where the source code of the Webxdc and other information can be found.
 
 ### Webxdc Icon <a id="icon"></a>
 
