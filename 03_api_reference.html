@@ -156,9 +156,11 @@
 <p>If the ZIP-file contains a manifest.toml in its root directory, some basic information are read and used from there.</p>
 <p>the manifest.toml has the following format</p>
 <pre><code class="language-toml">name = &quot;My Webxdc Name&quot;
+source_code_url = &quot;https://github.com/deltachat/webxdc_docs&quot;
 </code></pre>
 <ul>
 <li><code>name</code> - The name of the webxdc. If no name is set or if there is no manifest, the filename is used as the name.</li>
+<li>(optional) <code>source_code_url</code> - URL where the source code of the Webxdc and other information can be found.</li>
 </ul>
 <h3 id="webxdc-icon"><a class="header" href="#webxdc-icon">Webxdc Icon <a id="icon"></a></a></h3>
 <p>If the ZIP-root contains an <code>icon.png</code> or <code>icon.jpg</code>, these files are used as the icon shown in deltachat. The icon should be a square at reasonable width/height; round corners etc. will be added by the implementations as needed. If no icon is set, a default icon will be used.</p>
