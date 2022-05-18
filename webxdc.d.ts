@@ -12,7 +12,7 @@ type SendingStatusUpdate<T> = {
   /** optional, if the Webxdc creates a document, you can set this to the name of the document;
    * do not set if the Webxdc does not create a document */
   document?: string;
-  /** optional, short text, shown beside icon;
+  /** optional, short text, shown beside the icon;
    * it is recommended to use some aggregated value,
    * eg. "8 votes", "Highscore: 123" */
   summary?: string;
