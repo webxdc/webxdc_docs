@@ -4,10 +4,10 @@ When you can not use [debugging inside Deltachat](05_03_debugging_in_deltachat.m
 
 ## Installing eruda
 
-download `eruda.min.js` from [TODO link], copy it next to your `index.html` and then add this snippet into the head section of your index.html, before all other scripts:
+Get `eruda.js` from https://github.com/liriliri/eruda, copy it next to your `index.html` and then add this snippet into the head section of your index.html, before all other scripts:
 
 ```html
-<script src="eruda.min.js"></script>
+<script src="eruda.js"></script>
 <script>
   eruda.init();
 </script>
@@ -15,4 +15,4 @@ download `eruda.min.js` from [TODO link], copy it next to your `index.html` and 
 
 ## Using eruda
 
-[TODO small introduction, how to open it (click on the button)]
+When you open the webxdc a floating button will appear in a corner, tap it to see the developer tools
