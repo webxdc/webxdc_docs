@@ -29,7 +29,7 @@ so it is recommended to transpile your code down to an older JS version (see [Tr
 
 > - a **Webxdc file** is a **ZIP**-file with the extension `.xdc`.
 > - The zip file needs to contain all files that your `index.html` needs (scripts, css-stylesheets, images, fonts, etc.).
-> - The resulting zipfile should be smaller than `100`KB (kilobytes), we might raise this limit in the future.
+> - The resulting zipfile should be smaller than `640`KB (kilobytes), we might raise this limit in the future.
 
 So put the following into your zip file:
 
