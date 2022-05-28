@@ -191,7 +191,7 @@ so it is recommended to transpile your code down to an older JS version (see <a 
 <ul>
 <li>a <strong>Webxdc file</strong> is a <strong>ZIP</strong>-file with the extension <code>.xdc</code>.</li>
 <li>The zip file needs to contain all files that your <code>index.html</code> needs (scripts, css-stylesheets, images, fonts, etc.).</li>
-<li>The resulting zipfile should be smaller than <code>100</code>KB (kilobytes), we might raise this limit in the future.</li>
+<li>The resulting zipfile should be smaller than <code>640</code>KB (kilobytes), we might raise this limit in the future.</li>
 </ul>
 </blockquote>
 <p>So put the following into your zip file:</p>
@@ -344,6 +344,9 @@ Contents:</p>
    * usually only one line of text is shown,
    * use this option sparingly to not spam the chat. */
   info?: string;
+  /** optional, if the Webxdc creates a document, you can set this to the name of the document;
+   * do not set if the Webxdc does not create a document */
+  document?: string;
   /** optional, short text, shown beside the icon;
    * it is recommended to use some aggregated value,
    * eg. &quot;8 votes&quot;, &quot;Highscore: 123&quot; */
@@ -359,6 +362,9 @@ type ReceivedStatusUpdate&lt;T&gt; = {
   max_serial: number;
   /** optional, short, informational message. */
   info?: string;
+  /** optional, if the Webxdc creates a document, this is the name of the document;
+   * not set if the Webxdc does not create a document */
+  document?: string;
   /** optional, short text, shown beside the webxdc's icon. */
   summary?: string;
 };
@@ -382,7 +388,7 @@ interface Webxdc&lt;T&gt; {
    */
   getAllUpdates(): Promise&lt;ReceivedStatusUpdate&lt;T&gt;[]&gt;;
   /**
-   * Webxdcs are usually shared in a chat and run independently on each peer. To get a shared status, the peers use sendUpdate() to send updates to each other.
+   * Webxdc are usually shared in a chat and run independently on each peer. To get a shared status, the peers use sendUpdate() to send updates to each other.
    * @param update status update to send
    * @param description short, human-readable description what this update is about. this is shown eg. as a fallback text in an email program.
    */
@@ -481,14 +487,14 @@ style="max-height:40vh"
 <div style="break-before: page; page-break-before: always;"></div><h1 id="debugging-with-erudajs"><a class="header" href="#debugging-with-erudajs">Debugging with eruda.js</a></h1>
 <p>When you can not use <a href="05_03_debugging_in_deltachat.html">debugging inside Deltachat</a>, either because you have no computer to connect to or are on iOS, you can use <a href="https://github.com/liriliri/eruda">eruda.js</a> as an alternative to the native dev tools.</p>
 <h2 id="installing-eruda"><a class="header" href="#installing-eruda">Installing eruda</a></h2>
-<p>download <code>eruda.min.js</code> from [TODO link], copy it next to your <code>index.html</code> and then add this snippet into the head section of your index.html, before all other scripts:</p>
-<pre><code class="language-html">&lt;script src=&quot;eruda.min.js&quot;&gt;&lt;/script&gt;
+<p>Get <code>eruda.js</code> from https://github.com/liriliri/eruda, copy it next to your <code>index.html</code> and then add this snippet into the head section of your index.html, before all other scripts:</p>
+<pre><code class="language-html">&lt;script src=&quot;eruda.js&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
   eruda.init();
 &lt;/script&gt;
 </code></pre>
 <h2 id="using-eruda"><a class="header" href="#using-eruda">Using eruda</a></h2>
-<p>[TODO small introduction, how to open it (click on the button)]</p>
+<p>When you open the webxdc a floating button will appear in a corner, tap it to see the developer tools</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="optimizing-your-icon"><a class="header" href="#optimizing-your-icon">Optimizing your Icon</a></h1>
 <p>There are several things you can do to shrink down the size of your icon:</p>
 <ul>
