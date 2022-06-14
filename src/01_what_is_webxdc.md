@@ -1,6 +1,16 @@
 # What is webxdc?
 
-Webxdc extends chat messaging experiences to become more interactive. Anyone can build html5 apps without permission and share it with friends by simply sending a message with an [attached webxdc app file]. Once such a webxdc app is shared in a chat, its members can click "start" to run the app in a locked-down system web view.  There are no "privacy" or "cookie" consent screens because there is no way app developers can transfer user data to anything outside the chat. Webxdc apps can only send and receive messages in the chat. Transport and End-to-End encryption is implemented by the chat messenger and [exposed via a simple API] so that app developers get peer discovery and encryption for free. 
+Webxdc extends chat messaging experiences to become more interactive. 
+Anyone can build html5 apps without permission and 
+share it with friends by simply sending a message with an [attached webxdc app file]. 
+Once such a webxdc app is shared in a chat, 
+its members can click "start" to run the app in a locked-down system web view.  
+There are no "privacy" or "cookie" consent screens because there is no way 
+app developers can transfer user data to anything outside the chat. 
+Webxdc apps can only send and receive messages in the chat. 
+Transport and End-to-End encryption is implemented by the chat messenger and 
+[exposed via a simple API] so that 
+app developers get peer discovery and encryption for free. 
 
 ## What kind of interactive content can be created with this?
 
