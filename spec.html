@@ -149,10 +149,11 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="webxdc-specification"><a class="header" href="#webxdc-specification">Webxdc Specification</a></h1>
-<p>Webxdc is a fresh and still evolving way of running web apps in chat messengers. This document describes the [Webxdc API] and <code>.xdc</code> [file format] for app developers. It also describes the constraints for a [messenger implementation] for when it launches webxdc apps for its users. </p>
+<p>Webxdc is a fresh and still evolving way of running web apps in chat messengers. 
+This document describes the <a href="#webxdc-api">webxdc API</a> and <a href="#webxdc-file-format"><code>.xdc</code> file format</a> for app developers. It also describes the constraints for a [messenger implementation] for when it launches webxdc apps for its users. </p>
 <h2 id="webxdc-api"><a class="header" href="#webxdc-api">Webxdc API</a></h2>
-<p>A Webxdc app is shared in a chat and run independently on each device when a user clicks &quot;start&quot;. 
-To share application state, the otherwise network-isolated app instances use <code>sendUpdate()</code> and <code>setUpdateListener()</code> to exchange information. Messenger implementations expose implementations for this API through the <code>webxdc.js</code> module. To activate the webxdc API you need to use a script reference for <code>webxdc.js</code> in your HTML5 app:</p>
+<p>A webxdc app is shared in a chat and run independently on each device when a user clicks &quot;start&quot;. 
+To share application state, the otherwise network-isolated app instances use <a href="#sendupdate"><code>sendUpdate()</code></a> and <a href="#setupdatelistener"><code>setUpdateListener()</code></a> to exchange information. Messenger implementations expose implementations for this API through the <code>webxdc.js</code> module. To activate the webxdc API you need to use a script reference for <code>webxdc.js</code> in your HTML5 app:</p>
 <pre><code class="language-html">&lt;script src=&quot;webxdc.js&quot;&gt;&lt;/script&gt;
 </code></pre>
 <h3 id="sendupdate"><a class="header" href="#sendupdate">sendUpdate()</a></h3>
@@ -169,34 +170,34 @@ usually only one line of text is shown
 and if there are series of info messages, older ones may be dropped.
 use this option sparingly to not spam the chat.</li>
 <li><code>update.document</code>: optional, name of the document in edit,
-must not be used eg. in games where the Webxdc does not create documents</li>
+must not be used eg. in games where the webxdc does not create documents</li>
 <li><code>update.summary</code>: optional, short text, shown beside Webxdc icon;
 it is recommended to use some aggregated value,  eg. &quot;8 votes&quot;, &quot;Highscore: 123&quot;</li>
 </ul>
 </li>
 <li>
 <p><code>descr</code>: short, human-readable description what this update is about.
-this is shown eg. as a fallback text in an email program.</p>
+this is shown eg. as a fallback text in an e-mail program.</p>
 </li>
 </ul>
 <p>All peers, including the sending one,
-will receive the update by the callback given to <code>setUpdateListener()</code>.</p>
+will receive the update by the callback given to <a href="#setupdatelistener"><code>setUpdateListener()</code></a>.</p>
 <p>There are situations where the user cannot send messages to a chat,
 eg. if the webxdc instance comes as a contact request or if the user has left a group.
 In these cases, you can still call <code>sendUpdate()</code>,
 however, the update won't be sent to other peers
-and you won't get the update by <code>setUpdateListener()</code>.</p>
+and you won't get the update by <a href="#setupdatelistener"><code>setUpdateListener()</code></a>.</p>
 <h3 id="setupdatelistener"><a class="header" href="#setupdatelistener">setUpdateListener()</a></h3>
 <pre><code class="language-js">let promise = window.webxdc.setUpdateListener((update) =&gt; {}, serial);
 </code></pre>
 <p>With <code>setUpdateListener()</code> you define a callback that receives the updates
-sent by <code>sendUpdate()</code>. The callback is called for updates sent by you or other peers.
+sent by <a href="#sendupdate"><code>sendUpdate()</code></a>. The callback is called for updates sent by you or other peers.
 The <code>serial</code> specifies the last serial that you know about (defaults to 0). 
 The returned promise resolves when the listener has processed all the update messages known at the time when  <code>setUpdateListener</code> was called. </p>
 <p>Each <code>update</code> which is passed to the callback comes with the following properties: </p>
 <ul>
 <li>
-<p><code>update.payload</code>: equals the payload given to <code>sendUpdate()</code></p>
+<p><code>update.payload</code>: equals the payload given to <a href="#sendupdate"><code>sendUpdate()</code></a></p>
 </li>
 <li>
 <p><code>update.serial</code>: the serial number of this update.
@@ -209,14 +210,14 @@ and it is not guaranteed that the next serial is exactly incremented by one.</p>
 If <code>max_serial</code> equals <code>serial</code> this update is the last update (until new network messages arrive).</p>
 </li>
 <li>
-<p><code>update.info</code>: optional, short, informational message (see <code>sendUpdate()</code>)</p>
+<p><code>update.info</code>: optional, short, informational message (see <a href="#sendupdate"><code>sendUpdate()</code></a>)</p>
 </li>
 <li>
-<p><code>update.document</code>: optional, document name as set by the sender, (see <code>sendUpdate()</code>),
+<p><code>update.document</code>: optional, document name as set by the sender, (see <a href="#sendupdate"><code>sendUpdate()</code></a>),
 implementations show the document name eg. beside the app icon or in the title bar</p>
 </li>
 <li>
-<p><code>update.summary</code>: optional, short text, shown beside icon (see <code>sendUpdate()</code>)</p>
+<p><code>update.summary</code>: optional, short text, shown beside icon (see <a href="#sendupdate"><code>sendUpdate()</code></a>)</p>
 </li>
 </ul>
 <h3 id="selfaddr"><a class="header" href="#selfaddr">selfAddr</a></h3>
@@ -225,7 +226,7 @@ implementations show the document name eg. beside the app icon or in the title b
 <p>Property with the peer's own address.
 This is esp. useful if you want to differ between different peers -
 just send the address along with the payload,
-and, if needed, compare the payload addresses against selfAddr() later on.</p>
+and, if needed, compare the payload addresses against <code>selfAddr</code> later on.</p>
 <h3 id="selfname"><a class="header" href="#selfname">selfName</a></h3>
 <pre><code class="language-js">window.webxdc.selfName
 </code></pre>
@@ -266,8 +267,8 @@ this is &quot;Deflate&quot; or &quot;Store&quot;</li>
 <li>the ZIP-file MUST contain at least the file <code>index.html</code></li>
 <li>the ZIP-file MAY contain a <code>manifest.toml</code> and <code>icon.png</code> or
 <code>icon.jpg</code> files</li>
-<li>if the Webxdc app is started, <code>index.html</code> MUST be opened in a [restricted
-webview](Webview constraints for running apps) that allow accessing 
+<li>if the webxdc app is started, <code>index.html</code> MUST be opened in a</li>
+<li><a href="spec.html#webview-constraints-for-running-apps">restricted webview</a> that allow accessing 
 resources only from the ZIP-file.</li>
 </ul>
 <h3 id="the-manifesttoml-file"><a class="header" href="#the-manifesttoml-file">The manifest.toml File</a></h3>
@@ -278,17 +279,17 @@ source_code_url = &quot;https://example.org/orga/repo&quot;
 </code></pre>
 <ul>
 <li>
-<p><code>name</code> - The name of the Webxdc app.
-If no name is set or if there is no manifest, the filename is used as the Webxdc name.</p>
+<p><code>name</code> - The name of the webxdc app.
+If no name is set or if there is no manifest, the filename is used as the webxdc name.</p>
 </li>
 <li>
-<p><code>source_code_url</code> - Optional URL where the source code of the Webxdc and maybe other information can be found.
-Messenger implementors may make the url accessible via a &quot;Help&quot; menu in the Webxdc window.</p>
+<p><code>source_code_url</code> - Optional URL where the source code of the webxdc and maybe other information can be found.
+Messenger implementors may make the url accessible via a &quot;Help&quot; menu in the webxdc window.</p>
 </li>
 </ul>
 <h3 id="icon-files"><a class="header" href="#icon-files">Icon Files</a></h3>
 <p>If the ZIP-root contains an <code>icon.png</code> or <code>icon.jpg</code>,
-these files are used as the icon for the Webxdc.
+these files are used as the icon for the webxdc.
 The icon should be a square at reasonable width/height;
 round corners etc. will be added by the implementations as needed.
 If no icon is set, a default icon will be used.</p>
