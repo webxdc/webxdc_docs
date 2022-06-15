@@ -13,6 +13,9 @@ To share application state, the otherwise network-isolated app instances use [`s
 <script src="webxdc.js"></script>
 ```
 
+`webxdc.js` will be provided by the concrete implementations and must not be added to your `.xdc`-file.
+For simulating webxdc in a browser, you can use the file from the [hello](https://github.com/webxdc/hello)-example.
+
 
 ### sendUpdate()
 
@@ -185,7 +188,27 @@ Messenger implementors need to implement the following restrictions when startin
 - You MUST offer an implementation for `webxdc.js` implementing the
   [Webxdc API] such that messages are relayed and shown in chats. 
 
+- You MUST make sure the, the standard JavaScript API work as described at
+  [Other APIs and Tags Usage Hints](#other-apis-and-tags-usage-hints).
+
 ### UI Interactions in Chats
 
-- Info messages  in chats -> click on them should jump to their webxdc message
+- Text from `update.info` should be shown in the chats
+  and tapping them should jump to their webxdc message
+
+- The most recent text from `update.document` and `update.summary` should be shown inside the webxdc message,
+  together with name and icon.  
+  Only one line of text should be shown and truncation is fine
+  as webxdc devs should not be encourated to send long texts here.
+
+- A "start" button should finally open the webxdc
+
+### Example Messenger Implementations
+
+- [Android using Java](https://github.com/deltachat/deltachat-android/blob/master/src/org/thoughtcrime/securesms/WebxdcActivity.java)
+
+- [iOS using Swift](https://github.com/deltachat/deltachat-ios/blob/master/deltachat-ios/Controller/WebxdcViewController.swift)
+
+- [Desktop using TypeScript](https://github.com/deltachat/deltachat-desktop/blob/786b7514d69ffb723bbe6e706494852a2641bfcd/src/main/deltachat/webxdc.ts)
+
 
