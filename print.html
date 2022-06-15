@@ -204,7 +204,8 @@ via the <a href="https://github.com/topics/webxdc"><code>#webxdc</code> Topic on
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="webxdc-specification"><a class="header" href="#webxdc-specification">Webxdc Specification</a></h1>
 <p>Webxdc is a fresh and still evolving way of running web apps in chat messengers. 
-This document describes the <a href="spec.html#webxdc-api">webxdc API</a> and <a href="spec.html#webxdc-file-format"><code>.xdc</code> file format</a> for app developers. It also describes the constraints for a [messenger implementation] for when it launches webxdc apps for its users. </p>
+This document describes the <a href="spec.html#webxdc-api">webxdc API</a> and <a href="spec.html#webxdc-file-format"><code>.xdc</code> file format</a> for app developers.
+It also describes the constraints for a <a href="spec.html#messenger-implementation">messenger implementation</a> for when it launches webxdc apps for its users. </p>
 <h2 id="webxdc-api"><a class="header" href="#webxdc-api">Webxdc API</a></h2>
 <p>A webxdc app is shared in a chat and run independently on each device when a user clicks &quot;start&quot;. 
 To share application state, the otherwise network-isolated app instances use <a href="spec.html#sendupdate"><code>sendUpdate()</code></a> and <a href="spec.html#setupdatelistener"><code>setUpdateListener()</code></a> to exchange information. Messenger implementations expose implementations for this API through the <code>webxdc.js</code> module. To activate the webxdc API you need to use a script reference for <code>webxdc.js</code> in your HTML5 app:</p>
@@ -366,7 +367,7 @@ the data of other webxdc content.</p>
 </li>
 <li>
 <p>You MUST offer an implementation for <code>webxdc.js</code> implementing the
-[Webxdc API] such that messages are relayed and shown in chats. </p>
+<a href="spec.html#webxdc-api">Webxdc API</a> such that messages are relayed and shown in chats. </p>
 </li>
 <li>
 <p>You MUST make sure the, the standard JavaScript API work as described at
