@@ -54,6 +54,6 @@ Each of the working examples on [webxdc home page](https://webxdc.org) comes wit
   Please tag your own app experiments with the "webxdc" topic so that others may find it 
   via the [`#webxdc` Topic on GitHub](https://github.com/topics/webxdc). 
 
-- Support Forum: You can ask questions and announce your app projects on the DeltaChat forum under the [`webxdc` category](https://support.delta.chat/c/webxdc/20). You can login into the [forum](https://support.delta.chat) via DeltaChat, Github or by creating a normal account there.
+- Support Forum: You can ask questions and announce your app projects on the DeltaChat forum under the [webxdc category](https://support.delta.chat/c/webxdc/20). You can login into the [forum](https://support.delta.chat) via DeltaChat, Github or by creating a normal account there.
 
-- Announcements: You may follow Delta Chat and Webxdc-related developments through the [Delta Fediverse](https://chaos.social/web/delta) or the [Delta Twitter](https://twitter.com/delta_chat) accounts. 
+- Announcements: You may follow Delta Chat and Webxdc-related developments through the [Delta Fediverse](https://chaos.social/@delta) or the [Delta Twitter](https://twitter.com/delta_chat) accounts. 

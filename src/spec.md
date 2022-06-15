@@ -1,12 +1,13 @@
 # Webxdc Specification 
 
-Webxdc is a fresh and still evolving way of running web apps in chat messengers. This document describes the [Webxdc API] and `.xdc` [file format] for app developers. It also describes the constraints for a [messenger implementation] for when it launches webxdc apps for its users. 
+Webxdc is a fresh and still evolving way of running web apps in chat messengers. 
+This document describes the [webxdc API](#webxdc-api) and [`.xdc` file format](#webxdc-file-format) for app developers. It also describes the constraints for a [messenger implementation] for when it launches webxdc apps for its users. 
 
 
 ## Webxdc API
 
-A Webxdc app is shared in a chat and run independently on each device when a user clicks "start". 
-To share application state, the otherwise network-isolated app instances use `sendUpdate()` and `setUpdateListener()` to exchange information. Messenger implementations expose implementations for this API through the `webxdc.js` module. To activate the webxdc API you need to use a script reference for `webxdc.js` in your HTML5 app:
+A webxdc app is shared in a chat and run independently on each device when a user clicks "start". 
+To share application state, the otherwise network-isolated app instances use [`sendUpdate()`](#sendupdate) and [`setUpdateListener()`](#setupdatelistener) to exchange information. Messenger implementations expose implementations for this API through the `webxdc.js` module. To activate the webxdc API you need to use a script reference for `webxdc.js` in your HTML5 app:
 
 ```html
 <script src="webxdc.js"></script>
@@ -27,21 +28,21 @@ window.webxdc.sendUpdate(update, descr);
        and if there are series of info messages, older ones may be dropped.
        use this option sparingly to not spam the chat.
     - `update.document`: optional, name of the document in edit,
-       must not be used eg. in games where the Webxdc does not create documents
+       must not be used eg. in games where the webxdc does not create documents
     - `update.summary`: optional, short text, shown beside Webxdc icon;
        it is recommended to use some aggregated value,  eg. "8 votes", "Highscore: 123"
 
 - `descr`: short, human-readable description what this update is about.
-  this is shown eg. as a fallback text in an email program.
+  this is shown eg. as a fallback text in an e-mail program.
 
 All peers, including the sending one,
-will receive the update by the callback given to `setUpdateListener()`.
+will receive the update by the callback given to [`setUpdateListener()`](#setupdatelistener).
 
 There are situations where the user cannot send messages to a chat,
 eg. if the webxdc instance comes as a contact request or if the user has left a group.
 In these cases, you can still call `sendUpdate()`,
 however, the update won't be sent to other peers
-and you won't get the update by `setUpdateListener()`.
+and you won't get the update by [`setUpdateListener()`](#setupdatelistener).
 
 
 ### setUpdateListener()
@@ -51,13 +52,13 @@ let promise = window.webxdc.setUpdateListener((update) => {}, serial);
 ```
 
 With `setUpdateListener()` you define a callback that receives the updates
-sent by `sendUpdate()`. The callback is called for updates sent by you or other peers.
+sent by [`sendUpdate()`](#sendupdate). The callback is called for updates sent by you or other peers.
 The `serial` specifies the last serial that you know about (defaults to 0). 
 The returned promise resolves when the listener has processed all the update messages known at the time when  `setUpdateListener` was called. 
 
 Each `update` which is passed to the callback comes with the following properties: 
 
-- `update.payload`: equals the payload given to `sendUpdate()`
+- `update.payload`: equals the payload given to [`sendUpdate()`](#sendupdate)
 
 - `update.serial`: the serial number of this update.
   Serials are larger `0` and newer serials have higher numbers.
@@ -67,12 +68,12 @@ Each `update` which is passed to the callback comes with the following propertie
 - `update.max_serial`: the maximum serial currently known.
   If `max_serial` equals `serial` this update is the last update (until new network messages arrive).
 
-- `update.info`: optional, short, informational message (see `sendUpdate()`)
+- `update.info`: optional, short, informational message (see [`sendUpdate()`](#sendupdate))
 
-- `update.document`: optional, document name as set by the sender, (see `sendUpdate()`),
+- `update.document`: optional, document name as set by the sender, (see [`sendUpdate()`](#sendupdate)),
   implementations show the document name eg. beside the app icon or in the title bar
 
-- `update.summary`: optional, short text, shown beside icon (see `sendUpdate()`)
+- `update.summary`: optional, short text, shown beside icon (see [`sendUpdate()`](#sendupdate))
 
 
 ### selfAddr
@@ -84,7 +85,7 @@ window.webxdc.selfAddr
 Property with the peer's own address.
 This is esp. useful if you want to differ between different peers -
 just send the address along with the payload,
-and, if needed, compare the payload addresses against selfAddr() later on.
+and, if needed, compare the payload addresses against `selfAddr` later on.
 
 
 ### selfName
@@ -135,8 +136,8 @@ if there is nothing set, that defaults to the peer's address.
 - the ZIP-file MUST contain at least the file `index.html`
 - the ZIP-file MAY contain a `manifest.toml` and `icon.png` or
   `icon.jpg` files
-- if the Webxdc app is started, `index.html` MUST be opened in a [restricted
-  webview](Webview constraints for running apps) that allow accessing 
+- if the webxdc app is started, `index.html` MUST be opened in a
+- [restricted webview](spec.md#webview-constraints-for-running-apps) that allow accessing 
   resources only from the ZIP-file.
 
 ### The manifest.toml File
@@ -149,17 +150,17 @@ name = "My Name"
 source_code_url = "https://example.org/orga/repo"
 ```
 
-- `name` - The name of the Webxdc app.
-  If no name is set or if there is no manifest, the filename is used as the Webxdc name.
+- `name` - The name of the webxdc app.
+  If no name is set or if there is no manifest, the filename is used as the webxdc name.
 
-- `source_code_url` - Optional URL where the source code of the Webxdc and maybe other information can be found.
-  Messenger implementors may make the url accessible via a "Help" menu in the Webxdc window.
+- `source_code_url` - Optional URL where the source code of the webxdc and maybe other information can be found.
+  Messenger implementors may make the url accessible via a "Help" menu in the webxdc window.
 
 
 ### Icon Files 
 
 If the ZIP-root contains an `icon.png` or `icon.jpg`,
-these files are used as the icon for the Webxdc.
+these files are used as the icon for the webxdc.
 The icon should be a square at reasonable width/height;
 round corners etc. will be added by the implementations as needed.
 If no icon is set, a default icon will be used.
