@@ -43,12 +43,12 @@ You can now share the resulting `myapp.xdc` file in a chat and everyone can hit 
 However, for faster development round trips and easier developing of apps we recommend you to use the minimal [hello webxdc development](https://github.com/webxdc/hello).
 
 
-## Many Examples to work from
+## Many Examples to Work From
 
 Each of the working examples on [webxdc home page](https://webxdc.org) comes with source-code references, usually pointing to repositories in the [Webxdc organisation on github](https://github.com/webxdc).
 
 
-## Participating in developments 
+## Participating in Developments 
 
 - [Webxdc Github org](https://github.com/webxdc) containing many example app repositories
   Please tag your own app experiments with the "webxdc" topic so that others may find it 
