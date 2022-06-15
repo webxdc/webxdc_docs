@@ -47,3 +47,8 @@ However, for faster development round trips and easier developing of apps we rec
 There is a growing list of webxdc apps to be found and forked from, by searching the [`#webxdc` Topic on GitHub](https://github.com/topics/webxdc). Additionally there is a collection of example apps in the [Webxdc organisation on github](https://github.com/webxdc) and a curated list of apps on the [webxdc home page](https://webxdc.org). 
 
 
+# Community
+
+You can ask questions and announce your app projects on the DeltaChat forum under the [`webxdc` category](https://support.delta.chat/c/webxdc/20)
+
+You can login into the [forum](https://support.delta.chat) via DeltaChat, Github or by creating a normal account there.
