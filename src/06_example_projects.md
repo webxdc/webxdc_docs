@@ -19,4 +19,10 @@ Here you can find some example projects. If you have a project that you want to 
 - Tower builder: <https://github.com/webxdc/tower-builder>
 - Hextris: <https://github.com/webxdc/hextris>
 
+## Templates
+- Hello: <https://github.com/webxdc/hello>
+- webxdc-vite: <https://github.com/webxdc/webxdc-vite>
+- webxdc-react: <https://github.com/webxdc/webxdc-react>
+- webxdc-python: <https://github.com/webxdc/webxdc-python>
+
 Even more examples can be found searching for the [`#webxdc` Topic on GitHub](https://github.com/topics/webxdc).
