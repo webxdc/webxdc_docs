@@ -25,4 +25,6 @@ Feel free to add your project by [editing this file](https://github.com/deltacha
 - [webxdc-react](https://github.com/webxdc/webxdc-react)
 - [webxdc-python](https://github.com/webxdc/webxdc-python)
 
-Even more examples can be found searching for the [`#webxdc` Topic on GitHub](https://github.com/topics/webxdc).
+---
+
+Find more examples on the [`#webxdc` GitHub Topic](https://github.com/topics/webxdc).
