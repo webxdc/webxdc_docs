@@ -6,6 +6,8 @@ Here you can find some example projects. If you have a project that you want to 
 
 - Poll: <https://github.com/r10s/webxdc-poll>
 - Draw: <https://github.com/adbenitez/draw.xdc>
+- checklist: <https://github.com/webxdc/webxdc-checklist>
+- corkboard: <https://github.com/webxdc/webxdc-corkboard>
 
 ## Games
 
@@ -14,5 +16,7 @@ Here you can find some example projects. If you have a project that you want to 
 - Chess Board: <https://github.com/adbenitez/ChessBoard.xdc>
 - StackUp: <https://github.com/adbenitez/StackUp.xdc>
 - Othello: <https://github.com/adbenitez/Othello.xdc>
+- Tower builder: <https://github.com/webxdc/tower-builder>
+- Hextris: <https://github.com/webxdc/hextris>
 
 Even more examples can be found searching for the [`#webxdc` Topic on GitHub](https://github.com/topics/webxdc).
