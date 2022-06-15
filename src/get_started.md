@@ -40,10 +40,10 @@ zip -9 --recurse-paths "myapp.xdc" PATH_TO_DIR
 ```
 You can now share the resulting `myapp.xdc` file in a chat and everyone can hit "start" to start our little "chat app". 
 
-However, for faster development round trips and easier developing of apps we recommend you to use the minimal [hello webxdc development](https://github.com/webxdc/hello).
+However, for faster and more convenient development round trips we recommend to try using the minimal [hello webxdc development](https://github.com/webxdc/hello) tool.
 
 
-## Many Examples to Work From
+## Many More Examples to Work From
 
 Each of the working examples on [webxdc home page](https://webxdc.org) comes with source-code references, usually pointing to repositories in the [Webxdc organisation on github](https://github.com/webxdc).
 
