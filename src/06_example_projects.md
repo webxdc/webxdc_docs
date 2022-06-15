@@ -1,6 +1,6 @@
 # Example Projects
 
-Here you can find some example projects. If you have a project that you want to share feel free to make a pull request to add it here on [github](https://github.com/deltachat/webxdc_docs). (Or just click on the edit icon in the top right corner, it will take you directly to editing this page)
+Feel free to add your project by [editing this file](https://github.com/deltachat/webxdc_docs/blob/master/src/06_example_projects.md) (or alternatively, by clicking the edit icon in the top right corner—it will take you directly to editing this page).
 
 ## Apps
 
