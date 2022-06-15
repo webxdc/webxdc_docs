@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Debugging inside Deltachat - webxdc</title>
+        <title>Get Started - webxdc</title>
 
 
         <!-- Custom HTML head -->
@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="01_what_is_webxdc.html"><strong aria-hidden="true">1.</strong> What is webxdc?</a></li><li class="chapter-item expanded "><a href="02_get_started.html"><strong aria-hidden="true">2.</strong> Get started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="02_01_chat_example.html"><strong aria-hidden="true">2.1.</strong> Chat Example</a></li><li class="chapter-item expanded "><a href="02_02_dev_tool.html"><strong aria-hidden="true">2.2.</strong> Developing with the Webxdc Development Tool</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="02_02_01_dev_tool_safari.html"><strong aria-hidden="true">2.2.1.</strong> Developing in Safari</a></li><li class="chapter-item expanded "><a href="02_02_02_dev_tool_android.html"><strong aria-hidden="true">2.2.2.</strong> Developing on Android</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="03_api_reference.html"><strong aria-hidden="true">3.</strong> API Reference</a></li><li class="chapter-item expanded "><a href="04_cookbook.html"><strong aria-hidden="true">4.</strong> Webxdc Cookbook</a></li><li class="chapter-item expanded "><a href="05_tips_and_tricks.html"><strong aria-hidden="true">5.</strong> Tips & Tricks</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="05_01_babel.html"><strong aria-hidden="true">5.1.</strong> Transpile newer Javascript with Babel.js</a></li><li class="chapter-item expanded "><a href="05_02_typescript.html"><strong aria-hidden="true">5.2.</strong> Typescript support</a></li><li class="chapter-item expanded "><a href="05_03_debugging_in_deltachat.html" class="active"><strong aria-hidden="true">5.3.</strong> Debugging inside Deltachat</a></li><li class="chapter-item expanded "><a href="05_03b_debugging_with_eruda.html"><strong aria-hidden="true">5.4.</strong> Debugging with eruda.js</a></li><li class="chapter-item expanded "><a href="05_04_optimize_icon.html"><strong aria-hidden="true">5.5.</strong> Optimizing your Icon</a></li><li class="chapter-item expanded "><a href="05_05_common_problems.html"><strong aria-hidden="true">5.6.</strong> Troubleshooting</a></li></ol></li><li class="chapter-item expanded "><a href="06_example_projects.html"><strong aria-hidden="true">6.</strong> Example Projects</a></li><li class="chapter-item expanded "><a href="07_community.html"><strong aria-hidden="true">7.</strong> Community</a></li><li class="chapter-item expanded affix "><li class="part-title">Other</li><li class="chapter-item expanded "><a href="08_extra_ui_implementation.html"><strong aria-hidden="true">8.</strong> UI Implementation instructions</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Intro</a></li><li class="chapter-item expanded "><a href="get_started.html" class="active"><strong aria-hidden="true">1.</strong> Get Started</a></li><li class="chapter-item expanded "><a href="spec.html"><strong aria-hidden="true">2.</strong> Webxdc Specification</a></li><li class="chapter-item expanded "><a href="tips_and_tricks.html"><strong aria-hidden="true">3.</strong> Tips & Tricks</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -119,7 +119,7 @@
                         <a href="https://github.com/deltachat/webxdc_docs" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
-                        <a href="https://github.com/deltachat/webxdc_docs/edit/master/src/05_03_debugging_in_deltachat.md" title="Suggest an edit" aria-label="Suggest an edit">
+                        <a href="https://github.com/deltachat/webxdc_docs/edit/master/src/get_started.md" title="Suggest an edit" aria-label="Suggest an edit">
                             <i id="git-edit-button" class="fa fa-edit"></i>
                         </a>
 
@@ -148,65 +148,66 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="debugging-inside-deltachat"><a class="header" href="#debugging-inside-deltachat">Debugging inside Deltachat</a></h1>
-<h2 id="debug-your-webxdc-content-in-android-via-chrome-devtools"><a class="header" href="#debug-your-webxdc-content-in-android-via-chrome-devtools">Debug your webxdc content in Android via Chrome DevTools</a></h2>
-<ol>
-<li>enable webView debugging in delta chat settings <code>Settings</code> &gt; <code>Advanced</code> &gt; <code>Developer Mode</code>: <img alt="image of andvanced screen" src="images/android_remote_debug_enable.png" style="max-height:40vh" /></li>
-<li>enable developer mode and ADB debugging on your device <em>(go to system settings, device info, spam click on build number until there is a toast telling you that you are now a &quot;Developer&quot;, then go into the developer menu that just appeared and enable &quot;ADB debugging&quot;, see also <a href="https://developer.android.com/studio/command-line/adb#Enabling">android docs: Enable ADB debugging on your device</a>).</em></li>
-<li>connect your device via USB to your computer</li>
-<li>open chromium (or google chrome) and go to <code>chrome://inspect/#devices</code></li>
-<li>start your webxdc that you want to debug</li>
-<li>click on <code>inspect</code>:</li>
-</ol>
-<p>
-<img
-src="images/android_remote_debug_list.png"
-alt="screenshot of chrome dev tools device list"
-style="max-height:40vh"
-/>
-</p>
-<table><thead><tr><th>Inpect HTML</th><th>Javascript Console</th></tr></thead><tbody>
-<tr><td><img src="images/android_remote_debug_inspector.png" alt="dev tools inpector" /></td><td><img src="images/android_remote_debug_console.png" alt="dev tools js console" /></td></tr>
-</tbody></table>
-<blockquote>
-<p>Make sure to <strong>disable adb debugging again</strong> after you are done with debugging!</p>
-</blockquote>
-<h2 id="debug-your-webxdc-content-in-deltachat-desktop"><a class="header" href="#debug-your-webxdc-content-in-deltachat-desktop">Debug your webxdc content in DeltaChat Desktop</a></h2>
-<p>Start the webxdc you want to debug and press <code>F12</code> to open the developer tools:</p>
-<p>
-<img
-src="images/desktop_debug_open.png"
-alt="screenshot of desktop webxdc window with devtool"
-style="max-height:40vh"
-/>
-</p>
-<p>A bit small isn't it? fix it either by resizing the window's <strong>width</strong> or <strong>undock</strong> the developer tools:</p>
-<p>
-<img
-src="images/desktop_debug_undock.png"
-alt="undock devtools"
-style="max-height:40vh"
-/>
-</p>
-<p>
-<img
-src="images/desktop_debug_extra_window.png"
-alt="undock devtools"
-style="max-height:40vh"
-/>
-</p>
-<h2 id="debug-your-webxdc-content-on-the-ios-deltachat"><a class="header" href="#debug-your-webxdc-content-on-the-ios-deltachat">Debug your webxdc content on the iOS DeltaChat</a></h2>
-<p>This is only possible in debug builds of deltachat-ios, not in the released App Store or TestFlight version, so please use <a href="05_03b_debugging_with_eruda.html">debugging with eruda.js</a> instead.</p>
+                        <h1 id="getting-started"><a class="header" href="#getting-started">Getting Started</a></h1>
+<h2 id="a-first-chat-example"><a class="header" href="#a-first-chat-example">A First &quot;chat&quot; Example</a></h2>
+<p>The following complete <code>index.html</code> webxdc app example shows an input field and every input is show on all peers.</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;/&gt;
+    &lt;script src=&quot;webxdc.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;input id=&quot;input&quot; type=&quot;text&quot;/&gt;
+    &lt;a href=&quot;&quot; onclick=&quot;sendMsg(); return false;&quot;&gt;Send&lt;/a&gt;
+    &lt;p id=&quot;output&quot;&gt;&lt;/p&gt;
+    &lt;script&gt;
+    
+      function sendMsg() {
+        msg = document.getElementById(&quot;input&quot;).value;
+        window.webxdc.sendUpdate({payload: msg}, 'Someone typed &quot;'+msg+'&quot;.');
+      }
+    
+      function receiveUpdate(update) {
+        document.getElementById('output').innerHTML += update.payload + &quot;&lt;br&gt;&quot;;
+      }
+    
+      window.webxdc.setUpdateListener(receiveUpdate, 0);
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Now zip the directory containing the <code>index.html</code>:</p>
+<pre><code class="language-shell">zip -9 --recurse-paths &quot;myapp.xdc&quot; PATH_TO_DIR
+</code></pre>
+<p>You can now share the resulting <code>myapp.xdc</code> file in a chat and everyone can hit &quot;start&quot; to start our little &quot;chat app&quot;. </p>
+<p>However, for faster and more convenient development round trips we recommend to try using the minimal <a href="https://github.com/webxdc/hello">hello webxdc development</a> tool.</p>
+<h2 id="many-more-examples-to-work-from"><a class="header" href="#many-more-examples-to-work-from">Many More Examples to Work From</a></h2>
+<p>Each of the working examples on <a href="https://webxdc.org">webxdc home page</a> comes with source-code references, usually pointing to repositories in the <a href="https://github.com/webxdc">Webxdc organisation on github</a>.</p>
+<h2 id="participating-in-developments"><a class="header" href="#participating-in-developments">Participating in Developments</a></h2>
+<ul>
+<li>
+<p><a href="https://github.com/webxdc">Webxdc Github org</a> containing many example app repositories
+Please tag your own app experiments with the &quot;webxdc&quot; topic so that others may find it 
+via the <a href="https://github.com/topics/webxdc"><code>#webxdc</code> Topic on GitHub</a>. </p>
+</li>
+<li>
+<p>Support Forum: You can ask questions and announce your app projects on the DeltaChat forum under the <a href="https://support.delta.chat/c/webxdc/20"><code>webxdc</code> category</a>. You can login into the <a href="https://support.delta.chat">forum</a> via DeltaChat, Github or by creating a normal account there.</p>
+</li>
+<li>
+<p>Announcements: You may follow Delta Chat and Webxdc-related developments through the <a href="https://chaos.social/web/delta">Delta Fediverse</a> or the <a href="https://twitter.com/delta_chat">Delta Twitter</a> accounts. </p>
+</li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="05_02_typescript.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="intro.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="05_03b_debugging_with_eruda.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="spec.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -216,11 +217,11 @@ style="max-height:40vh"
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="05_02_typescript.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="intro.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="05_03b_debugging_with_eruda.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="spec.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

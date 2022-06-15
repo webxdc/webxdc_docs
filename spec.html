@@ -1,0 +1,369 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Webxdc Specification - webxdc</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Intro</a></li><li class="chapter-item expanded "><a href="get_started.html"><strong aria-hidden="true">1.</strong> Get Started</a></li><li class="chapter-item expanded "><a href="spec.html" class="active"><strong aria-hidden="true">2.</strong> Webxdc Specification</a></li><li class="chapter-item expanded "><a href="tips_and_tricks.html"><strong aria-hidden="true">3.</strong> Tips & Tricks</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">webxdc</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/deltachat/webxdc_docs" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/deltachat/webxdc_docs/edit/master/src/spec.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="webxdc-specification"><a class="header" href="#webxdc-specification">Webxdc Specification</a></h1>
+<p>Webxdc is a fresh and still evolving way of running web apps in chat messengers. This document describes the [Webxdc API] and <code>.xdc</code> [file format] for app developers. It also describes the constraints for a [messenger implementation] for when it launches webxdc apps for its users. </p>
+<h2 id="webxdc-api"><a class="header" href="#webxdc-api">Webxdc API</a></h2>
+<p>A Webxdc app is shared in a chat and run independently on each device when a user clicks &quot;start&quot;. 
+To share application state, the otherwise network-isolated app instances use <code>sendUpdate()</code> and <code>setUpdateListener()</code> to exchange information. Messenger implementations expose implementations for this API through the <code>webxdc.js</code> module. To activate the webxdc API you need to use a script reference for <code>webxdc.js</code> in your HTML5 app:</p>
+<pre><code class="language-html">&lt;script src=&quot;webxdc.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<h3 id="sendupdate"><a class="header" href="#sendupdate">sendUpdate()</a></h3>
+<pre><code class="language-js">window.webxdc.sendUpdate(update, descr);
+</code></pre>
+<ul>
+<li>
+<p><code>update</code>: an object with the following properties:</p>
+<ul>
+<li><code>update.payload</code>: any javascript primitive, array or object.</li>
+<li><code>update.info</code>: optional, short, informational message that will be added to the chat,
+eg. &quot;Alice voted&quot; or &quot;Bob scored 123 in MyGame&quot;.
+usually only one line of text is shown
+and if there are series of info messages, older ones may be dropped.
+use this option sparingly to not spam the chat.</li>
+<li><code>update.document</code>: optional, name of the document in edit,
+must not be used eg. in games where the Webxdc does not create documents</li>
+<li><code>update.summary</code>: optional, short text, shown beside Webxdc icon;
+it is recommended to use some aggregated value,  eg. &quot;8 votes&quot;, &quot;Highscore: 123&quot;</li>
+</ul>
+</li>
+<li>
+<p><code>descr</code>: short, human-readable description what this update is about.
+this is shown eg. as a fallback text in an email program.</p>
+</li>
+</ul>
+<p>All peers, including the sending one,
+will receive the update by the callback given to <code>setUpdateListener()</code>.</p>
+<p>There are situations where the user cannot send messages to a chat,
+eg. if the webxdc instance comes as a contact request or if the user has left a group.
+In these cases, you can still call <code>sendUpdate()</code>,
+however, the update won't be sent to other peers
+and you won't get the update by <code>setUpdateListener()</code>.</p>
+<h3 id="setupdatelistener"><a class="header" href="#setupdatelistener">setUpdateListener()</a></h3>
+<pre><code class="language-js">let promise = window.webxdc.setUpdateListener((update) =&gt; {}, serial);
+</code></pre>
+<p>With <code>setUpdateListener()</code> you define a callback that receives the updates
+sent by <code>sendUpdate()</code>. The callback is called for updates sent by you or other peers.
+The <code>serial</code> specifies the last serial that you know about (defaults to 0). 
+The returned promise resolves when the listener has processed all the update messages known at the time when  <code>setUpdateListener</code> was called. </p>
+<p>Each <code>update</code> which is passed to the callback comes with the following properties: </p>
+<ul>
+<li>
+<p><code>update.payload</code>: equals the payload given to <code>sendUpdate()</code></p>
+</li>
+<li>
+<p><code>update.serial</code>: the serial number of this update.
+Serials are larger <code>0</code> and newer serials have higher numbers.
+There may be gaps in the serials
+and it is not guaranteed that the next serial is exactly incremented by one.</p>
+</li>
+<li>
+<p><code>update.max_serial</code>: the maximum serial currently known.
+If <code>max_serial</code> equals <code>serial</code> this update is the last update (until new network messages arrive).</p>
+</li>
+<li>
+<p><code>update.info</code>: optional, short, informational message (see <code>sendUpdate()</code>)</p>
+</li>
+<li>
+<p><code>update.document</code>: optional, document name as set by the sender, (see <code>sendUpdate()</code>),
+implementations show the document name eg. beside the app icon or in the title bar</p>
+</li>
+<li>
+<p><code>update.summary</code>: optional, short text, shown beside icon (see <code>sendUpdate()</code>)</p>
+</li>
+</ul>
+<h3 id="selfaddr"><a class="header" href="#selfaddr">selfAddr</a></h3>
+<pre><code class="language-js">window.webxdc.selfAddr
+</code></pre>
+<p>Property with the peer's own address.
+This is esp. useful if you want to differ between different peers -
+just send the address along with the payload,
+and, if needed, compare the payload addresses against selfAddr() later on.</p>
+<h3 id="selfname"><a class="header" href="#selfname">selfName</a></h3>
+<pre><code class="language-js">window.webxdc.selfName
+</code></pre>
+<p>Property with the peer's own name.
+This is name chosen by the user in their settings,
+if there is nothing set, that defaults to the peer's address.</p>
+<h2 id="other-apis-and-tags-usage-hints"><a class="header" href="#other-apis-and-tags-usage-hints">Other APIs and Tags Usage Hints</a></h2>
+<ul>
+<li><code>localStorage</code>, <code>sessionStorage</code>, <code>indexedDB</code> are okay to be used</li>
+<li><code>visibilitychange</code>-events are okay to be used</li>
+<li><code>window.navigator.language</code> is okay to be used, on desktop it is the system language</li>
+<li><code>&lt;a href=&quot;localfile.html&quot;&gt;</code> and other internal links are okay to be used</li>
+<li><code>&lt;a href=&quot;mailto:addr@example.org?body=...&quot;&gt;</code>- mailto links are okay to be used</li>
+<li><code>&lt;meta name=&quot;viewport&quot; ...&gt;</code> usage is okay to be used
+and useful esp. different webviews have different defaults</li>
+</ul>
+<h3 id="discouraged-practises"><a class="header" href="#discouraged-practises">Discouraged Practises</a></h3>
+<ul>
+<li><code>document.cookie</code> is known not to work on desktop and iOS
+use <code>localStorage</code> instead</li>
+<li><code>unload</code>-, <code>beforeunload</code>- and <code>pagehide</code>-events are known not to work on iOS and are flaky on other systems
+(also partly discouraged by <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/unload_event">mozilla</a>)
+use <code>visibilitychange</code> instead</li>
+<li><code>&lt;title&gt;</code> and <code>document.title</code> is ignored by Webxdc;
+use the <code>name</code> property from <code>manifest.toml</code> instead</li>
+<li>newest js features may not work on all webviews,
+you may want to transpile your code down to an older js version
+eg. with <a href="https://babeljs.io">https://babeljs.io</a></li>
+<li><code>&lt;a href=&quot;https://example.org/foo&quot;&gt;</code> and other external links are blocked by definition;
+instead, embed content or use <code>mailto:</code> link to offer a way for contact</li>
+<li><code>&lt;input type=&quot;file&quot;&gt;</code> is discouraged currently; this may change in future</li>
+</ul>
+<h2 id="webxdc-file-format"><a class="header" href="#webxdc-file-format">Webxdc File Format</a></h2>
+<ul>
+<li>a <strong>Webxdc</strong> is a <strong>ZIP-file</strong> with the extension <code>.xdc</code></li>
+<li>the ZIP-file MUST use the default compression methods as of RFC 1950,
+this is &quot;Deflate&quot; or &quot;Store&quot;</li>
+<li>the ZIP-file MUST contain at least the file <code>index.html</code></li>
+<li>the ZIP-file MAY contain a <code>manifest.toml</code> and <code>icon.png</code> or
+<code>icon.jpg</code> files</li>
+<li>if the Webxdc app is started, <code>index.html</code> MUST be opened in a [restricted
+webview](Webview constraints for running apps) that allow accessing 
+resources only from the ZIP-file.</li>
+</ul>
+<h3 id="the-manifesttoml-file"><a class="header" href="#the-manifesttoml-file">The manifest.toml File</a></h3>
+<p>If the ZIP-file contains a <code>manifest.toml</code> in its root directory,
+the following basic information MUST be read from it: </p>
+<pre><code class="language-toml">name = &quot;My Name&quot;
+source_code_url = &quot;https://example.org/orga/repo&quot;
+</code></pre>
+<ul>
+<li>
+<p><code>name</code> - The name of the Webxdc app.
+If no name is set or if there is no manifest, the filename is used as the Webxdc name.</p>
+</li>
+<li>
+<p><code>source_code_url</code> - Optional URL where the source code of the Webxdc and maybe other information can be found.
+Messenger implementors may make the url accessible via a &quot;Help&quot; menu in the Webxdc window.</p>
+</li>
+</ul>
+<h3 id="icon-files"><a class="header" href="#icon-files">Icon Files</a></h3>
+<p>If the ZIP-root contains an <code>icon.png</code> or <code>icon.jpg</code>,
+these files are used as the icon for the Webxdc.
+The icon should be a square at reasonable width/height;
+round corners etc. will be added by the implementations as needed.
+If no icon is set, a default icon will be used.</p>
+<h2 id="messenger-implementation"><a class="header" href="#messenger-implementation">Messenger Implementation</a></h2>
+<h3 id="webview-constraints-for-running-apps"><a class="header" href="#webview-constraints-for-running-apps">Webview Constraints for Running Apps</a></h3>
+<p>Messenger implementors need to implement the following restrictions when starting a web view for a webxdc app to run:</p>
+<ul>
+<li>
+<p>You MUST deny all forms of internet access. If you don't do this
+unsuspecting users may leak data of their private interactions to outside third parties. 
+You do not need to offer &quot;privacy&quot; or &quot;cookie&quot; consent screens as 
+there is no way the app can transfer user data to anything outside the chat. </p>
+</li>
+<li>
+<p>You MUST allow unrestricted use of DOM storage (local storage, indexed db and co), 
+but make sure it is scoped to each webxdc app so they can not delete or modify 
+the data of other webxdc content.</p>
+</li>
+<li>
+<p>You MUST offer an implementation for <code>webxdc.js</code> implementing the
+[Webxdc API] such that messages are relayed and shown in chats. </p>
+</li>
+</ul>
+<h3 id="ui-interactions-in-chats"><a class="header" href="#ui-interactions-in-chats">UI Interactions in Chats</a></h3>
+<ul>
+<li>Info messages  in chats -&gt; click on them should jump to their webxdc message</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="get_started.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="tips_and_tricks.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="get_started.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="tips_and_tricks.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

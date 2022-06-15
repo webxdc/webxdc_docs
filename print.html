@@ -82,7 +82,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="01_what_is_webxdc.html"><strong aria-hidden="true">1.</strong> What is webxdc?</a></li><li class="chapter-item expanded "><a href="02_get_started.html"><strong aria-hidden="true">2.</strong> Get started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="02_01_chat_example.html"><strong aria-hidden="true">2.1.</strong> Chat Example</a></li><li class="chapter-item expanded "><a href="02_02_dev_tool.html"><strong aria-hidden="true">2.2.</strong> Developing with the Webxdc Development Tool</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="02_02_01_dev_tool_safari.html"><strong aria-hidden="true">2.2.1.</strong> Developing in Safari</a></li><li class="chapter-item expanded "><a href="02_02_02_dev_tool_android.html"><strong aria-hidden="true">2.2.2.</strong> Developing on Android</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="03_api_reference.html"><strong aria-hidden="true">3.</strong> API Reference</a></li><li class="chapter-item expanded "><a href="04_cookbook.html"><strong aria-hidden="true">4.</strong> Webxdc Cookbook</a></li><li class="chapter-item expanded "><a href="05_tips_and_tricks.html"><strong aria-hidden="true">5.</strong> Tips & Tricks</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="05_01_babel.html"><strong aria-hidden="true">5.1.</strong> Transpile newer Javascript with Babel.js</a></li><li class="chapter-item expanded "><a href="05_02_typescript.html"><strong aria-hidden="true">5.2.</strong> Typescript support</a></li><li class="chapter-item expanded "><a href="05_03_debugging_in_deltachat.html"><strong aria-hidden="true">5.3.</strong> Debugging inside Deltachat</a></li><li class="chapter-item expanded "><a href="05_03b_debugging_with_eruda.html"><strong aria-hidden="true">5.4.</strong> Debugging with eruda.js</a></li><li class="chapter-item expanded "><a href="05_04_optimize_icon.html"><strong aria-hidden="true">5.5.</strong> Optimizing your Icon</a></li><li class="chapter-item expanded "><a href="05_05_common_problems.html"><strong aria-hidden="true">5.6.</strong> Troubleshooting</a></li></ol></li><li class="chapter-item expanded "><a href="06_example_projects.html"><strong aria-hidden="true">6.</strong> Example Projects</a></li><li class="chapter-item expanded "><a href="07_community.html"><strong aria-hidden="true">7.</strong> Community</a></li><li class="chapter-item expanded affix "><li class="part-title">Other</li><li class="chapter-item expanded "><a href="08_extra_ui_implementation.html"><strong aria-hidden="true">8.</strong> UI Implementation instructions</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Intro</a></li><li class="chapter-item expanded "><a href="get_started.html"><strong aria-hidden="true">1.</strong> Get Started</a></li><li class="chapter-item expanded "><a href="spec.html"><strong aria-hidden="true">2.</strong> Webxdc Specification</a></li><li class="chapter-item expanded "><a href="tips_and_tricks.html"><strong aria-hidden="true">3.</strong> Tips & Tricks</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -146,194 +146,234 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="what-is-webxdc"><a class="header" href="#what-is-webxdc">What is webxdc?</a></h1>
-<h2 id="what-kind-of-interactive-content-can-be-created-with-this"><a class="header" href="#what-kind-of-interactive-content-can-be-created-with-this">What kind of interactive content can be created with this?</a></h2>
-<p>Some ideas of what you can already create with webxdc.</p>
+                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<p>Webxdc is a new way to develop, share and use web apps in messenger chat groups. Anyone can build html5 apps without permission and share it with friends by simply sending a message with an attached <code>.xdc</code> file as defined by <a href="spec.html#webxdc-file-format">file format</a>. Once a webxdc app is shared in a chat, its members can click &quot;start&quot; to run the app and interact with each other through the app. </p>
+<iframe style="max-width: 100%" width="560" height="315" src="https://www.youtube-nocookie.com/embed/I1K4pBvb2pI" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>Webxdc apps can only send and receive messages in the chat by using the <a href="spec.html#webxdc-api">Javascript API</a> provided by the messenger. Each Webxdc app thus gets automatic end-to-end encryption and peer discovery for free. </p>
+<p>Webxdc is specified through its <a href="spec.html#webxdc-file-format">file format</a> and <a href="spec.html#webxdc-api">Javascript API</a> for developing web apps, and through instructions on the <a href="spec.html#messenger-implementation">Messenger implementation</a> for running and sharing webxdc apps in chats. Webxdc is supported and evolving in conjunction with the <a href="https://delta.chat">Delta Chat</a> e-mail messenger apps which, if in doubt, serves as the default reference. </p>
+<p>You can follow and participate in further developments in the <a href="https://github.com/webxdc">webxdc GitHub organization</a> and are invited to ask questions and post suggestions in <a href="https://support.delta.chat/c/webxdc/20">the &quot;webxdc&quot; support forum</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="getting-started"><a class="header" href="#getting-started">Getting Started</a></h1>
+<h2 id="a-first-chat-example"><a class="header" href="#a-first-chat-example">A First &quot;chat&quot; Example</a></h2>
+<p>The following complete <code>index.html</code> webxdc app example shows an input field and every input is show on all peers.</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;/&gt;
+    &lt;script src=&quot;webxdc.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;input id=&quot;input&quot; type=&quot;text&quot;/&gt;
+    &lt;a href=&quot;&quot; onclick=&quot;sendMsg(); return false;&quot;&gt;Send&lt;/a&gt;
+    &lt;p id=&quot;output&quot;&gt;&lt;/p&gt;
+    &lt;script&gt;
+    
+      function sendMsg() {
+        msg = document.getElementById(&quot;input&quot;).value;
+        window.webxdc.sendUpdate({payload: msg}, 'Someone typed &quot;'+msg+'&quot;.');
+      }
+    
+      function receiveUpdate(update) {
+        document.getElementById('output').innerHTML += update.payload + &quot;&lt;br&gt;&quot;;
+      }
+    
+      window.webxdc.setUpdateListener(receiveUpdate, 0);
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Now zip the directory containing the <code>index.html</code>:</p>
+<pre><code class="language-shell">zip -9 --recurse-paths &quot;myapp.xdc&quot; PATH_TO_DIR
+</code></pre>
+<p>You can now share the resulting <code>myapp.xdc</code> file in a chat and everyone can hit &quot;start&quot; to start our little &quot;chat app&quot;. </p>
+<p>However, for faster and more convenient development round trips we recommend to try using the minimal <a href="https://github.com/webxdc/hello">hello webxdc development</a> tool.</p>
+<h2 id="many-more-examples-to-work-from"><a class="header" href="#many-more-examples-to-work-from">Many More Examples to Work From</a></h2>
+<p>Each of the working examples on <a href="https://webxdc.org">webxdc home page</a> comes with source-code references, usually pointing to repositories in the <a href="https://github.com/webxdc">Webxdc organisation on github</a>.</p>
+<h2 id="participating-in-developments"><a class="header" href="#participating-in-developments">Participating in Developments</a></h2>
 <ul>
-<li>Games
-<ul>
-<li>Singleplayer games with a shared highscore</li>
-<li>Multiplayer turn-based games (like tictactoe or chess)</li>
-</ul>
+<li>
+<p><a href="https://github.com/webxdc">Webxdc Github org</a> containing many example app repositories
+Please tag your own app experiments with the &quot;webxdc&quot; topic so that others may find it 
+via the <a href="https://github.com/topics/webxdc"><code>#webxdc</code> Topic on GitHub</a>. </p>
 </li>
-<li>Productivity
-<ul>
-<li>Collaborative Document editors</li>
-<li>Polls</li>
-</ul>
+<li>
+<p>Support Forum: You can ask questions and announce your app projects on the DeltaChat forum under the <a href="https://support.delta.chat/c/webxdc/20"><code>webxdc</code> category</a>. You can login into the <a href="https://support.delta.chat">forum</a> via DeltaChat, Github or by creating a normal account there.</p>
+</li>
+<li>
+<p>Announcements: You may follow Delta Chat and Webxdc-related developments through the <a href="https://chaos.social/web/delta">Delta Fediverse</a> or the <a href="https://twitter.com/delta_chat">Delta Twitter</a> accounts. </p>
 </li>
 </ul>
-<p>Follow current developments in the <a href="https://github.com/webxdc">webxdc GitHub organization</a>.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="get-started"><a class="header" href="#get-started">Get started</a></h1>
-<p>First, you need to add the following script import to your <code>index.html</code>:</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="webxdc-specification"><a class="header" href="#webxdc-specification">Webxdc Specification</a></h1>
+<p>Webxdc is a fresh and still evolving way of running web apps in chat messengers. This document describes the [Webxdc API] and <code>.xdc</code> [file format] for app developers. It also describes the constraints for a [messenger implementation] for when it launches webxdc apps for its users. </p>
+<h2 id="webxdc-api"><a class="header" href="#webxdc-api">Webxdc API</a></h2>
+<p>A Webxdc app is shared in a chat and run independently on each device when a user clicks &quot;start&quot;. 
+To share application state, the otherwise network-isolated app instances use <code>sendUpdate()</code> and <code>setUpdateListener()</code> to exchange information. Messenger implementations expose implementations for this API through the <code>webxdc.js</code> module. To activate the webxdc API you need to use a script reference for <code>webxdc.js</code> in your HTML5 app:</p>
 <pre><code class="language-html">&lt;script src=&quot;webxdc.js&quot;&gt;&lt;/script&gt;
 </code></pre>
-<p>This loads the platform specific <code>webxdc.js</code> which wraps the platform's internal calls to provide the same interface on all platforms.</p>
-<p>There are 3 base cases you should handle in your code:</p>
-<table><thead><tr><th>case</th><th>what needs to be done</th></tr></thead><tbody>
-<tr><td>webxdc was just (re)started</td><td>make sure the handler set with <code>setUpdateListener()</code> can use the previous state updates to process the current state</td></tr>
-<tr><td>state update arrives</td><td>define a handler for incoming state updates with <code>setUpdateListener()</code></td></tr>
-<tr><td>you want to send a new state update</td><td>send state updates with <code>sendUpdate()</code></td></tr>
-</tbody></table>
-<blockquote>
-<p>You might find premade code snippet for what you need in our <a href="./04_cookbook.html">cookbook</a> section, if you just want to add common things like a scoreboard to your game.</p>
-</blockquote>
-<blockquote>
-<p>For testing and developing locally outside of deltachat you can use our <a href="./02_02_dev_tool.html">webxdc dev tool</a></p>
-</blockquote>
-<blockquote>
-<p>If you want to use Typescript or just completion in your IDE learn how to set that up <a href="./05_02_typescript.html">here</a>.</p>
-</blockquote>
-<p>Also remember that the older devices might not have all new JavaScript features,
-so it is recommended to transpile your code down to an older JS version (see <a href="./05_01_babel.html">Transpile newer Javascript with Babel.js</a>).</p>
-<h2 id="packaging"><a class="header" href="#packaging">Packaging</a></h2>
-<blockquote>
-<ul>
-<li>a <strong>Webxdc file</strong> is a <strong>ZIP</strong>-file with the extension <code>.xdc</code>.</li>
-<li>The zip file needs to contain all files that your <code>index.html</code> needs (scripts, css-stylesheets, images, fonts, etc.).</li>
-<li>The resulting zipfile should be smaller than <code>640</code>KB (kilobytes), we might raise this limit in the future.</li>
-</ul>
-</blockquote>
-<p>So put the following into your zip file:</p>
-<ul>
-<li>your <code>index.html</code> file and all resources it needs</li>
-<li>an <code>icon.png</code> or <code>icon.jpg</code> (<a href="./03_api_reference.html#app-icon">info about required format</a>)</li>
-<li>a <code>manifest.toml</code> file with your meta data. (<a href="./03_api_reference.html#manifest-file">documentation</a>)</li>
-</ul>
-<p>manifest.toml:</p>
-<pre><code class="language-toml">name = &quot;My Webxdc Name&quot;
-</code></pre>
-<p>Then rename your file's extention from <code>.zip</code> to <code>.xdc</code>.
-Now you can send it into a deltachat chat and start using it right away, there is no certification or other bureaucracy required ;)</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="chat-example"><a class="header" href="#chat-example">Chat Example</a></h1>
-<p>TODO - step by step coding the chat example and explaining each webxdc specific step</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="using-the-webxdc-development-tool"><a class="header" href="#using-the-webxdc-development-tool">Using the Webxdc Development Tool</a></h1>
-<p>This is a little tool to make creation of webxdc content easier.
-It is found on <a href="https://github.com/deltachat/webxdc-dev">https://github.com/deltachat/webxdc-dev</a>.</p>
-<p>Advantages:</p>
-<ul>
-<li>Super easy to get started.</li>
-<li>No server or installation required.</li>
-<li>You don't need your DeltaChat app for testing. (you save the packaging step)</li>
-</ul>
-<h2 id="contents"><a class="header" href="#contents">Contents</a></h2>
-<p>The devtool has 2 parts:</p>
-<ul>
-<li><code>webxdc.js</code> which acts as simulator</li>
-<li><code>create-xdc.sh</code>, a script that packs your webxdc into a <a href="./03_api_reference.html#zip-format"><code>.xdc</code></a> file for you</li>
-</ul>
-<h2 id="use-the-simulator"><a class="header" href="#use-the-simulator">Use the Simulator</a></h2>
-<p>For developing your webxdc, just copy the <a href="https://github.com/deltachat/webxdc-dev/blob/master/webxdc.js"><code>webxdc.js</code> from the repo</a> beside your <code>index.html</code> and you are ready to go.</p>
-<blockquote>
-<p>Platform Quirks:</p>
-<ul>
-<li>On Safari you need to <a href="./02_02_01_dev_tool_safari.html">disable local file restrictions</a>.</li>
-<li>On Android you might need to <a href="./02_02_02_dev_tool_android.html">serve it using a local http server</a>.</li>
-</ul>
-</blockquote>
-<p>Click on <code>Add Peer</code> to add another instance.</p>
-<p>Now you can test your webxdc while developing it with a simple reload, instead of repacking it and testing it inside of deltachat, also you don't need deltachat to develop webxdc content using this method.</p>
-<blockquote>
-<p><code>Clear Storage</code> resets the simulator (removes all previous state updates).</p>
-</blockquote>
-<h2 id="use-it-as-a-template-for-your-webxdc-project"><a class="header" href="#use-it-as-a-template-for-your-webxdc-project">Use it as a template for your webxdc project</a></h2>
-<p>(fork and) clone <code>https://github.com/deltachat/webxdc-dev</code></p>
-<p>modify <code>index.html</code> to as you like, then open <code>index.html</code> in your webbrowser to try out your webxdc.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="developing-in-safari"><a class="header" href="#developing-in-safari">Developing in Safari</a></h1>
-<p>To use the devtool in safari you need to disable the local file restrictions
-under <code>Develop</code> -&gt; <code>Disable Local File Restrictions</code>:</p>
-<p>
-<img
-src="images/dev_tool_settings_safari.png"
-alt="'Disable Local File Restrictions' entry in the 'Develop' menu in safari"
-style="max-height:40vh"
-/>
-</p>
-<p>After doing this you can use the dev tool simulator.</p>
-<p>Make sure to reload (<code>Cmd + R</code>) all simulator tabs/windows to apply this setting.</p>
-<p>Without this option <code>Add Peer</code> seems to work (it opens a new instance), but <strong>the instances will not be able to communicate</strong>.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="developing-on-android"><a class="header" href="#developing-on-android">Developing on Android</a></h1>
-<p>TODO - turn notes into a nice guide</p>
-<ul>
-<li>
-<p>install Termux</p>
-</li>
-<li>
-<p>install python &amp; git in termux (or is it preinstalled??)</p>
-</li>
-<li>
-<p>git clone the devtool repo or your fork of it</p>
-</li>
-<li>
-<p>use <code>python -m http.server</code> (TODO check complete syntax) to serve it for development and use nano / vim</p>
-</li>
-<li>
-<p>when your done use the packaging script</p>
-</li>
-<li>
-<p>and then copy the file to a location from where you can access and send it via deltachat.</p>
-</li>
-<li>
-<p>pro tip: you can create symbolic link to a folder in the external storage</p>
-</li>
-</ul>
-<!-- there are some gui apps on fdroid we could try:
-IDE: https://f-droid.org/packages/com.blacksquircle.ui/
-HTTP server: https://f-droid.org/packages/com.example.flutter_http_server/
- --><div style="break-before: page; page-break-before: always;"></div><h2 id="api-reference"><a class="header" href="#api-reference">API Reference</a></h2>
-<h3 id="javascript-interface"><a class="header" href="#javascript-interface">JavaScript Interface</a></h3>
-<p>TODO, please refer to <a href="https://github.com/deltachat/deltachat-core-rust/blob/master/draft/webxdc-dev-reference.md">https://github.com/deltachat/deltachat-core-rust/blob/master/draft/webxdc-dev-reference.md</a> in the meantime.</p>
-<p>(could we generate the markdown from the TS definion file? - one less place to update docs and so on?)</p>
-<h3 id="manifest-file"><a class="header" href="#manifest-file">Manifest file <a id="manifest"></a></a></h3>
-<p>If the ZIP-file contains a manifest.toml in its root directory, some basic information are read and used from there.</p>
-<p>the manifest.toml has the following format</p>
-<pre><code class="language-toml">name = &quot;My Webxdc Name&quot;
-source_code_url = &quot;https://github.com/deltachat/webxdc_docs&quot;
+<h3 id="sendupdate"><a class="header" href="#sendupdate">sendUpdate()</a></h3>
+<pre><code class="language-js">window.webxdc.sendUpdate(update, descr);
 </code></pre>
 <ul>
-<li><code>name</code> - The name of the webxdc. If no name is set or if there is no manifest, the filename is used as the name.</li>
-<li>(optional) <code>source_code_url</code> - URL where the source code of the Webxdc and other information can be found.</li>
-</ul>
-<h3 id="webxdc-icon"><a class="header" href="#webxdc-icon">Webxdc Icon <a id="icon"></a></a></h3>
-<p>If the ZIP-root contains an <code>icon.png</code> or <code>icon.jpg</code>, these files are used as the icon shown in deltachat. The icon should be a square at reasonable width/height; round corners etc. will be added by the implementations as needed. If no icon is set, a default icon will be used.</p>
-<h3 id="zip-file-format-xdc"><a class="header" href="#zip-file-format-xdc">Zip File format <code>.xdc</code> <a id="zip-format"></a></a></h3>
-<p>Just a zip file with the <code>.zip</code> extension renamed to <code>.xdc</code>.
-Contents:</p>
+<li>
+<p><code>update</code>: an object with the following properties:</p>
 <ul>
-<li><code>index.html</code>: entry point</li>
-<li>(optional) <code>manifest.toml</code>: <a href="03_api_reference.html#manifest">configuration file, specifying properties</a></li>
-<li>(optional) <code>icon.png</code> or <code>icon.jpg</code>: the <a href="03_api_reference.html#icon">icon of the package</a></li>
+<li><code>update.payload</code>: any javascript primitive, array or object.</li>
+<li><code>update.info</code>: optional, short, informational message that will be added to the chat,
+eg. &quot;Alice voted&quot; or &quot;Bob scored 123 in MyGame&quot;.
+usually only one line of text is shown
+and if there are series of info messages, older ones may be dropped.
+use this option sparingly to not spam the chat.</li>
+<li><code>update.document</code>: optional, name of the document in edit,
+must not be used eg. in games where the Webxdc does not create documents</li>
+<li><code>update.summary</code>: optional, short text, shown beside Webxdc icon;
+it is recommended to use some aggregated value,  eg. &quot;8 votes&quot;, &quot;Highscore: 123&quot;</li>
 </ul>
-<blockquote>
-<p>The ZIP-file can only use the compression methods <code>Deflate</code> and <code>Store</code>. Other compression methods are not supported at this time.</p>
-</blockquote>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="webxdc-cookbook"><a class="header" href="#webxdc-cookbook">Webxdc Cookbook</a></h1>
-<!-- this section is inpired by https://rust-lang-nursery.github.io/rust-cookbook/ -->
-<p>In this chapter you can find small code snippets (recipes) that help you implement some commonly used features, such as scoreboards for adding a highscore to your game.</p>
-<p>Feel free to contribute recipies that you find useful on <a href="https://github.com/deltachat/webxdc_docs">github</a>.</p>
-<p>(As this section is being written, you might find more examples in the <a href="https://github.com/deltachat/deltachat-core-rust/blob/master/draft/webxdc-dev-reference.md">core library</a>).</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="tips--tricks"><a class="header" href="#tips--tricks">Tips &amp; Tricks</a></h1>
+</li>
+<li>
+<p><code>descr</code>: short, human-readable description what this update is about.
+this is shown eg. as a fallback text in an email program.</p>
+</li>
+</ul>
+<p>All peers, including the sending one,
+will receive the update by the callback given to <code>setUpdateListener()</code>.</p>
+<p>There are situations where the user cannot send messages to a chat,
+eg. if the webxdc instance comes as a contact request or if the user has left a group.
+In these cases, you can still call <code>sendUpdate()</code>,
+however, the update won't be sent to other peers
+and you won't get the update by <code>setUpdateListener()</code>.</p>
+<h3 id="setupdatelistener"><a class="header" href="#setupdatelistener">setUpdateListener()</a></h3>
+<pre><code class="language-js">let promise = window.webxdc.setUpdateListener((update) =&gt; {}, serial);
+</code></pre>
+<p>With <code>setUpdateListener()</code> you define a callback that receives the updates
+sent by <code>sendUpdate()</code>. The callback is called for updates sent by you or other peers.
+The <code>serial</code> specifies the last serial that you know about (defaults to 0). 
+The returned promise resolves when the listener has processed all the update messages known at the time when  <code>setUpdateListener</code> was called. </p>
+<p>Each <code>update</code> which is passed to the callback comes with the following properties: </p>
 <ul>
-<li><a href="./05_01_babel.html">Transpile newer Javascript with Babel.js</a></li>
-<li><a href="./05_02_typescript.html">Typescript support</a></li>
-<li><a href="./05_03_debugging_in_deltachat.html">Debugging inside Deltachat</a></li>
-<li><a href="./05_03b_debugging_with_eruda.html">Debugging with eruda.js</a></li>
-<li><a href="./05_04_optimize_icon.html">Optimizing your Icon</a></li>
-<li><a href="./05_05_common_problems.html">Troubleshooting</a></li>
+<li>
+<p><code>update.payload</code>: equals the payload given to <code>sendUpdate()</code></p>
+</li>
+<li>
+<p><code>update.serial</code>: the serial number of this update.
+Serials are larger <code>0</code> and newer serials have higher numbers.
+There may be gaps in the serials
+and it is not guaranteed that the next serial is exactly incremented by one.</p>
+</li>
+<li>
+<p><code>update.max_serial</code>: the maximum serial currently known.
+If <code>max_serial</code> equals <code>serial</code> this update is the last update (until new network messages arrive).</p>
+</li>
+<li>
+<p><code>update.info</code>: optional, short, informational message (see <code>sendUpdate()</code>)</p>
+</li>
+<li>
+<p><code>update.document</code>: optional, document name as set by the sender, (see <code>sendUpdate()</code>),
+implementations show the document name eg. beside the app icon or in the title bar</p>
+</li>
+<li>
+<p><code>update.summary</code>: optional, short text, shown beside icon (see <code>sendUpdate()</code>)</p>
+</li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="transpile-newer-javascript-with-babeljs"><a class="header" href="#transpile-newer-javascript-with-babeljs">Transpile newer Javascript with Babel.js</a></h1>
-<p>Older devices might not have the newest javascript features/syntax in their webview, you may want to transpile your code down to an older js version eg. with <a href="https://babeljs.io">https://babeljs.io</a></p>
-<p>TODO guide, TODO find out what the oldest browser/webview version is that we support.</p>
-<p>Targets:</p>
+<h3 id="selfaddr"><a class="header" href="#selfaddr">selfAddr</a></h3>
+<pre><code class="language-js">window.webxdc.selfAddr
+</code></pre>
+<p>Property with the peer's own address.
+This is esp. useful if you want to differ between different peers -
+just send the address along with the payload,
+and, if needed, compare the payload addresses against selfAddr() later on.</p>
+<h3 id="selfname"><a class="header" href="#selfname">selfName</a></h3>
+<pre><code class="language-js">window.webxdc.selfName
+</code></pre>
+<p>Property with the peer's own name.
+This is name chosen by the user in their settings,
+if there is nothing set, that defaults to the peer's address.</p>
+<h2 id="other-apis-and-tags-usage-hints"><a class="header" href="#other-apis-and-tags-usage-hints">Other APIs and Tags Usage Hints</a></h2>
 <ul>
-<li>Desktop (electron -&gt; is chrome 91)</li>
-<li>iOS (iOS 11 -&gt; webkit 604.1.38)</li>
-<li>android (android 5 -&gt; the webview system component can be updated by the user: <a href="https://play.google.com/store/apps/details?id=com.google.android.webview">https://play.google.com/store/apps/details?id=com.google.android.webview</a>)</li>
+<li><code>localStorage</code>, <code>sessionStorage</code>, <code>indexedDB</code> are okay to be used</li>
+<li><code>visibilitychange</code>-events are okay to be used</li>
+<li><code>window.navigator.language</code> is okay to be used, on desktop it is the system language</li>
+<li><code>&lt;a href=&quot;localfile.html&quot;&gt;</code> and other internal links are okay to be used</li>
+<li><code>&lt;a href=&quot;mailto:addr@example.org?body=...&quot;&gt;</code>- mailto links are okay to be used</li>
+<li><code>&lt;meta name=&quot;viewport&quot; ...&gt;</code> usage is okay to be used
+and useful esp. different webviews have different defaults</li>
 </ul>
-<p>If you want to use a newer API make sure to check on <a href="https://caniuse.com">https://caniuse.com</a>. If you just want to use newer JavaScript syntax, babel.js is the right tool for you - it translates new JS into older JS, that can be interpreted.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="typescript-support"><a class="header" href="#typescript-support">Typescript support</a></h1>
+<h3 id="discouraged-practises"><a class="header" href="#discouraged-practises">Discouraged Practises</a></h3>
+<ul>
+<li><code>document.cookie</code> is known not to work on desktop and iOS
+use <code>localStorage</code> instead</li>
+<li><code>unload</code>-, <code>beforeunload</code>- and <code>pagehide</code>-events are known not to work on iOS and are flaky on other systems
+(also partly discouraged by <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/unload_event">mozilla</a>)
+use <code>visibilitychange</code> instead</li>
+<li><code>&lt;title&gt;</code> and <code>document.title</code> is ignored by Webxdc;
+use the <code>name</code> property from <code>manifest.toml</code> instead</li>
+<li>newest js features may not work on all webviews,
+you may want to transpile your code down to an older js version
+eg. with <a href="https://babeljs.io">https://babeljs.io</a></li>
+<li><code>&lt;a href=&quot;https://example.org/foo&quot;&gt;</code> and other external links are blocked by definition;
+instead, embed content or use <code>mailto:</code> link to offer a way for contact</li>
+<li><code>&lt;input type=&quot;file&quot;&gt;</code> is discouraged currently; this may change in future</li>
+</ul>
+<h2 id="webxdc-file-format"><a class="header" href="#webxdc-file-format">Webxdc File Format</a></h2>
+<ul>
+<li>a <strong>Webxdc</strong> is a <strong>ZIP-file</strong> with the extension <code>.xdc</code></li>
+<li>the ZIP-file MUST use the default compression methods as of RFC 1950,
+this is &quot;Deflate&quot; or &quot;Store&quot;</li>
+<li>the ZIP-file MUST contain at least the file <code>index.html</code></li>
+<li>the ZIP-file MAY contain a <code>manifest.toml</code> and <code>icon.png</code> or
+<code>icon.jpg</code> files</li>
+<li>if the Webxdc app is started, <code>index.html</code> MUST be opened in a [restricted
+webview](Webview constraints for running apps) that allow accessing 
+resources only from the ZIP-file.</li>
+</ul>
+<h3 id="the-manifesttoml-file"><a class="header" href="#the-manifesttoml-file">The manifest.toml File</a></h3>
+<p>If the ZIP-file contains a <code>manifest.toml</code> in its root directory,
+the following basic information MUST be read from it: </p>
+<pre><code class="language-toml">name = &quot;My Name&quot;
+source_code_url = &quot;https://example.org/orga/repo&quot;
+</code></pre>
+<ul>
+<li>
+<p><code>name</code> - The name of the Webxdc app.
+If no name is set or if there is no manifest, the filename is used as the Webxdc name.</p>
+</li>
+<li>
+<p><code>source_code_url</code> - Optional URL where the source code of the Webxdc and maybe other information can be found.
+Messenger implementors may make the url accessible via a &quot;Help&quot; menu in the Webxdc window.</p>
+</li>
+</ul>
+<h3 id="icon-files"><a class="header" href="#icon-files">Icon Files</a></h3>
+<p>If the ZIP-root contains an <code>icon.png</code> or <code>icon.jpg</code>,
+these files are used as the icon for the Webxdc.
+The icon should be a square at reasonable width/height;
+round corners etc. will be added by the implementations as needed.
+If no icon is set, a default icon will be used.</p>
+<h2 id="messenger-implementation"><a class="header" href="#messenger-implementation">Messenger Implementation</a></h2>
+<h3 id="webview-constraints-for-running-apps"><a class="header" href="#webview-constraints-for-running-apps">Webview Constraints for Running Apps</a></h3>
+<p>Messenger implementors need to implement the following restrictions when starting a web view for a webxdc app to run:</p>
+<ul>
+<li>
+<p>You MUST deny all forms of internet access. If you don't do this
+unsuspecting users may leak data of their private interactions to outside third parties. 
+You do not need to offer &quot;privacy&quot; or &quot;cookie&quot; consent screens as 
+there is no way the app can transfer user data to anything outside the chat. </p>
+</li>
+<li>
+<p>You MUST allow unrestricted use of DOM storage (local storage, indexed db and co), 
+but make sure it is scoped to each webxdc app so they can not delete or modify 
+the data of other webxdc content.</p>
+</li>
+<li>
+<p>You MUST offer an implementation for <code>webxdc.js</code> implementing the
+[Webxdc API] such that messages are relayed and shown in chats. </p>
+</li>
+</ul>
+<h3 id="ui-interactions-in-chats"><a class="header" href="#ui-interactions-in-chats">UI Interactions in Chats</a></h3>
+<ul>
+<li>Info messages  in chats -&gt; click on them should jump to their webxdc message</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tips-and-tricks"><a class="header" href="#tips-and-tricks">Tips and Tricks</a></h1>
+<h2 id="typescript-support"><a class="header" href="#typescript-support">Typescript Support</a></h2>
 <p>How to get autocompletion for window.webxdc api in you IDE via typescript.</p>
-<h2 id="get-the-typescript-definitions"><a class="header" href="#get-the-typescript-definitions">Get the typescript definitions</a></h2>
+<h3 id="get-the-typescript-definitions"><a class="header" href="#get-the-typescript-definitions">Get the Typescript Definitions</a></h3>
 <p>Just copy <a href="https://github.com/deltachat/webxdc_docs/blob/master/webxdc.d.ts"><code>webxdc.d.ts</code></a> into your source dir:</p>
 <pre><code class="language-typescript">type SendingStatusUpdate&lt;T&gt; = {
   /** the payload, deserialized json:
@@ -409,12 +449,12 @@ export { SendingStatusUpdate, ReceivedStatusUpdate, Webxdc };
 <blockquote>
 <p>In the future this might become an @types npm module, but for now it is what it is: <em>a simple file copy with <strong>no</strong> automatic updates</em>.</p>
 </blockquote>
-<h2 id="using-the-types"><a class="header" href="#using-the-types">Using the types</a></h2>
+<h3 id="using-the-types"><a class="header" href="#using-the-types">Using the Types</a></h3>
 <p>for using the types you need to import the file.</p>
-<h3 id="using-in-typescript"><a class="header" href="#using-in-typescript">Using in typescript</a></h3>
+<p>Using in typescript: </p>
 <pre><code class="language-tyspescript">import type { Webxdc } from './webxdc.d.ts'
 </code></pre>
-<h3 id="using-in-javascript"><a class="header" href="#using-in-javascript">Using in Javascript</a></h3>
+<p>using in Javascript:</p>
 <pre><code class="language-javascript">/**
  * @typedef {import('./webxdc').Webxdc} Webxdc
  */
@@ -427,7 +467,7 @@ export { SendingStatusUpdate, ReceivedStatusUpdate, Webxdc };
 tsc --noEmit --allowJs --lib es2015,dom *.js
 </code></pre>
 </blockquote>
-<h2 id="own-payload-type"><a class="header" href="#own-payload-type">Own Payload type</a></h2>
+<h3 id="own-payload-type"><a class="header" href="#own-payload-type">Own Payload Type</a></h3>
 <p>If you have a type for your state update <strong>payloads</strong>, replace the <code>any</code> in <code>Webxdc&lt;any&gt;</code> with your own payload type:</p>
 <pre><code class="language-typescript">declare global {
   interface Window {
@@ -435,8 +475,29 @@ tsc --noEmit --allowJs --lib es2015,dom *.js
   }
 }
 </code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="debugging-inside-deltachat"><a class="header" href="#debugging-inside-deltachat">Debugging inside Deltachat</a></h1>
-<h2 id="debug-your-webxdc-content-in-android-via-chrome-devtools"><a class="header" href="#debug-your-webxdc-content-in-android-via-chrome-devtools">Debug your webxdc content in Android via Chrome DevTools</a></h2>
+<h2 id="transpile-newer-javascript-with-babeljs"><a class="header" href="#transpile-newer-javascript-with-babeljs">Transpile Newer Javascript With Babel.js</a></h2>
+<p>Older devices might not have the newest javascript features/syntax in their webview, you may want to transpile your code down to an older js version eg. with <a href="https://babeljs.io">https://babeljs.io</a></p>
+<p>TODO guide, TODO find out what the oldest browser/webview version is that we support.</p>
+<p>Targets:</p>
+<ul>
+<li>Desktop (electron -&gt; is chrome 91)</li>
+<li>iOS (iOS 11 -&gt; webkit 604.1.38)</li>
+<li>android (android 5 -&gt; the webview system component can be updated by the user: <a href="https://play.google.com/store/apps/details?id=com.google.android.webview">https://play.google.com/store/apps/details?id=com.google.android.webview</a>)</li>
+</ul>
+<p>If you want to use a newer API make sure to check on <a href="https://caniuse.com">https://caniuse.com</a>. If you just want to use newer JavaScript syntax, babel.js is the right tool for you - it translates new JS into older JS, that can be interpreted.</p>
+<h2 id="debugging-with-erudajs"><a class="header" href="#debugging-with-erudajs">Debugging With eruda.js</a></h2>
+<p>When you can not use <a href="05_03_debugging_in_deltachat.html">debugging inside Deltachat</a>, either because you have no computer to connect to or are on iOS, you can use <a href="https://github.com/liriliri/eruda">eruda.js</a> as an alternative to the native dev tools.</p>
+<h3 id="installing-eruda"><a class="header" href="#installing-eruda">Installing eruda</a></h3>
+<p>Get <code>eruda.js</code> from https://github.com/liriliri/eruda, copy it next to your <code>index.html</code> and then add this snippet into the head section of your index.html, before all other scripts:</p>
+<pre><code class="language-html">&lt;script src=&quot;eruda.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  eruda.init();
+&lt;/script&gt;
+</code></pre>
+<h3 id="using-eruda"><a class="header" href="#using-eruda">Using eruda</a></h3>
+<p>When you open the webxdc a floating button will appear in a corner, tap it to see the developer tools.</p>
+<h2 id="debugging-inside-deltachat"><a class="header" href="#debugging-inside-deltachat">Debugging Inside Deltachat</a></h2>
+<h3 id="debug-your-webxdc-content-in-android-via-chrome-devtools"><a class="header" href="#debug-your-webxdc-content-in-android-via-chrome-devtools">Debug Your webxdc Content in Android via Chrome DevTools</a></h3>
 <ol>
 <li>enable webView debugging in delta chat settings <code>Settings</code> &gt; <code>Advanced</code> &gt; <code>Developer Mode</code>: <img alt="image of andvanced screen" src="images/android_remote_debug_enable.png" style="max-height:40vh" /></li>
 <li>enable developer mode and ADB debugging on your device <em>(go to system settings, device info, spam click on build number until there is a toast telling you that you are now a &quot;Developer&quot;, then go into the developer menu that just appeared and enable &quot;ADB debugging&quot;, see also <a href="https://developer.android.com/studio/command-line/adb#Enabling">android docs: Enable ADB debugging on your device</a>).</em></li>
@@ -458,7 +519,7 @@ style="max-height:40vh"
 <blockquote>
 <p>Make sure to <strong>disable adb debugging again</strong> after you are done with debugging!</p>
 </blockquote>
-<h2 id="debug-your-webxdc-content-in-deltachat-desktop"><a class="header" href="#debug-your-webxdc-content-in-deltachat-desktop">Debug your webxdc content in DeltaChat Desktop</a></h2>
+<h3 id="debug-your-webxdc-content-in-deltachat-desktop"><a class="header" href="#debug-your-webxdc-content-in-deltachat-desktop">Debug Your webxdc Content in DeltaChat Desktop</a></h3>
 <p>Start the webxdc you want to debug and press <code>F12</code> to open the developer tools:</p>
 <p>
 <img
@@ -482,20 +543,7 @@ alt="undock devtools"
 style="max-height:40vh"
 />
 </p>
-<h2 id="debug-your-webxdc-content-on-the-ios-deltachat"><a class="header" href="#debug-your-webxdc-content-on-the-ios-deltachat">Debug your webxdc content on the iOS DeltaChat</a></h2>
-<p>This is only possible in debug builds of deltachat-ios, not in the released App Store or TestFlight version, so please use <a href="05_03b_debugging_with_eruda.html">debugging with eruda.js</a> instead.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="debugging-with-erudajs"><a class="header" href="#debugging-with-erudajs">Debugging with eruda.js</a></h1>
-<p>When you can not use <a href="05_03_debugging_in_deltachat.html">debugging inside Deltachat</a>, either because you have no computer to connect to or are on iOS, you can use <a href="https://github.com/liriliri/eruda">eruda.js</a> as an alternative to the native dev tools.</p>
-<h2 id="installing-eruda"><a class="header" href="#installing-eruda">Installing eruda</a></h2>
-<p>Get <code>eruda.js</code> from https://github.com/liriliri/eruda, copy it next to your <code>index.html</code> and then add this snippet into the head section of your index.html, before all other scripts:</p>
-<pre><code class="language-html">&lt;script src=&quot;eruda.js&quot;&gt;&lt;/script&gt;
-&lt;script&gt;
-  eruda.init();
-&lt;/script&gt;
-</code></pre>
-<h2 id="using-eruda"><a class="header" href="#using-eruda">Using eruda</a></h2>
-<p>When you open the webxdc a floating button will appear in a corner, tap it to see the developer tools</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="optimizing-your-icon"><a class="header" href="#optimizing-your-icon">Optimizing your Icon</a></h1>
+<h2 id="optimizing-your-app-icon"><a class="header" href="#optimizing-your-app-icon">Optimizing Your App Icon</a></h2>
 <p>There are several things you can do to shrink down the size of your icon:</p>
 <ul>
 <li>save without thumbnail image (in gimp it can be done in the export dialog)</li>
@@ -511,17 +559,16 @@ style="max-height:40vh"
 <ul>
 <li><code>--pretend</code> only calculates gains</li>
 <li><code>-Z</code> even more compression, but takes longer</li>
-<li>for more info see <code>oxipng --help</code></li>
+<li>for more info see <code>oxipng --help</code># Troubleshooting</li>
 </ul>
 </blockquote>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="troubleshooting"><a class="header" href="#troubleshooting">Troubleshooting</a></h1>
-<h2 id="i-cannot-share-variables-on-ios-between-scripts"><a class="header" href="#i-cannot-share-variables-on-ios-between-scripts">I cannot share variables on iOS between scripts!</a></h2>
+<h2 id="i-cannot-share-variables-on-ios-between-scripts"><a class="header" href="#i-cannot-share-variables-on-ios-between-scripts">I Cannot Share Variables on iOS Between Scripts!</a></h2>
 <p>Your code:</p>
 <p><code>a.js</code></p>
-<pre><code class="language-js">const CONFIG = { dificulty: &quot;hard&quot;, hasCoins: true };
+<pre><code class="language-js">const CONFIG = { difficulty: &quot;hard&quot;, hasCoins: true };
 </code></pre>
 <p><code>b.js</code></p>
-<pre><code class="language-js">if (CONFIG.dificulty == &quot;hard&quot;) {
+<pre><code class="language-js">if (CONFIG.difficulty == &quot;hard&quot;) {
   /** make the game harder **/
 }
 </code></pre>
@@ -546,33 +593,6 @@ style="max-height:40vh"
 <li>use esm modules (see <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules</a>)</li>
 <li>define your variables as inline script in your HTML file. (inline script means that the script is in the HTML file between the <code>&lt;script&gt;</code> tags: <code>&lt;script&gt;my code&lt;/script&gt;</code>)</li>
 <li>append your global variables to the window object: <code>window.myVar = 1;</code> and use them like <code>console.log(window.myVar)</code></li>
-</ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="example-projects"><a class="header" href="#example-projects">Example Projects</a></h1>
-<p>Here you can find some example projects. If you have a project that you want to share feel free to make a pull request to add it here on <a href="https://github.com/deltachat/webxdc_docs">github</a>. (Or just click on the edit icon in the top right corner, it will take you directly to editing this page)</p>
-<h2 id="productivity"><a class="header" href="#productivity">Productivity</a></h2>
-<ul>
-<li>Poll: <a href="https://github.com/r10s/webxdc-poll">https://github.com/r10s/webxdc-poll</a></li>
-<li>Draw: <a href="https://github.com/adbenitez/draw.xdc">https://github.com/adbenitez/draw.xdc</a></li>
-</ul>
-<h2 id="games"><a class="header" href="#games">Games</a></h2>
-<ul>
-<li>TicTacToe: <a href="https://github.com/Simon-Laux/tictactoe.xdc">https://github.com/Simon-Laux/tictactoe.xdc</a></li>
-<li>2048: <a href="https://github.com/adbenitez/2048.xdc">https://github.com/adbenitez/2048.xdc</a></li>
-<li>Chess Board: <a href="https://github.com/adbenitez/ChessBoard.xdc">https://github.com/adbenitez/ChessBoard.xdc</a></li>
-<li>StackUp: <a href="https://github.com/adbenitez/StackUp.xdc">https://github.com/adbenitez/StackUp.xdc</a></li>
-<li>Othello: <a href="https://github.com/adbenitez/Othello.xdc">https://github.com/adbenitez/Othello.xdc</a></li>
-</ul>
-<p>Even more examples can be found searching for the <a href="https://github.com/topics/webxdc"><code>#webxdc</code> Topic on GitHub</a>.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="community"><a class="header" href="#community">Community</a></h1>
-<p>You can ask questions and showcase your projects on the DeltaChat forum under the <a href="https://support.delta.chat/c/webxdc/20"><code>webxdc</code> category</a></p>
-<p>You can login into the <a href="https://support.delta.chat">forum</a> via DeltaChat, Github or by creating a normal account there.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="ui-implementation-instructions"><a class="header" href="#ui-implementation-instructions">UI Implementation instructions</a></h1>
-<ul>
-<li>Deny all forms of internet access</li>
-<li>enable DOM storage (local storage, indexed db and co), but make sure it is scoped to each webxdc so they can not delete or modify the data of other webxdc content.</li>
-<li>load resources over the <code>webxdc:</code> scheme and deny others (also, the UI should handle <code>webxdc:</code> internally) - can be also <code>https</code> if ui does not support the custom scheme properly.</li>
-<li>implement fetching <code>webxdc.js</code> over that scheme, should give back a JavaScript file wrapping all native API's to the interface described above.</li>
-<li>info messages -&gt; click on them should jump to their webxdc message</li>
 </ul>
 
                     </main>

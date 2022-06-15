@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Typescript support - webxdc</title>
+        <title>Tips &amp; Tricks - webxdc</title>
 
 
         <!-- Custom HTML head -->
@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="01_what_is_webxdc.html"><strong aria-hidden="true">1.</strong> What is webxdc?</a></li><li class="chapter-item expanded "><a href="02_get_started.html"><strong aria-hidden="true">2.</strong> Get started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="02_01_chat_example.html"><strong aria-hidden="true">2.1.</strong> Chat Example</a></li><li class="chapter-item expanded "><a href="02_02_dev_tool.html"><strong aria-hidden="true">2.2.</strong> Developing with the Webxdc Development Tool</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="02_02_01_dev_tool_safari.html"><strong aria-hidden="true">2.2.1.</strong> Developing in Safari</a></li><li class="chapter-item expanded "><a href="02_02_02_dev_tool_android.html"><strong aria-hidden="true">2.2.2.</strong> Developing on Android</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="03_api_reference.html"><strong aria-hidden="true">3.</strong> API Reference</a></li><li class="chapter-item expanded "><a href="04_cookbook.html"><strong aria-hidden="true">4.</strong> Webxdc Cookbook</a></li><li class="chapter-item expanded "><a href="05_tips_and_tricks.html"><strong aria-hidden="true">5.</strong> Tips & Tricks</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="05_01_babel.html"><strong aria-hidden="true">5.1.</strong> Transpile newer Javascript with Babel.js</a></li><li class="chapter-item expanded "><a href="05_02_typescript.html" class="active"><strong aria-hidden="true">5.2.</strong> Typescript support</a></li><li class="chapter-item expanded "><a href="05_03_debugging_in_deltachat.html"><strong aria-hidden="true">5.3.</strong> Debugging inside Deltachat</a></li><li class="chapter-item expanded "><a href="05_03b_debugging_with_eruda.html"><strong aria-hidden="true">5.4.</strong> Debugging with eruda.js</a></li><li class="chapter-item expanded "><a href="05_04_optimize_icon.html"><strong aria-hidden="true">5.5.</strong> Optimizing your Icon</a></li><li class="chapter-item expanded "><a href="05_05_common_problems.html"><strong aria-hidden="true">5.6.</strong> Troubleshooting</a></li></ol></li><li class="chapter-item expanded "><a href="06_example_projects.html"><strong aria-hidden="true">6.</strong> Example Projects</a></li><li class="chapter-item expanded "><a href="07_community.html"><strong aria-hidden="true">7.</strong> Community</a></li><li class="chapter-item expanded affix "><li class="part-title">Other</li><li class="chapter-item expanded "><a href="08_extra_ui_implementation.html"><strong aria-hidden="true">8.</strong> UI Implementation instructions</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Intro</a></li><li class="chapter-item expanded "><a href="get_started.html"><strong aria-hidden="true">1.</strong> Get Started</a></li><li class="chapter-item expanded "><a href="spec.html"><strong aria-hidden="true">2.</strong> Webxdc Specification</a></li><li class="chapter-item expanded "><a href="tips_and_tricks.html" class="active"><strong aria-hidden="true">3.</strong> Tips & Tricks</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -119,7 +119,7 @@
                         <a href="https://github.com/deltachat/webxdc_docs" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
-                        <a href="https://github.com/deltachat/webxdc_docs/edit/master/src/05_02_typescript.md" title="Suggest an edit" aria-label="Suggest an edit">
+                        <a href="https://github.com/deltachat/webxdc_docs/edit/master/src/tips_and_tricks.md" title="Suggest an edit" aria-label="Suggest an edit">
                             <i id="git-edit-button" class="fa fa-edit"></i>
                         </a>
 
@@ -148,9 +148,10 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="typescript-support"><a class="header" href="#typescript-support">Typescript support</a></h1>
+                        <h1 id="tips-and-tricks"><a class="header" href="#tips-and-tricks">Tips and Tricks</a></h1>
+<h2 id="typescript-support"><a class="header" href="#typescript-support">Typescript Support</a></h2>
 <p>How to get autocompletion for window.webxdc api in you IDE via typescript.</p>
-<h2 id="get-the-typescript-definitions"><a class="header" href="#get-the-typescript-definitions">Get the typescript definitions</a></h2>
+<h3 id="get-the-typescript-definitions"><a class="header" href="#get-the-typescript-definitions">Get the Typescript Definitions</a></h3>
 <p>Just copy <a href="https://github.com/deltachat/webxdc_docs/blob/master/webxdc.d.ts"><code>webxdc.d.ts</code></a> into your source dir:</p>
 <pre><code class="language-typescript">type SendingStatusUpdate&lt;T&gt; = {
   /** the payload, deserialized json:
@@ -226,12 +227,12 @@ export { SendingStatusUpdate, ReceivedStatusUpdate, Webxdc };
 <blockquote>
 <p>In the future this might become an @types npm module, but for now it is what it is: <em>a simple file copy with <strong>no</strong> automatic updates</em>.</p>
 </blockquote>
-<h2 id="using-the-types"><a class="header" href="#using-the-types">Using the types</a></h2>
+<h3 id="using-the-types"><a class="header" href="#using-the-types">Using the Types</a></h3>
 <p>for using the types you need to import the file.</p>
-<h3 id="using-in-typescript"><a class="header" href="#using-in-typescript">Using in typescript</a></h3>
+<p>Using in typescript: </p>
 <pre><code class="language-tyspescript">import type { Webxdc } from './webxdc.d.ts'
 </code></pre>
-<h3 id="using-in-javascript"><a class="header" href="#using-in-javascript">Using in Javascript</a></h3>
+<p>using in Javascript:</p>
 <pre><code class="language-javascript">/**
  * @typedef {import('./webxdc').Webxdc} Webxdc
  */
@@ -244,7 +245,7 @@ export { SendingStatusUpdate, ReceivedStatusUpdate, Webxdc };
 tsc --noEmit --allowJs --lib es2015,dom *.js
 </code></pre>
 </blockquote>
-<h2 id="own-payload-type"><a class="header" href="#own-payload-type">Own Payload type</a></h2>
+<h3 id="own-payload-type"><a class="header" href="#own-payload-type">Own Payload Type</a></h3>
 <p>If you have a type for your state update <strong>payloads</strong>, replace the <code>any</code> in <code>Webxdc&lt;any&gt;</code> with your own payload type:</p>
 <pre><code class="language-typescript">declare global {
   interface Window {
@@ -252,18 +253,134 @@ tsc --noEmit --allowJs --lib es2015,dom *.js
   }
 }
 </code></pre>
+<h2 id="transpile-newer-javascript-with-babeljs"><a class="header" href="#transpile-newer-javascript-with-babeljs">Transpile Newer Javascript With Babel.js</a></h2>
+<p>Older devices might not have the newest javascript features/syntax in their webview, you may want to transpile your code down to an older js version eg. with <a href="https://babeljs.io">https://babeljs.io</a></p>
+<p>TODO guide, TODO find out what the oldest browser/webview version is that we support.</p>
+<p>Targets:</p>
+<ul>
+<li>Desktop (electron -&gt; is chrome 91)</li>
+<li>iOS (iOS 11 -&gt; webkit 604.1.38)</li>
+<li>android (android 5 -&gt; the webview system component can be updated by the user: <a href="https://play.google.com/store/apps/details?id=com.google.android.webview">https://play.google.com/store/apps/details?id=com.google.android.webview</a>)</li>
+</ul>
+<p>If you want to use a newer API make sure to check on <a href="https://caniuse.com">https://caniuse.com</a>. If you just want to use newer JavaScript syntax, babel.js is the right tool for you - it translates new JS into older JS, that can be interpreted.</p>
+<h2 id="debugging-with-erudajs"><a class="header" href="#debugging-with-erudajs">Debugging With eruda.js</a></h2>
+<p>When you can not use <a href="05_03_debugging_in_deltachat.html">debugging inside Deltachat</a>, either because you have no computer to connect to or are on iOS, you can use <a href="https://github.com/liriliri/eruda">eruda.js</a> as an alternative to the native dev tools.</p>
+<h3 id="installing-eruda"><a class="header" href="#installing-eruda">Installing eruda</a></h3>
+<p>Get <code>eruda.js</code> from https://github.com/liriliri/eruda, copy it next to your <code>index.html</code> and then add this snippet into the head section of your index.html, before all other scripts:</p>
+<pre><code class="language-html">&lt;script src=&quot;eruda.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  eruda.init();
+&lt;/script&gt;
+</code></pre>
+<h3 id="using-eruda"><a class="header" href="#using-eruda">Using eruda</a></h3>
+<p>When you open the webxdc a floating button will appear in a corner, tap it to see the developer tools.</p>
+<h2 id="debugging-inside-deltachat"><a class="header" href="#debugging-inside-deltachat">Debugging Inside Deltachat</a></h2>
+<h3 id="debug-your-webxdc-content-in-android-via-chrome-devtools"><a class="header" href="#debug-your-webxdc-content-in-android-via-chrome-devtools">Debug Your webxdc Content in Android via Chrome DevTools</a></h3>
+<ol>
+<li>enable webView debugging in delta chat settings <code>Settings</code> &gt; <code>Advanced</code> &gt; <code>Developer Mode</code>: <img alt="image of andvanced screen" src="images/android_remote_debug_enable.png" style="max-height:40vh" /></li>
+<li>enable developer mode and ADB debugging on your device <em>(go to system settings, device info, spam click on build number until there is a toast telling you that you are now a &quot;Developer&quot;, then go into the developer menu that just appeared and enable &quot;ADB debugging&quot;, see also <a href="https://developer.android.com/studio/command-line/adb#Enabling">android docs: Enable ADB debugging on your device</a>).</em></li>
+<li>connect your device via USB to your computer</li>
+<li>open chromium (or google chrome) and go to <code>chrome://inspect/#devices</code></li>
+<li>start your webxdc that you want to debug</li>
+<li>click on <code>inspect</code>:</li>
+</ol>
+<p>
+<img
+src="images/android_remote_debug_list.png"
+alt="screenshot of chrome dev tools device list"
+style="max-height:40vh"
+/>
+</p>
+<table><thead><tr><th>Inpect HTML</th><th>Javascript Console</th></tr></thead><tbody>
+<tr><td><img src="images/android_remote_debug_inspector.png" alt="dev tools inpector" /></td><td><img src="images/android_remote_debug_console.png" alt="dev tools js console" /></td></tr>
+</tbody></table>
+<blockquote>
+<p>Make sure to <strong>disable adb debugging again</strong> after you are done with debugging!</p>
+</blockquote>
+<h3 id="debug-your-webxdc-content-in-deltachat-desktop"><a class="header" href="#debug-your-webxdc-content-in-deltachat-desktop">Debug Your webxdc Content in DeltaChat Desktop</a></h3>
+<p>Start the webxdc you want to debug and press <code>F12</code> to open the developer tools:</p>
+<p>
+<img
+src="images/desktop_debug_open.png"
+alt="screenshot of desktop webxdc window with devtool"
+style="max-height:40vh"
+/>
+</p>
+<p>A bit small isn't it? fix it either by resizing the window's <strong>width</strong> or <strong>undock</strong> the developer tools:</p>
+<p>
+<img
+src="images/desktop_debug_undock.png"
+alt="undock devtools"
+style="max-height:40vh"
+/>
+</p>
+<p>
+<img
+src="images/desktop_debug_extra_window.png"
+alt="undock devtools"
+style="max-height:40vh"
+/>
+</p>
+<h2 id="optimizing-your-app-icon"><a class="header" href="#optimizing-your-app-icon">Optimizing Your App Icon</a></h2>
+<p>There are several things you can do to shrink down the size of your icon:</p>
+<ul>
+<li>save without thumbnail image (in gimp it can be done in the export dialog)</li>
+<li>shrink the image resolution (<code>256px</code> are enough, in some cases <code>128px</code> or even lower like <code>64px</code> can sufice)</li>
+<li>change your PNG colors from <code>RGB</code> to <code>Indexed</code> (in gimp <code>Image</code> -&gt; <code>Mode</code> -&gt; <code>Indexed</code>, see <a href="https://docs.gimp.org/en/gimp-image-convert-indexed.html">https://docs.gimp.org/en/gimp-image-convert-indexed.html</a>)</li>
+</ul>
+<blockquote>
+<p>For <code>png</code> you can also use the <code>oxipng</code> tool (<a href="https://github.com/shssoichiro/oxipng">https://github.com/shssoichiro/oxipng</a>), which automagically optimizes your icon's file size without quality loss:</p>
+<pre><code>oxipng icon.png -s -o max
+</code></pre>
+<p>If you have png files in your project, you should also do this them to safe even more bytes.</p>
+<p>Noteworthy parameters:</p>
+<ul>
+<li><code>--pretend</code> only calculates gains</li>
+<li><code>-Z</code> even more compression, but takes longer</li>
+<li>for more info see <code>oxipng --help</code># Troubleshooting</li>
+</ul>
+</blockquote>
+<h2 id="i-cannot-share-variables-on-ios-between-scripts"><a class="header" href="#i-cannot-share-variables-on-ios-between-scripts">I Cannot Share Variables on iOS Between Scripts!</a></h2>
+<p>Your code:</p>
+<p><code>a.js</code></p>
+<pre><code class="language-js">const CONFIG = { difficulty: &quot;hard&quot;, hasCoins: true };
+</code></pre>
+<p><code>b.js</code></p>
+<pre><code class="language-js">if (CONFIG.difficulty == &quot;hard&quot;) {
+  /** make the game harder **/
+}
+</code></pre>
+<p><code>index.html</code></p>
+<pre><code class="language-html">&lt;html&gt;
+  &lt;head&gt;
+    &lt;!-- ... --&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- ... --&gt;
+    &lt;script src=&quot;a.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;b.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Basically you get many errors in your JS console like this:</p>
+<pre><code>Can't find variable: CONFIG
+</code></pre>
+<p>There are a few ways to solve this:</p>
+<ul>
+<li>use a bundle to bundle all your JS to one file (some bundlers: parcel, webpack, esbuild)</li>
+<li>use esm modules (see <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules</a>)</li>
+<li>define your variables as inline script in your HTML file. (inline script means that the script is in the HTML file between the <code>&lt;script&gt;</code> tags: <code>&lt;script&gt;my code&lt;/script&gt;</code>)</li>
+<li>append your global variables to the window object: <code>window.myVar = 1;</code> and use them like <code>console.log(window.myVar)</code></li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="05_01_babel.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="spec.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="05_03_debugging_in_deltachat.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -271,13 +388,10 @@ tsc --noEmit --allowJs --lib es2015,dom *.js
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="05_01_babel.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="spec.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="05_03_debugging_in_deltachat.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
             </nav>
 
         </div>
