@@ -1,20 +1,5 @@
 # Tips and Tricks 
 
-# Transpile newer Javascript with Babel.js
-
-Older devices might not have the newest javascript features/syntax in their webview, you may want to transpile your code down to an older js version eg. with <https://babeljs.io>
-
-TODO guide, TODO find out what the oldest browser/webview version is that we support.
-
-Targets:
-
-- Desktop (electron -> is chrome 91)
-- iOS (iOS 11 -> webkit 604.1.38)
-- android (android 5 -> the webview system component can be updated by the user: <https://play.google.com/store/apps/details?id=com.google.android.webview>)
-
-If you want to use a newer API make sure to check on <https://caniuse.com>. If you just want to use newer JavaScript syntax, babel.js is the right tool for you - it translates new JS into older JS, that can be interpreted.
-
-
 
 ## Typescript support
 
@@ -70,12 +55,27 @@ If you have a type for your state update **payloads**, replace the `any` in `Web
 ```
 
 
+## Transpile newer Javascript with Babel.js
+
+Older devices might not have the newest javascript features/syntax in their webview, you may want to transpile your code down to an older js version eg. with <https://babeljs.io>
+
+TODO guide, TODO find out what the oldest browser/webview version is that we support.
+
+Targets:
+
+- Desktop (electron -> is chrome 91)
+- iOS (iOS 11 -> webkit 604.1.38)
+- android (android 5 -> the webview system component can be updated by the user: <https://play.google.com/store/apps/details?id=com.google.android.webview>)
+
+If you want to use a newer API make sure to check on <https://caniuse.com>. If you just want to use newer JavaScript syntax, babel.js is the right tool for you - it translates new JS into older JS, that can be interpreted.
+
+
 
 ## Debugging with eruda.js
 
 When you can not use [debugging inside Deltachat](05_03_debugging_in_deltachat.md), either because you have no computer to connect to or are on iOS, you can use [eruda.js](https://github.com/liriliri/eruda) as an alternative to the native dev tools.
 
-## Installing eruda
+### Installing eruda
 
 Get `eruda.js` from https://github.com/liriliri/eruda, copy it next to your `index.html` and then add this snippet into the head section of your index.html, before all other scripts:
 
@@ -86,8 +86,9 @@ Get `eruda.js` from https://github.com/liriliri/eruda, copy it next to your `ind
 </script>
 ```
 
-Using eruda: When you open the webxdc a floating button will appear in a corner, tap it to see the developer tools.
+### Using eruda
 
+When you open the webxdc a floating button will appear in a corner, tap it to see the developer tools.
 
 
 ## Debugging inside Deltachat

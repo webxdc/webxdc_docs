@@ -1,62 +1,23 @@
 # Webxdc specification 
 
-## Webxdc File Format
-
-- a **Webxdc** is a **ZIP-file** with the extension `.xdc`
-- the ZIP-file must use the default compression methods as of RFC 1950,
-  this is "Deflate" or "Store"
-- the ZIP-file must contain at least the file `index.html`
-- the ZIP-file may contain a `manifest.toml` and `icon.png` or
-  `icon.jpg` files
-- if the Webxdc is started, `index.html` is opened in a restricted webview
-  that allow accessing resources only from the ZIP-file
-
-### The manifest.toml file
-
-If the ZIP-file contains a `manifest.toml` in its root directory,
-some basic information are read and used from there.
-
-the `manifest.toml` has the following format
-
-```toml
-name = "My Name"
-source_code_url = "https://example.org/orga/repo"
-```
-
-- `name` - The name of the Webxdc.
-  If no name is set or if there is no manifest, the filename is used as the Webxdc name.
-
-- `source_code_url` - Optional URL where the source code of the Webxdc and maybe other information can be found.
-  UI may make the url accessible via a "Help" menu in the Webxdc window.
-
-
-### Icon files 
-
-If the ZIP-root contains an `icon.png` or `icon.jpg`,
-these files are used as the icon for the Webxdc.
-The icon should be a square at reasonable width/height;
-round corners etc. will be added by the implementations as needed.
-If no icon is set, a default icon will be used.
+Webxdc is a fresh and still evolving way of running web apps in chat messengers. This document describes the [Webxdc API] and `.xdc` [file format] for app developers. It also describes the constraints for a [messenger implementation] for when it launches webxdc apps for its users. 
 
 
 ## Webxdc API
 
-You need to include the `webxdc.js` module in your HTML5 app which offers webxdc-related APIs for sending and receiving messages and accessing "self" information.  This module is provided by the chat messenger and also by the [simulator]. 
+A Webxdc app is shared in a chat and run independently on each device when a user clicks "start". 
+To share application state, the otherwise network-isolated app instances use `sendUpdate()` and `setUpdateListener()` to exchange information. Messenger implementations expose implementations for this API through the `webxdc.js` module. To activate the webxdc API you need to use a script reference for `webxdc.js` in your HTML5 app:
 
 ```html
 <script src="webxdc.js"></script>
 ```
 
-[simulator]: 02_02_dev_tool.md#using-the-webxdc-development-tool
 
 ### sendUpdate()
 
 ```js
 window.webxdc.sendUpdate(update, descr);
 ```
-
-A Webxdc is usually shared in a chat and run independently on each peer.
-To get a shared state, the peers use `sendUpdate()` to send updates to each other.
 
 - `update`: an object with the following properties:  
     - `update.payload`: any javascript primitive, array or object.
@@ -149,7 +110,7 @@ if there is nothing set, that defaults to the peer's address.
   and useful esp. different webviews have different defaults
 
 
-### Discouraged Things
+### Discouraged practises 
 
 - `document.cookie` is known not to work on desktop and iOS
   use `localStorage` instead
@@ -165,4 +126,65 @@ if there is nothing set, that defaults to the peer's address.
   instead, embed content or use `mailto:` link to offer a way for contact
 - `<input type="file">` is discouraged currently; this may change in future
 
+
+## Webxdc File Format
+
+- a **Webxdc** is a **ZIP-file** with the extension `.xdc`
+- the ZIP-file MUST use the default compression methods as of RFC 1950,
+  this is "Deflate" or "Store"
+- the ZIP-file MUST contain at least the file `index.html`
+- the ZIP-file MAY contain a `manifest.toml` and `icon.png` or
+  `icon.jpg` files
+- if the Webxdc app is started, `index.html` MUST be opened in a [restricted
+  webview](Webview constraints for running apps) that allow accessing 
+  resources only from the ZIP-file.
+
+### The manifest.toml file
+
+If the ZIP-file contains a `manifest.toml` in its root directory,
+the following basic information MUST be read from it: 
+
+```toml
+name = "My Name"
+source_code_url = "https://example.org/orga/repo"
+```
+
+- `name` - The name of the Webxdc app.
+  If no name is set or if there is no manifest, the filename is used as the Webxdc name.
+
+- `source_code_url` - Optional URL where the source code of the Webxdc and maybe other information can be found.
+  Messenger implementors may make the url accessible via a "Help" menu in the Webxdc window.
+
+
+### Icon files 
+
+If the ZIP-root contains an `icon.png` or `icon.jpg`,
+these files are used as the icon for the Webxdc.
+The icon should be a square at reasonable width/height;
+round corners etc. will be added by the implementations as needed.
+If no icon is set, a default icon will be used.
+
+
+
+## Messenger implementation
+
+### Webview constraints for running apps 
+
+Messenger implementors need to implement the following restrictions when starting a web view for a webxdc app to run:
+
+- You MUST deny all forms of internet access. If you don't do this
+  unsuspecting users may leak data of their private interactions to outside third parties. 
+  You do not need to offer "privacy" or "cookie" consent screens as 
+  there is no way the app can transfer user data to anything outside the chat. 
+
+- You MUST allow unrestricted use of DOM storage (local storage, indexed db and co), 
+  but make sure it is scoped to each webxdc app so they can not delete or modify 
+  the data of other webxdc content.
+
+- You MUST offer an implementation for `webxdc.js` implementing the
+  [Webxdc API] such that messages are relayed and shown in chats. 
+
+### UI Interactions in Chats
+
+- Info messages  in chats -> click on them should jump to their webxdc message
 
