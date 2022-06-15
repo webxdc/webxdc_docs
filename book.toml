@@ -6,6 +6,7 @@ src = "src"
 title = "webxdc"
 
 [output.html]
+default-theme = "Rust"
 git-repository-url = "https://github.com/deltachat/webxdc_docs"
 git-repository-icon = "fa-github"
 edit-url-template = "https://github.com/deltachat/webxdc_docs/edit/master/{path}"
