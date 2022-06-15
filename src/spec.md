@@ -166,9 +166,9 @@ If no icon is set, a default icon will be used.
 
 
 
-## Messenger implementation
+## Messenger Implementation
 
-### Webview constraints for running apps 
+### Webview Constraints for Running Apps 
 
 Messenger implementors need to implement the following restrictions when starting a web view for a webxdc app to run:
 
