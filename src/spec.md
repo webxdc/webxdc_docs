@@ -1,7 +1,8 @@
 # Webxdc Specification 
 
 Webxdc is a fresh and still evolving way of running web apps in chat messengers. 
-This document describes the [webxdc API](#webxdc-api) and [`.xdc` file format](#webxdc-file-format) for app developers. It also describes the constraints for a [messenger implementation] for when it launches webxdc apps for its users. 
+This document describes the [webxdc API](#webxdc-api) and [`.xdc` file format](#webxdc-file-format) for app developers.
+It also describes the constraints for a [messenger implementation](#messenger-implementation) for when it launches webxdc apps for its users. 
 
 
 ## Webxdc API
@@ -186,7 +187,7 @@ Messenger implementors need to implement the following restrictions when startin
   the data of other webxdc content.
 
 - You MUST offer an implementation for `webxdc.js` implementing the
-  [Webxdc API] such that messages are relayed and shown in chats. 
+  [Webxdc API](#webxdc-api) such that messages are relayed and shown in chats. 
 
 - You MUST make sure the, the standard JavaScript API work as described at
   [Other APIs and Tags Usage Hints](#other-apis-and-tags-usage-hints).
