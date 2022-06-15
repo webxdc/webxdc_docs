@@ -1,11 +1,11 @@
 # Tips and Tricks 
 
 
-## Typescript support
+## Typescript Support
 
 How to get autocompletion for window.webxdc api in you IDE via typescript.
 
-### Get the typescript definitions
+### Get the Typescript Definitions
 
 Just copy [`webxdc.d.ts`](https://github.com/deltachat/webxdc_docs/blob/master/webxdc.d.ts) into your source dir:
 
@@ -17,7 +17,7 @@ you can find it also on <https://github.com/deltachat/webxdc_docs/blob/master/we
 
 > In the future this might become an @types npm module, but for now it is what it is: _a simple file copy with **no** automatic updates_.
 
-### Using the types
+### Using the Types
 
 for using the types you need to import the file.
 
@@ -46,7 +46,7 @@ If you want you can also type your own functions using [JSDoc comments](https://
 > tsc --noEmit --allowJs --lib es2015,dom *.js
 > ```
 
-### Own Payload type
+### Own Payload Type
 
 If you have a type for your state update **payloads**, replace the `any` in `Webxdc<any>` with your own payload type:
 
@@ -55,7 +55,7 @@ If you have a type for your state update **payloads**, replace the `any` in `Web
 ```
 
 
-## Transpile newer Javascript with Babel.js
+## Transpile Newer Javascript With Babel.js
 
 Older devices might not have the newest javascript features/syntax in their webview, you may want to transpile your code down to an older js version eg. with <https://babeljs.io>
 
@@ -71,7 +71,7 @@ If you want to use a newer API make sure to check on <https://caniuse.com>. If y
 
 
 
-## Debugging with eruda.js
+## Debugging With eruda.js
 
 When you can not use [debugging inside Deltachat](05_03_debugging_in_deltachat.md), either because you have no computer to connect to or are on iOS, you can use [eruda.js](https://github.com/liriliri/eruda) as an alternative to the native dev tools.
 
@@ -91,9 +91,9 @@ Get `eruda.js` from https://github.com/liriliri/eruda, copy it next to your `ind
 When you open the webxdc a floating button will appear in a corner, tap it to see the developer tools.
 
 
-## Debugging inside Deltachat
+## Debugging Inside Deltachat
 
-### Debug your webxdc content in Android via Chrome DevTools
+### Debug Your webxdc Content in Android via Chrome DevTools
 
 1. enable webView debugging in delta chat settings `Settings` > `Advanced` > `Developer Mode`: <img alt="image of andvanced screen" src="images/android_remote_debug_enable.png" style="max-height:40vh" />
 1. enable developer mode and ADB debugging on your device _(go to system settings, device info, spam click on build number until there is a toast telling you that you are now a "Developer", then go into the developer menu that just appeared and enable "ADB debugging", see also [android docs: Enable ADB debugging on your device](https://developer.android.com/studio/command-line/adb#Enabling))._
@@ -116,7 +116,7 @@ style="max-height:40vh"
 
 > Make sure to **disable adb debugging again** after you are done with debugging!
 
-### Debug your webxdc content in DeltaChat Desktop
+### Debug Your webxdc Content in DeltaChat Desktop
 
 Start the webxdc you want to debug and press `F12` to open the developer tools:
 
@@ -148,7 +148,7 @@ style="max-height:40vh"
 
 
 
-## Optimizing your app Icon
+## Optimizing Your App Icon
 
 There are several things you can do to shrink down the size of your icon:
 
@@ -170,7 +170,7 @@ There are several things you can do to shrink down the size of your icon:
 > - for more info see `oxipng --help`# Troubleshooting
 
 
-## I cannot share variables on iOS between scripts!
+## I Cannot Share Variables on iOS Between Scripts!
 
 Your code:
 

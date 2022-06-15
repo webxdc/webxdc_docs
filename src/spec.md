@@ -1,4 +1,4 @@
-# Webxdc specification 
+# Webxdc Specification 
 
 Webxdc is a fresh and still evolving way of running web apps in chat messengers. This document describes the [Webxdc API] and `.xdc` [file format] for app developers. It also describes the constraints for a [messenger implementation] for when it launches webxdc apps for its users. 
 
@@ -110,7 +110,7 @@ if there is nothing set, that defaults to the peer's address.
   and useful esp. different webviews have different defaults
 
 
-### Discouraged practises 
+### Discouraged Practises 
 
 - `document.cookie` is known not to work on desktop and iOS
   use `localStorage` instead
@@ -139,7 +139,7 @@ if there is nothing set, that defaults to the peer's address.
   webview](Webview constraints for running apps) that allow accessing 
   resources only from the ZIP-file.
 
-### The manifest.toml file
+### The manifest.toml File
 
 If the ZIP-file contains a `manifest.toml` in its root directory,
 the following basic information MUST be read from it: 
@@ -156,7 +156,7 @@ source_code_url = "https://example.org/orga/repo"
   Messenger implementors may make the url accessible via a "Help" menu in the Webxdc window.
 
 
-### Icon files 
+### Icon Files 
 
 If the ZIP-root contains an `icon.png` or `icon.jpg`,
 these files are used as the icon for the Webxdc.

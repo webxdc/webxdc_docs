@@ -1,7 +1,7 @@
 # Getting Started 
 
 
-## A first "chat" example
+## A First "chat" Example
 
 The following complete `index.html` webxdc app example shows an input field and every input is show on all peers.
 
