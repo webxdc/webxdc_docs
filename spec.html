@@ -156,6 +156,8 @@ This document describes the <a href="#webxdc-api">webxdc API</a> and <a href="#w
 To share application state, the otherwise network-isolated app instances use <a href="#sendupdate"><code>sendUpdate()</code></a> and <a href="#setupdatelistener"><code>setUpdateListener()</code></a> to exchange information. Messenger implementations expose implementations for this API through the <code>webxdc.js</code> module. To activate the webxdc API you need to use a script reference for <code>webxdc.js</code> in your HTML5 app:</p>
 <pre><code class="language-html">&lt;script src=&quot;webxdc.js&quot;&gt;&lt;/script&gt;
 </code></pre>
+<p><code>webxdc.js</code> will be provided by the concrete implementations and must not be added to your <code>.xdc</code>-file.
+For simulating webxdc in a browser, you can use the file from the <a href="https://github.com/webxdc/hello">hello</a>-example.</p>
 <h3 id="sendupdate"><a class="header" href="#sendupdate">sendUpdate()</a></h3>
 <pre><code class="language-js">window.webxdc.sendUpdate(update, descr);
 </code></pre>
@@ -312,10 +314,38 @@ the data of other webxdc content.</p>
 <p>You MUST offer an implementation for <code>webxdc.js</code> implementing the
 [Webxdc API] such that messages are relayed and shown in chats. </p>
 </li>
+<li>
+<p>You MUST make sure the, the standard JavaScript API work as described at
+<a href="#other-apis-and-tags-usage-hints">Other APIs and Tags Usage Hints</a>.</p>
+</li>
 </ul>
 <h3 id="ui-interactions-in-chats"><a class="header" href="#ui-interactions-in-chats">UI Interactions in Chats</a></h3>
 <ul>
-<li>Info messages  in chats -&gt; click on them should jump to their webxdc message</li>
+<li>
+<p>Text from <code>update.info</code> should be shown in the chats
+and tapping them should jump to their webxdc message</p>
+</li>
+<li>
+<p>The most recent text from <code>update.document</code> and <code>update.summary</code> should be shown inside the webxdc message,
+together with name and icon.<br />
+Only one line of text should be shown and truncation is fine
+as webxdc devs should not be encourated to send long texts here.</p>
+</li>
+<li>
+<p>A &quot;start&quot; button should finally open the webxdc</p>
+</li>
+</ul>
+<h3 id="example-messenger-implementations"><a class="header" href="#example-messenger-implementations">Example Messenger Implementations</a></h3>
+<ul>
+<li>
+<p><a href="https://github.com/deltachat/deltachat-android/blob/master/src/org/thoughtcrime/securesms/WebxdcActivity.java">Android using Java</a></p>
+</li>
+<li>
+<p><a href="https://github.com/deltachat/deltachat-ios/blob/master/deltachat-ios/Controller/WebxdcViewController.swift">iOS using Swift</a></p>
+</li>
+<li>
+<p><a href="https://github.com/deltachat/deltachat-desktop/blob/786b7514d69ffb723bbe6e706494852a2641bfcd/src/main/deltachat/webxdc.ts">Desktop using TypeScript</a></p>
+</li>
 </ul>
 
                     </main>
