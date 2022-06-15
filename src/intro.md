@@ -8,22 +8,7 @@ Webxdc apps can only send and receive messages in the chat by using the [Javascr
 
 Webxdc is specified through its [file format] and [Javascript API] for developing web apps, and through instructions on the [Messenger implementation] for running and sharing webxdc apps in chats. Webxdc is supported and evolving in conjunction with the [Delta Chat](https://delta.chat) e-mail messenger apps which, if in doubt, serves as the default reference. 
 
-## How to develop? 
-
-
-## What kind of interactive content can be created with this?
-
-Some webxdc web apps that have already been implemented with webxdc: 
-
-- Games
-  - Singleplayer games with a shared highscore 
-  - Multiplayer turn-based games (like tictactoe or chess)
-- Productivity
-  - Polls
-  - Corkboards and Checklists 
-  - Collaborative Document editors
-
-You can follow further developments in the [webxdc GitHub organization](https://github.com/webxdc) and are invited to ask questions and post suggestions in [the "webxdc" support forum](https://support.delta.chat/c/webxdc/20).
+You can follow and participate in further developments in the [webxdc GitHub organization](https://github.com/webxdc) and are invited to ask questions and post suggestions in [the "webxdc" support forum](https://support.delta.chat/c/webxdc/20).
 
 [file format]: spec.md#webxdc-file-format
 [Javascript API]: spec.md#webxdc-api
