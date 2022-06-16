@@ -1,4 +1,4 @@
-# Webxdc specification 
+# Webxdc Specification
 
 Webxdc is a fresh and still evolving way of running web apps in chat messengers. 
 This document is for app developers and outlines the [webxdc API](#webxdc-api) and [`.xdc` file format](#webxdc-file-format). It also describes the constraints for a [messenger implementation](#messenger-implementation) when running webxdc apps. 
