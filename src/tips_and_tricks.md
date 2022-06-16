@@ -57,7 +57,7 @@ If you have a type for your state update **payloads**, replace the `any` in `Web
 
 ## Transpile Newer Javascript With Babel.js
 
-Older devices might not have the newest javascript features/syntax in their webview, you may want to transpile your code down to an older JavaScript version eg. with [Babel](https://babeljs.io)
+Older devices might not have the newest javascript features/syntax in their webview, you may want to transpile your code down to an older JavaScript version eg. with [Babel](https://babeljs.io).
 
 TODO guide, TODO find out what the oldest browser/webview version is that we support.
 
