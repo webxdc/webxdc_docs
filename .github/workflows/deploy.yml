@@ -48,9 +48,3 @@ jobs:
           port: 22
           local: "docs.webxdc.org"
           remote: "/var/www/html/"
-    
-        - name: Deploy 🚀
-          uses: JamesIves/github-pages-deploy-action@v4.2.3
-          with:
-            branch: gh-pages
-            folder: book
