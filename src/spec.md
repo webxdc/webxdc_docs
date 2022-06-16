@@ -171,21 +171,21 @@ If no icon is set, a default icon will be used.
 
 ### Webview Constraints for Running Apps 
 
-Messenger implementors MUST include the following restrictions when starting a web view for a webxdc app to run:
+When starting a web view for a webxdc app to run, messenger implementors:
 
-- Deny all forms of internet access. If you don't do this
+- MUST deny all forms of internet access. If you don't do this
   unsuspecting users may leak data of their private interactions to outside third parties. 
   You do not need to offer "privacy" or "cookie" consent screens as 
   there is no way the app can transfer user data to anything outside the chat. 
 
-- Allow unrestricted use of DOM storage (local storage, indexed db and co), 
+- MUST allow unrestricted use of DOM storage (local storage, indexed db and co), 
   but make sure it is scoped to each webxdc app so they can not delete or modify 
   the data of other webxdc content.
 
-- Inject `webxdc.js` and implement the
+- MUST inject `webxdc.js` and implement the
   [Webxdc API](#webxdc-api) so that messages are relayed and shown in chats. 
 
-- Make sure the standard JavaScript API works as described at
+- MUST make sure the standard JavaScript API works as described at
   [Other APIs and Tags Usage Hints](#other-apis-and-tags-usage-hints).
 
 ### UI Interactions in Chats
