@@ -149,17 +149,15 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="webxdc-specification"><a class="header" href="#webxdc-specification">Webxdc Specification</a></h1>
+                        <h1 id="webxdc-specification"><a class="header" href="#webxdc-specification">Webxdc specification</a></h1>
 <p>Webxdc is a fresh and still evolving way of running web apps in chat messengers. 
-This document describes the <a href="#webxdc-api">webxdc API</a> and <a href="#webxdc-file-format"><code>.xdc</code> file format</a> for app developers.
-It also describes the constraints for a <a href="#messenger-implementation">messenger implementation</a> for when it launches webxdc apps for its users. </p>
+This document is for app developers and outlines the <a href="#webxdc-api">webxdc API</a> and <a href="#webxdc-file-format"><code>.xdc</code> file format</a>. It also describes the constraints for a <a href="#messenger-implementation">messenger implementation</a> when running webxdc apps. </p>
 <h2 id="webxdc-api"><a class="header" href="#webxdc-api">Webxdc API</a></h2>
-<p>A webxdc app is shared in a chat and run independently on each device when a user clicks &quot;start&quot;. 
-To share application state, the otherwise network-isolated app instances use <a href="#sendupdate"><code>sendUpdate()</code></a> and <a href="#setupdatelistener"><code>setUpdateListener()</code></a> to exchange information. Messenger implementations expose implementations for this API through the <code>webxdc.js</code> module. To activate the webxdc API you need to use a script reference for <code>webxdc.js</code> in your HTML5 app:</p>
+<p>Webxdc apps are shared in a chat and each device runs its own instance on the recipients device when they click &quot;Start&quot;. The apps are network-isolated but can share state via <a href="#sendupdate"><code>sendUpdate()</code></a> and <a href="#setupdatelistener"><code>setUpdateListener()</code></a>.</p>
+<p>Messenger implementations expose the API through a <code>webxdc.js</code> module. To activate the webxdc API you need to use a script reference for <code>webxdc.js</code> in your HTML5 app:</p>
 <pre><code class="language-html">&lt;script src=&quot;webxdc.js&quot;&gt;&lt;/script&gt;
 </code></pre>
-<p><code>webxdc.js</code> will be provided by the concrete implementations and must not be added to your <code>.xdc</code>-file.
-For simulating webxdc in a browser, you can use the file from the <a href="https://github.com/webxdc/hello">hello</a>-example.</p>
+<p><code>webxdc.js</code> must not be added to your <code>.xdc</code> file as they are provided by the messenger. To simulate webxdc in a browser, use the <code>webxdc.js</code> file from <a href="https://github.com/webxdc/hello">Hello</a>.</p>
 <h3 id="sendupdate"><a class="header" href="#sendupdate">sendUpdate()</a></h3>
 <pre><code class="language-js">window.webxdc.sendUpdate(update, descr);
 </code></pre>
@@ -169,25 +167,25 @@ For simulating webxdc in a browser, you can use the file from the <a href="https
 <ul>
 <li><code>update.payload</code>: any javascript primitive, array or object.</li>
 <li><code>update.info</code>: optional, short, informational message that will be added to the chat,
-eg. &quot;Alice voted&quot; or &quot;Bob scored 123 in MyGame&quot;.
+e.g. &quot;Alice voted&quot; or &quot;Bob scored 123 in MyGame&quot;.
 usually only one line of text is shown
 and if there are series of info messages, older ones may be dropped.
 use this option sparingly to not spam the chat.</li>
 <li><code>update.document</code>: optional, name of the document in edit,
-must not be used eg. in games where the webxdc does not create documents</li>
-<li><code>update.summary</code>: optional, short text, shown beside Webxdc icon;
-it is recommended to use some aggregated value,  eg. &quot;8 votes&quot;, &quot;Highscore: 123&quot;</li>
+must not be used e.g. in games where the webxdc does not create documents</li>
+<li><code>update.summary</code>: optional, short text, shown beside the app icon;
+it is recommended to use some aggregated value,  e.g. &quot;8 votes&quot;, &quot;Highscore: 123&quot;</li>
 </ul>
 </li>
 <li>
 <p><code>descr</code>: short, human-readable description what this update is about.
-this is shown eg. as a fallback text in an e-mail program.</p>
+this is shown e.g. as a fallback text in an e-mail program.</p>
 </li>
 </ul>
 <p>All peers, including the sending one,
 will receive the update by the callback given to <a href="#setupdatelistener"><code>setUpdateListener()</code></a>.</p>
 <p>There are situations where the user cannot send messages to a chat,
-eg. if the webxdc instance comes as a contact request or if the user has left a group.
+e.g. if the webxdc instance comes as a contact request or if the user has left a group.
 In these cases, you can still call <code>sendUpdate()</code>,
 however, the update won't be sent to other peers
 and you won't get the update by <a href="#setupdatelistener"><code>setUpdateListener()</code></a>.</p>
@@ -218,7 +216,7 @@ If <code>max_serial</code> equals <code>serial</code> this update is the last up
 </li>
 <li>
 <p><code>update.document</code>: optional, document name as set by the sender, (see <a href="#sendupdate"><code>sendUpdate()</code></a>),
-implementations show the document name eg. beside the app icon or in the title bar</p>
+implementations show the document name e.g. beside the app icon or in the title bar</p>
 </li>
 <li>
 <p><code>update.summary</code>: optional, short text, shown beside icon (see <a href="#sendupdate"><code>sendUpdate()</code></a>)</p>
@@ -227,58 +225,54 @@ implementations show the document name eg. beside the app icon or in the title b
 <h3 id="selfaddr"><a class="header" href="#selfaddr">selfAddr</a></h3>
 <pre><code class="language-js">window.webxdc.selfAddr
 </code></pre>
-<p>Property with the peer's own address.
-This is esp. useful if you want to differ between different peers -
+<p>Email address of the current account.
+Especially useful if you want to differentiate between different peers -
 just send the address along with the payload,
 and, if needed, compare the payload addresses against <code>selfAddr</code> later on.</p>
 <h3 id="selfname"><a class="header" href="#selfname">selfName</a></h3>
 <pre><code class="language-js">window.webxdc.selfName
 </code></pre>
-<p>Property with the peer's own name.
-This is name chosen by the user in their settings,
-if there is nothing set, that defaults to the peer's address.</p>
+<p>Name of the current account, as defined in settings.
+If empty, this defaults to the peer's address.</p>
 <h2 id="other-apis-and-tags-usage-hints"><a class="header" href="#other-apis-and-tags-usage-hints">Other APIs and Tags Usage Hints</a></h2>
+<p>Webxdc apps run in a restricted environment, but the following practices are permitted:</p>
 <ul>
-<li><code>localStorage</code>, <code>sessionStorage</code>, <code>indexedDB</code> are okay to be used</li>
-<li><code>visibilitychange</code>-events are okay to be used</li>
-<li><code>window.navigator.language</code> is okay to be used, on desktop it is the system language</li>
-<li><code>&lt;a href=&quot;localfile.html&quot;&gt;</code> and other internal links are okay to be used</li>
-<li><code>&lt;a href=&quot;mailto:addr@example.org?body=...&quot;&gt;</code>- mailto links are okay to be used</li>
-<li><code>&lt;meta name=&quot;viewport&quot; ...&gt;</code> usage is okay to be used
-and useful esp. different webviews have different defaults</li>
+<li><code>localStorage</code>, <code>sessionStorage</code>, <code>indexedDB</code></li>
+<li><code>visibilitychange</code> events</li>
+<li><code>window.navigator.language</code></li>
+<li>internal links, such as <code>&lt;a href=&quot;localfile.html&quot;&gt;</code></li>
+<li><code>mailto</code> links, such as <code>&lt;a href=&quot;mailto:addr@example.org?body=...&quot;&gt;</code></li>
+<li><code>&lt;meta name=&quot;viewport&quot; ...&gt;</code> is useful especially as webviews from different platforms have different defaults</li>
 </ul>
 <h3 id="discouraged-practises"><a class="header" href="#discouraged-practises">Discouraged Practises</a></h3>
 <ul>
-<li><code>document.cookie</code> is known not to work on desktop and iOS
-use <code>localStorage</code> instead</li>
-<li><code>unload</code>-, <code>beforeunload</code>- and <code>pagehide</code>-events are known not to work on iOS and are flaky on other systems
-(also partly discouraged by <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/unload_event">mozilla</a>)
-use <code>visibilitychange</code> instead</li>
+<li><code>document.cookie</code> is known not to work on desktop and iOS—use <code>localStorage</code> instead</li>
+<li><code>unload</code>, <code>beforeunload</code> and <code>pagehide</code> events are known not to work on iOS and are flaky on other systems
+(also partly discouraged by <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/unload_event">mozilla</a>)—use <code>visibilitychange</code> instead</li>
 <li><code>&lt;title&gt;</code> and <code>document.title</code> is ignored by Webxdc;
 use the <code>name</code> property from <code>manifest.toml</code> instead</li>
-<li>newest js features may not work on all webviews,
+<li>the latest JavaScript features may not work on all webviews,
 you may want to transpile your code down to an older js version
-eg. with <a href="https://babeljs.io">https://babeljs.io</a></li>
+e.g. with <a href="https://babeljs.io">https://babeljs.io</a></li>
 <li><code>&lt;a href=&quot;https://example.org/foo&quot;&gt;</code> and other external links are blocked by definition;
 instead, embed content or use <code>mailto:</code> link to offer a way for contact</li>
-<li><code>&lt;input type=&quot;file&quot;&gt;</code> is discouraged currently; this may change in future</li>
+<li><code>&lt;input type=&quot;file&quot;&gt;</code> is currently discouraged; this may change in future</li>
 </ul>
 <h2 id="webxdc-file-format"><a class="header" href="#webxdc-file-format">Webxdc File Format</a></h2>
 <ul>
-<li>a <strong>Webxdc</strong> is a <strong>ZIP-file</strong> with the extension <code>.xdc</code></li>
+<li>a Webxdc app is a <strong>ZIP-file</strong> with the extension <code>.xdc</code></li>
 <li>the ZIP-file MUST use the default compression methods as of RFC 1950,
 this is &quot;Deflate&quot; or &quot;Store&quot;</li>
 <li>the ZIP-file MUST contain at least the file <code>index.html</code></li>
 <li>the ZIP-file MAY contain a <code>manifest.toml</code> and <code>icon.png</code> or
 <code>icon.jpg</code> files</li>
-<li>if the webxdc app is started, <code>index.html</code> MUST be opened in a</li>
-<li><a href="spec.html#webview-constraints-for-running-apps">restricted webview</a> that allow accessing 
-resources only from the ZIP-file.</li>
+<li>if the webxdc app is started, <code>index.html</code> MUST be opened in a <a href="spec.html#webview-constraints-for-running-apps">restricted webview</a> that only allows accessing 
+resources from the ZIP-file.</li>
 </ul>
 <h3 id="the-manifesttoml-file"><a class="header" href="#the-manifesttoml-file">The manifest.toml File</a></h3>
 <p>If the ZIP-file contains a <code>manifest.toml</code> in its root directory,
 the following basic information MUST be read from it: </p>
-<pre><code class="language-toml">name = &quot;My Name&quot;
+<pre><code class="language-toml">name = &quot;My App Name&quot;
 source_code_url = &quot;https://example.org/orga/repo&quot;
 </code></pre>
 <ul>
@@ -299,25 +293,25 @@ round corners etc. will be added by the implementations as needed.
 If no icon is set, a default icon will be used.</p>
 <h2 id="messenger-implementation"><a class="header" href="#messenger-implementation">Messenger Implementation</a></h2>
 <h3 id="webview-constraints-for-running-apps"><a class="header" href="#webview-constraints-for-running-apps">Webview Constraints for Running Apps</a></h3>
-<p>Messenger implementors need to implement the following restrictions when starting a web view for a webxdc app to run:</p>
+<p>When starting a web view for a webxdc app to run, messenger implementors:</p>
 <ul>
 <li>
-<p>You MUST deny all forms of internet access. If you don't do this
+<p>MUST deny all forms of internet access. If you don't do this
 unsuspecting users may leak data of their private interactions to outside third parties. 
 You do not need to offer &quot;privacy&quot; or &quot;cookie&quot; consent screens as 
 there is no way the app can transfer user data to anything outside the chat. </p>
 </li>
 <li>
-<p>You MUST allow unrestricted use of DOM storage (local storage, indexed db and co), 
+<p>MUST allow unrestricted use of DOM storage (local storage, indexed db and co), 
 but make sure it is scoped to each webxdc app so they can not delete or modify 
 the data of other webxdc content.</p>
 </li>
 <li>
-<p>You MUST offer an implementation for <code>webxdc.js</code> implementing the
-<a href="#webxdc-api">Webxdc API</a> such that messages are relayed and shown in chats. </p>
+<p>MUST inject <code>webxdc.js</code> and implement the
+<a href="#webxdc-api">Webxdc API</a> so that messages are relayed and shown in chats. </p>
 </li>
 <li>
-<p>You MUST make sure the, the standard JavaScript API work as described at
+<p>MUST make sure the standard JavaScript API works as described at
 <a href="#other-apis-and-tags-usage-hints">Other APIs and Tags Usage Hints</a>.</p>
 </li>
 </ul>
@@ -334,7 +328,7 @@ Only one line of text should be shown and truncation is fine
 as webxdc devs should not be encourated to send long texts here.</p>
 </li>
 <li>
-<p>A &quot;start&quot; button should finally open the webxdc</p>
+<p>A &quot;Start&quot; button should run the webxdc app</p>
 </li>
 </ul>
 <h3 id="example-messenger-implementations"><a class="header" href="#example-messenger-implementations">Example Messenger Implementations</a></h3>
