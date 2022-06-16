@@ -1,9 +1,9 @@
 # Tips and Tricks 
 
 
-## Typescript Support
+## Typescript support
 
-How to get autocompletion for window.webxdc api in you IDE via typescript.
+How to get autocompletion for window.webxdc api in your IDE via Typescript.
 
 ### Get the Typescript Definitions
 
@@ -17,17 +17,17 @@ you can find it also on <https://github.com/deltachat/webxdc_docs/blob/master/we
 
 > In the future this might become an @types npm module, but for now it is what it is: _a simple file copy with **no** automatic updates_.
 
-### Using the Types
+### Using types
 
-for using the types you need to import the file.
+Start by importing the file.
 
-Using in typescript: 
+In Typescript: 
 
 ```tyspescript
 import type { Webxdc } from './webxdc.d.ts'
 ```
 
-using in Javascript:
+In Javascript:
 
 ```javascript
 /**
@@ -35,11 +35,11 @@ using in Javascript:
  */
 ```
 
-This works in vscode nicely together with the `//@ts-check` comment on top of your source file.
+This works in VS Code nicely together with the `//@ts-check` comment on top of your source file.
 
 If you want you can also type your own functions using [JSDoc comments](https://jsdoc.app/).
 
-> If you don't use vscode you can still make use of the type checking with the typescript compiler:
+> If you don't use VS Code you can still make use of the type checking with the Typescript compiler:
 >
 > ```sh
 > npm i -g typescript # -g stands for global installation
@@ -57,7 +57,7 @@ If you have a type for your state update **payloads**, replace the `any` in `Web
 
 ## Transpile Newer Javascript With Babel.js
 
-Older devices might not have the newest javascript features/syntax in their webview, you may want to transpile your code down to an older js version eg. with <https://babeljs.io>
+Older devices might not have the newest javascript features/syntax in their webview, you may want to transpile your code down to an older JavaScript version eg. with [Babel](https://babeljs.io)
 
 TODO guide, TODO find out what the oldest browser/webview version is that we support.
 
