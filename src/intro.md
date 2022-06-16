@@ -1,6 +1,6 @@
 # Intro 
 
-Webxdc is a new way to create and share web apps in messenger chat groups. Anyone can build HTML5 apps, package it as a [`.xdc` file](spec.md#webxdc-file-format), and and drop it in a chat to share with friends. Once shared, chat participants can simply click "Start" to run the app and interact with each other through the app. 
+Webxdc is a new way to create and share web apps in messenger chat groups. Anyone can build HTML5 apps, package it as a [`.xdc` file](spec.md#webxdc-file-format), and drop it in a chat to share with friends. Once shared, chat participants can simply click "Start" to run the app and interact with each other through the app. 
 
 <video controls style="width:560px; max-width: 100%;"><source src="https://webxdc.org/assets/just-web-apps.mp4" type="video/mp4"><a href="https://www.youtube.com/watch?v=I1K4pBvb2pI">watch "just web apps" on youtube</a></video>
 
