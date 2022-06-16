@@ -1,6 +1,6 @@
-# The WEBXDC Book
+# The Webxdc Documentation
 
-## Building the Book
+## Building the Documentation
 
 Install requirements:
 
@@ -8,7 +8,7 @@ Install requirements:
 cargo install mdbook
 ```
 
-Build the book:
+Build the documentation:
 
 ```
 mdbook build
@@ -26,4 +26,4 @@ Add a link to the new page in `src/SUMMARY.md` then run `mdbook build` or `mdboo
 
 ---
 
-The book is generated using <https://rust-lang.github.io/mdBook/>.
+The documentation is generated using <https://rust-lang.github.io/mdBook/>.
