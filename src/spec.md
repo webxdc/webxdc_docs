@@ -104,13 +104,14 @@ If empty, this defaults to the peer's address.
 
 ## Other APIs and Tags Usage Hints
 
-- `localStorage`, `sessionStorage`, `indexedDB` are okay to be used
-- `visibilitychange` events are okay to be used
-- `window.navigator.language` is okay to be used, on desktop it is the system language
-- `<a href="localfile.html">` and other internal links are okay to be used
-- `<a href="mailto:addr@example.org?body=...">`- mailto links are okay to be used
-- `<meta name="viewport" ...>` usage is okay to be used
-  and useful esp. different webviews have different defaults
+Webxdc apps run in a restricted environment, but the following practices are permitted:
+
+- `localStorage`, `sessionStorage`, `indexedDB`
+- `visibilitychange` events
+- `window.navigator.language`
+- internal links, such as `<a href="localfile.html">`
+- `mailto` links, such as `<a href="mailto:addr@example.org?body=...">`
+- `<meta name="viewport" ...>` is useful especially as webviews from different platforms have different defaults
 
 
 ### Discouraged Practises 
