@@ -1,7 +1,4 @@
 
-h1.menu-title {
-}
-
 h1.menu-title::before {
     content: "";
     display: inline-block;
