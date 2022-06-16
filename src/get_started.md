@@ -3,7 +3,7 @@
 
 ## A simple example
 
-The following `index.html` shows a complete webxdc app, with an input field shown on all peers.
+The following `index.html` shows a complete webxdc app, with an input field shown on all peers. Data submitted from the input is delivered to all members of the chat.
 
 ```html
 <!DOCTYPE html>
