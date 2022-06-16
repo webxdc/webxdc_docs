@@ -1,9 +1,9 @@
 # Getting Started 
 
 
-## A First "chat" Example
+## A simple example
 
-The following complete `index.html` webxdc app example shows an input field and every input is show on all peers.
+The following `index.html` shows a complete webxdc app, with an input field shown on all peers.
 
 ```html
 <!DOCTYPE html>
@@ -17,7 +17,6 @@ The following complete `index.html` webxdc app example shows an input field and 
     <a href="" onclick="sendMsg(); return false;">Send</a>
     <p id="output"></p>
     <script>
-    
       function sendMsg() {
         msg = document.getElementById("input").value;
         window.webxdc.sendUpdate({payload: msg}, 'Someone typed "'+msg+'".');
@@ -26,34 +25,32 @@ The following complete `index.html` webxdc app example shows an input field and 
       function receiveUpdate(update) {
         document.getElementById('output').innerHTML += update.payload + "<br>";
       }
-    
       window.webxdc.setUpdateListener(receiveUpdate, 0);
     </script>
   </body>
 </html>
 ```
 
-Now zip the directory containing the `index.html`:
+To package the app as a `.xdc` file, zip the directory containing the `index.html`:
 
 ```shell
 zip -9 --recurse-paths "myapp.xdc" PATH_TO_DIR
 ```
-You can now share the resulting `myapp.xdc` file in a chat and everyone can hit "start" to start our little "chat app". 
 
-However, for faster and more convenient development round trips we recommend to try using the minimal [hello webxdc development](https://github.com/webxdc/hello) tool.
+Now it's possible to share the `myapp.xdc` file in any chat—recipients can hit "Start" to begin using the app to enter text in this input field and send updates to each other. 
 
-
-## Many More Examples to Work From
-
-Each of the working examples on [webxdc home page](https://webxdc.org) comes with source-code references, usually pointing to repositories in the [Webxdc organisation on github](https://github.com/webxdc).
+To simulate multiple chat participants in the browser, try [Hello](https://github.com/webxdc/hello) as a minimal example; it includes everything needed to run the app and requires no build systems.
 
 
-## Participating in Developments 
+## More examples
 
-- [Webxdc Github org](https://github.com/webxdc) containing many example app repositories
-  Please tag your own app experiments with the "webxdc" topic so that others may find it 
-  via the [`#webxdc` Topic on GitHub](https://github.com/topics/webxdc). 
+Source code for apps referenced on the [webxdc home page](https://webxdc.org) can be found in the [Webxdc GitHub organization](https://github.com/webxdc).
 
-- Support Forum: You can ask questions and announce your app projects on the DeltaChat forum under the [webxdc category](https://support.delta.chat/c/webxdc/20). You can login into the [forum](https://support.delta.chat) via DeltaChat, Github or by creating a normal account there.
 
-- Announcements: You may follow Delta Chat and Webxdc-related developments through the [Delta Fediverse](https://chaos.social/@delta) or the [Delta Twitter](https://twitter.com/delta_chat) accounts. 
+## Participating in developments 
+
+- [Webxdc GitHub organization](https://github.com/webxdc): contains many example app repositories. Please tag your own app experiments with "webxdc" so that others can find it via the [`#webxdc` Topic on GitHub](https://github.com/topics/webxdc). 
+
+- [Support Forum](https://support.delta.chat/c/webxdc/20): the webxdc category on the DeltaChat forum is a space to ask questions and announce your app projects. Log into the [forum](https://support.delta.chat) via DeltaChat, Github, or by creating a username and password there.
+
+- Announcements: Delta Chat and Webxdc-related developments can be followed on [Fediverse](https://chaos.social/@delta) or [Twitter](https://twitter.com/delta_chat). 
