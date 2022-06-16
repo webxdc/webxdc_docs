@@ -37,7 +37,7 @@ To package the app as a `.xdc` file, zip the directory containing the `index.htm
 zip -9 --recurse-paths "myapp.xdc" PATH_TO_DIR
 ```
 
-Now it's possible to share the `myapp.xdc` file in any chat—recipients can hit "Start" to begin using the app to enter text in this input field and send updates to each other. 
+Now it's possible to share the `myapp.xdc` file in any chat: recipients can hit "Start" to begin using the app to enter text in this input field and send updates to each other. 
 
 To simulate multiple chat participants in the browser, try [Hello](https://github.com/webxdc/hello) as a minimal example; it includes everything needed to run the app and requires no build systems.
 
