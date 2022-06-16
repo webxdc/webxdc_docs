@@ -1,4 +1,4 @@
-# Introduction 
+# Intro 
 
 Webxdc is a new way to develop, share and use web apps in messenger chat groups. Anyone can build HTML5 apps without permission and share it with friends by simply sending a message with an attached `.xdc` file as defined by [file format]. Once a webxdc app is shared in a chat, its members can click "start" to run the app and interact with each other through the app. 
 
