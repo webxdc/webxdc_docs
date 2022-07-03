@@ -7,13 +7,13 @@ How to get autocompletion for window.webxdc api in your IDE via Typescript.
 
 ### Get the Typescript Definitions
 
-Just copy [`webxdc.d.ts`](https://github.com/deltachat/webxdc_docs/blob/master/webxdc.d.ts) into your source dir:
+Just copy [`webxdc.d.ts`](https://github.com/webxdc/webxdc_docs/blob/master/webxdc.d.ts) into your source dir:
 
 ```typescript
 {{#include ../webxdc.d.ts:3:}}
 ```
 
-you can find it also on <https://github.com/deltachat/webxdc_docs/blob/master/webxdc.d.ts> or just copy the code block above.
+you can find it also on <https://github.com/webxdc/webxdc_docs/blob/master/webxdc.d.ts> or just copy the code block above.
 
 > In the future this might become an @types npm module, but for now it is what it is: _a simple file copy with **no** automatic updates_.
 
