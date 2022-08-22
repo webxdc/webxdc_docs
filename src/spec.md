@@ -163,7 +163,7 @@ If the ZIP-root contains an `icon.png` or `icon.jpg`,
 these files are used as the icon for the webxdc.
 The icon should be a square at reasonable width/height.
 Round corners, circle cut out etc. will be added by the implementations as needed;
-do not add borders or shaped to the icon therefore.
+do not add borders or shapes to the icon therefore.
 If no icon is set, a default icon will be used.
 
 
