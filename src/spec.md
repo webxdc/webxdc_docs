@@ -197,7 +197,7 @@ When starting a web view for a webxdc app to run, messenger implementors:
 - The most recent text from `update.document` and `update.summary` should be shown inside the webxdc message,
   together with name and icon.  
   Only one line of text should be shown and truncation is fine
-  as webxdc devs should not be encourated to send long texts here.
+  as webxdc devs should not be encouraged to send long texts here.
 
 - A "Start" button should run the webxdc app
 
