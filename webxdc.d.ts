@@ -49,7 +49,7 @@ interface Webxdc<T> {
    * */
   setUpdateListener(cb: (statusUpdate: ReceivedStatusUpdate<T>) => void, serial?: number): Promise<void>;
   /**
-   * WARNING! This function is deprecated, see setUpdateListener().
+   * @deprecated See {@link setUpdateListener|`setUpdateListener()`}.
    */
   getAllUpdates(): Promise<ReceivedStatusUpdate<T>[]>;
   /**
