@@ -116,6 +116,12 @@ style="max-height:40vh"
 
 ### Debug Your webxdc Content in DeltaChat Desktop
 
+First enable the devTools for webxdc in the Settings:
+
+settings -> experimental -> Enable Webxdc Devtools
+
+> Note that you need to close and open any active webxdcs again for changes to take effect
+
 Start the webxdc you want to debug and press `F12` to open the developer tools:
 
 <p>
