@@ -85,9 +85,13 @@ Each `update` which is passed to the callback comes with the following propertie
 window.webxdc.selfAddr
 ```
 
-Email address of the current account.
+A string with an unique ID identifying the user in the current webxdc.
+Every user of an webxdc must get a different ID
+and that ID must be the same if the webxdc is started again later for the same user.
+The same user in different webxdc, however, may have different IDs.
+
 Especially useful if you want to differentiate between different peers -
-just send the address along with the payload,
+just send the ID along with the payload,
 and, if needed, compare the payload addresses against `selfAddr` later on.
 
 
