@@ -34,6 +34,16 @@ type ReceivedStatusUpdate<T> = {
   summary?: string;
 };
 
+type sendOptions =
+  | {
+      file: File;
+      text?: string;
+    }
+  | {
+      file?: File;
+      text: string;
+    };
+
 interface Webxdc<T> {
   /** Returns the peer's own address.
    *  This is esp. useful if you want to differ between different peers - just send the address along with the payload,
@@ -47,7 +57,10 @@ interface Webxdc<T> {
    * Note that own status updates, that you send with {@link sendUpdate}, also trigger this method
    * @returns promise that resolves when the listener has processed all the update messages known at the time when `setUpdateListener` was called.
    * */
-  setUpdateListener(cb: (statusUpdate: ReceivedStatusUpdate<T>) => void, serial?: number): Promise<void>;
+  setUpdateListener(
+    cb: (statusUpdate: ReceivedStatusUpdate<T>) => void,
+    serial?: number
+  ): Promise<void>;
   /**
    * @deprecated See {@link setUpdateListener|`setUpdateListener()`}.
    */
@@ -58,6 +71,19 @@ interface Webxdc<T> {
    * @param description short, human-readable description what this update is about. this is shown eg. as a fallback text in an email program.
    */
   sendUpdate(update: SendingStatusUpdate<T>, description: string): void;
+  /**
+   * TODO
+   * @param content
+   * @returns returns a promise that is resolved to true once export is completed or false on error/abort
+   */
+  sendToChat(content: sendOptions): Promise<boolean>;
+  /**
+   * TODO
+   */
+  importFiles(filters: {
+    mimeTypes?: string[];
+    extentions?: string[];
+  }): Promise<File[]>;
 }
 
 ////////// ANCHOR: global
