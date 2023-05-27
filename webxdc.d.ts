@@ -83,6 +83,8 @@ interface Webxdc<T> {
   importFiles(filters: {
     mimeTypes?: string[];
     extentions?: string[];
+    /** false by default, whether to allow multiple files to be selected */
+    multiple?: boolean;
   }): Promise<File[]>;
 }
 
