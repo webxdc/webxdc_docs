@@ -72,11 +72,13 @@ interface Webxdc<T> {
    */
   sendUpdate(update: SendingStatusUpdate<T>, description: string): void;
   /**
-   * TODO
+   * Send a message with file, text or both to a chat.
+   * Asks user to what Chat to send the message to.
+   * Always exits the xdc, please save your app state before calling this function
    * @param content
-   * @returns returns a promise that is resolved to true once export is completed or false on error/abort
+   * @returns returns a promise that never resolves (because the xdc closes), but is rejected on error.
    */
-  sendToChat(content: sendOptions): Promise<boolean>;
+  sendToChat(content: sendOptions): Promise<void>;
   /**
    * TODO
    */
