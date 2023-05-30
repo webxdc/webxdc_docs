@@ -98,8 +98,8 @@ so it is clear that the outgoing message is really a result of some user interac
 
 Either `message.file`, `message.text` or both needs to be set.
 The text can usually be modified by the user and
-the user may decide to sent the text without the file
-or sent nothing at all.
+the user may decide to send the text without the file
+or send nothing at all.
 
 To let the user focus on sending the message,
 calling this function will immediately pass control back to the main app
