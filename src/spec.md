@@ -89,7 +89,7 @@ promise = window.webxdc.sendToChat(message);
 that can then be sent to a chat by the user.
 Implementations may ask the user for a destination chat
 and then set up the message as a draft,
-so it is clear that the outgoing message is really a result of some user interaction.
+so it is clear that the outgoing message is a result of some user interaction.
 
 - `message`: an object with the following properties:
   - `message.file.base64`: base64 encoded file data
