@@ -121,8 +121,6 @@ webxdc.sendToChat({
 });
 ```
 
-When you need to send an empty file make sure you set `message.file.base64` to an empty string (`""`), forgetting to set `base64` or setting it to `null` it is an error. This is also important for Messenger Implementations, because you need to check for `typeof message.file.base64 === "string"` instead of `!message.file.base64`, which would not allow empty files.
-
 
 ### selfAddr
 
