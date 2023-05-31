@@ -23,7 +23,7 @@ Start by importing the file.
 
 In Typescript: 
 
-```tyspescript
+```typescript
 import type { Webxdc } from './webxdc.d.ts'
 ```
 
