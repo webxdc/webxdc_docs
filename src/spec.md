@@ -85,7 +85,7 @@ Each `update` which is passed to the callback comes with the following propertie
 promise = window.webxdc.sendToChat(message);
 ```
 
-`sendToChat()` allows an webxdc app to prepare a message
+`sendToChat()` (requires Delta Chat 1.38 or compatible) allows an webxdc app to prepare a message
 that can then be sent to a chat by the user.
 Implementations may ask the user for a destination chat
 and then set up the message as a draft,
