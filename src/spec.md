@@ -94,21 +94,22 @@ so it is clear that the outgoing message is a result of some user interaction.
 - `message`: an object with the following properties:
   - `message.file.base64`: base64 encoded file data
   - `message.file.name`: name of the file
-  - `message.text`: message text that should be sent together with the file
+  - `message.text`: message text to be sent
 
 Either `message.file`, `message.text` or both needs to be set.
+
 The text can usually be modified by the user and
 the user may decide to send the text without the file
-or send nothing at all.
+or abort sending at all.
+These user decisions are not reported back to the webxdc app.
 
 To let the user focus on sending the message,
-calling this function will immediately pass control back to the main app
+calling this function may pass control back to the main app
 and exit the webxdc app.
+The promise may or may not be resolved before exit.
 
-Only in case of errors,
+In case of errors,
 the app will not exit and the promise will be rejected.
-Note, that if the user decides to abort sending,
-or if sending fails, this won't be reported back to the webxdc app.
 
 Example:
 
