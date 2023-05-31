@@ -34,13 +34,20 @@ type ReceivedStatusUpdate<T> = {
   summary?: string;
 };
 
+type XDCFile = {
+  /** name of the file */
+  name: string,
+  /** base64 encoded file data */
+  base64: string,
+}
+
 type sendOptions =
   | {
-      file: File;
+      file: XDCFile;
       text?: string;
     }
   | {
-      file?: File;
+      file?: XDCFile;
       text: string;
     };
 
