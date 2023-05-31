@@ -159,6 +159,8 @@ Webxdc apps run in a restricted environment, but the following practices are per
 - internal links, such as `<a href="localfile.html">`
 - `mailto` links, such as `<a href="mailto:addr@example.org?body=...">`
 - `<meta name="viewport" ...>` is useful especially as webviews from different platforms have different defaults
+- `<input type="file">` allows importing of files for further processing (requires Delta Chat 1.38 or compatible);
+  see [`sendToChat()`](#sendtochat) for a way to export files
 
 
 ### Discouraged Practises 
@@ -173,7 +175,6 @@ Webxdc apps run in a restricted environment, but the following practices are per
   e.g. with <https://babeljs.io>
 - `<a href="https://example.org/foo">` and other external links are blocked by definition;
   instead, embed content or use `mailto:` link to offer a way for contact
-- `<input type="file">` is currently discouraged; this may change in future
 
 
 ## Webxdc File Format
