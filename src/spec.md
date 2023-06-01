@@ -92,8 +92,12 @@ and then set up the message as a draft,
 so it is clear that the outgoing message is a result of some user interaction.
 
 - `message`: an object with the following properties:
-  - `message.file.base64`: base64 encoded file data
-  - `message.file.name`: name of the file
+  - `message.file:`
+    - `message.file.name`: name of the file
+    - and the file content in one of these formats:
+      - `message.file.blob`: javascript `Blob`, also accepts types that inherit `Blob`, like `File`
+      - `message.file.base64`: base64 encoded file data
+      - `message.file.plainText`: text for textfile, will be encoded as utf8
   - `message.text`: message text to be sent
 
 Either `message.file`, `message.text` or both needs to be set.
@@ -122,7 +126,9 @@ webxdc.sendToChat({
 });
 ```
 
-When you need to send an empty file make sure you set `message.file.base64` to an empty string (`""`), forgetting to set `base64` or setting it to `null` it is an error. This is also important for Messenger Implementations, because you need to check for `typeof message.file.base64 === "string"` instead of `!message.file.base64`, which would not allow empty files.
+> When you need to send an empty file make sure you set `message.file.base64` to an empty string (`""`), forgetting to set `base64` or setting it to `null` it is an error. This is also important for Messenger Implementations, because you need to check for `typeof message.file.base64 === "string"` instead of `!message.file.base64`, which would not allow empty files.
+
+> If you want to store text don't use `btoa()`, rather use `message.file.plainText` directly, because [`btoa()` has problems with some unicode/emojis](https://developer.mozilla.org/en-US/docs/Web/API/btoa#unicode_strings)
 
 ### selfAddr
 
