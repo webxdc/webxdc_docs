@@ -97,6 +97,15 @@ interface Webxdc<T> {
    * @returns promise that may not resolve (because the xdc closes) and is rejected on error.
    */
   sendToChat(message: SendOptions): Promise<void>;
+  /**
+   * TODO
+   */
+  importFiles(filters: {
+    mimeTypes?: string[];
+    extentions?: string[];
+    /** false by default, whether to allow multiple files to be selected */
+    multiple?: boolean;
+  }): Promise<File[]>;
 }
 
 ////////// ANCHOR: global
