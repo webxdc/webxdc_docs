@@ -36,10 +36,21 @@ type ReceivedStatusUpdate<T> = {
 
 type XDCFile = {
   /** name of the file */
-  name: string,
-  /** base64 encoded file data */
-  base64: string,
-}
+  name: string;
+} & (
+  | {
+      /** blob, also accepts types that inherit Blob, like File */
+      blob: Blob;
+    }
+  | {
+      /** base64 encoded file data */
+      base64: string;
+    }
+  | {
+      /** text for textfile, will be encoded as utf8 */
+      plainText: string;
+    }
+);
 
 type sendOptions =
   | {
@@ -105,4 +116,4 @@ declare global {
 }
 ////////// ANCHOR_END: global
 
-export { SendingStatusUpdate, ReceivedStatusUpdate, Webxdc };
+export { SendingStatusUpdate, ReceivedStatusUpdate, Webxdc, XDCFile };
