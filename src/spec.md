@@ -91,16 +91,16 @@ Implementations may ask the user for a destination chat
 and then set up the message as a draft,
 so it is clear that the outgoing message is a result of some user interaction.
 
-- `message`: an object with the following properties:
-  - `message.file:`
-    - `message.file.name`: name of the file
-    - and the file content in one of these formats:
-      - `message.file.blob`: javascript `Blob`, also accepts types that inherit `Blob`, like `File`
-      - `message.file.base64`: base64 encoded file data
-      - `message.file.plainText`: text for textfile, will be encoded as utf8
-  - `message.text`: message text to be sent
+`message` is an object with `file`, `text` or both set:
 
-Either `message.file`, `message.text` or both needs to be set.
+- `message.file`: file to be sent, set `name` and **one of** `blob`, `base64` or `plainText`:
+
+  - `message.file.name`: name of the file, including extension
+  - `message.file.blob`: JavaScript `Blob`, also accepts inherit types like `File`
+  - `message.file.base64`: base64 encoded data
+  - `message.file.plainText`: text for textfile, will be encoded as utf-8
+
+- `message.text`: message text to be sent
 
 The text can usually be modified by the user and
 the user may decide to send the text without the file
@@ -126,9 +126,18 @@ webxdc.sendToChat({
 });
 ```
 
-> When you need to send an empty file make sure you set `message.file.base64` to an empty string (`""`), forgetting to set `base64` or setting it to `null` it is an error. This is also important for Messenger Implementations, because you need to check for `typeof message.file.base64 === "string"` instead of `!message.file.base64`, which would not allow empty files.
+Notes:
 
-> If you want to send text don't use `btoa()`, rather use `message.file.plainText` directly, because [`btoa()` has problems with some unicode/emojis](https://developer.mozilla.org/en-US/docs/Web/API/btoa#unicode_strings)
+- To send and empty file, set an empty string or blob as data.
+  Not setting any data is an error.
+  This is also important for messenger implementors,
+  that need to check for eg. `typeof message.file.base64 === "string"`
+  and not `!message.file.base64`, which would not allow empty files.
+
+- If you want to send text don't use `btoa()`,
+  rather use `message.file.plainText` directly,
+  because [`btoa()` has problems with some unicode/emojis](https://developer.mozilla.org/en-US/docs/Web/API/btoa#unicode_strings)
+
 
 ### selfAddr
 
