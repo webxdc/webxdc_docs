@@ -52,7 +52,7 @@ type XDCFile = {
     }
 );
 
-type sendOptions =
+type SendOptions =
   | {
       file: XDCFile;
       text?: string;
@@ -96,7 +96,7 @@ interface Webxdc<T> {
    * @param message
    * @returns promise that may not resolve (because the xdc closes) and is rejected on error.
    */
-  sendToChat(message: sendOptions): Promise<void>;
+  sendToChat(message: SendOptions): Promise<void>;
 }
 
 ////////// ANCHOR: global
