@@ -35,11 +35,11 @@ type ReceivedStatusUpdate<T> = {
 };
 
 type XDCFile = {
-  /** name of the file */
+  /** name of the file, including extension */
   name: string;
 } & (
   | {
-      /** blob, also accepts types that inherit Blob, like File */
+      /** Blob, also accepts inherit types like File */
       blob: Blob;
     }
   | {
@@ -92,11 +92,11 @@ interface Webxdc<T> {
   /**
    * Send a message with file, text or both to a chat.
    * Asks user to what Chat to send the message to.
-   * Always exits the xdc, please save your app state before calling this function
-   * @param content
-   * @returns returns a promise that never resolves (because the xdc closes), but is rejected on error.
+   * May exit the xdc, please save your app state before calling this function.
+   * @param message
+   * @returns promise that may not resolve (because the xdc closes) and is rejected on error.
    */
-  sendToChat(content: sendOptions): Promise<void>;
+  sendToChat(message: sendOptions): Promise<void>;
 }
 
 ////////// ANCHOR: global
