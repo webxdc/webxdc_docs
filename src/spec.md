@@ -146,12 +146,21 @@ let files = await window.webxdc.importFiles(filter);
 
 `importFiles()` (requires Delta Chat 1.38 or compatible) allows a webxdc app to import files.
 Depending on platform support, this just opens the system file picker or a custom one.
-This custom file picker should show recent attachments that were received and sent, to make importing of a file that you just received from someone easier (you don't need to save it to the file system first), but it also still shows a button to open the system file picker.
+This custom file picker should show recent attachments that were received and sent,
+to make importing of a file that you just received from someone easier
+(you don't need to save it to the file system first),
+but it also still shows a button to open the system file picker.
 
 - `filter`: an object with the following properties:
-  - `filter.mimeTypes`: optional - list of mime types in the format specified in https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept#unique_file_type_specifiers
-  - `filter.extensions`: optional - list of extensions, all extensions need to start with a dot and have the format `.ext`.
-  - `filter.multiple`: false by default, whether to allow multiple files to be selected
+  - `filter.extensions`: optional - Array of extensions the file list should be limited to.
+    Extensions must start with a dot and have the format `.ext`.
+    If not specified, all files are shown.
+  - `filter.mimeTypes`: optional - Array of mime types that may be used in case a file has no extension.
+    Specifying a mime type requires to list all typical extensions as well -
+    otherwise, you may miss files.
+    See <https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept#unique_file_type_specifiers>
+    for details about the format.
+  - `filter.multiple`: whether to allow multiple files to be selected, false by default
 
 The method returns a `Promise` that resolves to an Array of `File`-Objects.
 

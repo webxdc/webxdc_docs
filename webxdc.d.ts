@@ -105,13 +105,15 @@ interface Webxdc<T> {
    */
   importFiles(filter: {
     /**
-     * mimetypes as in https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept#unique_file_type_specifiers
-     */
-    mimeTypes?: string[];
-    /** only show files with these extensions.
+     * Only show files with these extensions.
      * All extensions need to start with a dot and have the format `.ext`. */
     extensions?: string[];
-    /** false by default, whether to allow multiple files to be selected */
+    /**
+     * Mime types as in https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept#unique_file_type_specifiers
+     * Specifying a mime type requires to list all typical extensions as well.
+     */
+    mimeTypes?: string[];
+    /** Whether to allow multiple files to be selected, false by default */
     multiple?: boolean;
   }): Promise<File[]>;
 }
