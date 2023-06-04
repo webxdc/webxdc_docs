@@ -98,11 +98,19 @@ interface Webxdc<T> {
    */
   sendToChat(message: SendOptions): Promise<void>;
   /**
-   * TODO
+   * Asks the user to choose files.
+   * This either opens a normal file picker (like `<input type=file>`) or an integrated Filepicker if the ui has implemented it.
+   * This custom file picker should show files that were recently send or received in chats,
+   * but also show a button to open the normal file picker.
    */
-  importFiles(filters: {
+  importFiles(filter: {
+    /**
+     * mimetypes as in https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept#unique_file_type_specifiers
+     */
     mimeTypes?: string[];
-    extentions?: string[];
+    /** only show files with these extensions.
+     * All extensions need to start with a dot and have the format `.ext`. */
+    extensions?: string[];
     /** false by default, whether to allow multiple files to be selected */
     multiple?: boolean;
   }): Promise<File[]>;
