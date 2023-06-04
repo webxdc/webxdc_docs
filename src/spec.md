@@ -170,6 +170,10 @@ try {
 }
 ```
 
+Note that you need to trigger this api from a user interaction,
+for example when clicking on a button,
+because some implementations, such as the basic simulator (`webxdc.js`) use the `<input type=file>` element under the hood.
+
 
 ### selfAddr
 
