@@ -118,7 +118,7 @@ style="max-height:40vh"
 
 First enable the devTools for webxdc in the Settings:
 
-settings -> experimental -> Enable Webxdc Devtools
+`Settings` > `Advanced` > Experimental Features > `Enable Webxdc Devtools`
 
 > Note that you need to close and open any active webxdcs again for changes to take effect
 
