@@ -313,7 +313,7 @@ When starting a web view for a webxdc app to run, messenger implementors:
   Only one line of text SHOULD be shown and truncation is fine
   as webxdc devs SHOULD NOT be encouraged to send long texts here.
 
-- A "Start" button should run the webxdc app.
+- A "Start" button SHOULD run the webxdc app.
 
 ### Example Messenger Implementations
 
