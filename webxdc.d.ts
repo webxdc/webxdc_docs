@@ -120,9 +120,7 @@ interface Webxdc<T> {
 
 ////////// ANCHOR: global
 declare global {
-  interface Window {
-    webxdc: Webxdc<any>;
-  }
+  var webxdc: Webxdc<any>;
 }
 ////////// ANCHOR_END: global
 
