@@ -1,5 +1,8 @@
 //@ts-check
 
+// This file originates from
+// https://github.com/webxdc/webxdc_docs/blob/master/webxdc.d.ts
+
 type SendingStatusUpdate<T> = {
   /** the payload, deserialized json:
    * any javascript primitive, array or object. */
