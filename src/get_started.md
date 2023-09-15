@@ -19,13 +19,13 @@ The following `index.html` shows a complete webxdc app, with an input field show
     <script>
       function sendMsg() {
         msg = document.getElementById("input").value;
-        window.webxdc.sendUpdate({payload: msg}, 'Someone typed "'+msg+'".');
+        webxdc.sendUpdate({payload: msg}, 'Someone typed "'+msg+'".');
       }
     
       function receiveUpdate(update) {
         document.getElementById('output').innerHTML += update.payload + "<br>";
       }
-      window.webxdc.setUpdateListener(receiveUpdate, 0);
+      webxdc.setUpdateListener(receiveUpdate, 0);
     </script>
   </body>
 </html>

@@ -3,7 +3,7 @@
 
 ## Typescript support
 
-How to get autocompletion for window.webxdc api in your IDE via Typescript.
+How to get autocompletion for webxdc api in your IDE via Typescript.
 
 ### Get the Typescript Definitions
 
