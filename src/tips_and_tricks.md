@@ -1,11 +1,11 @@
 # Tips and Tricks 
 
 
-## Typescript support
+## TypeScript support
 
-How to get autocompletion for window.webxdc api in your IDE via Typescript.
+How to get autocompletion for window.webxdc api in your IDE via TypeScript.
 
-### Get the Typescript Definitions
+### Get the TypeScript Definitions
 
 Just copy [`webxdc.d.ts`](https://github.com/webxdc/webxdc_docs/blob/master/webxdc.d.ts) into your source dir:
 
@@ -21,13 +21,13 @@ you can find it also on <https://github.com/webxdc/webxdc_docs/blob/master/webxd
 
 Start by importing the file.
 
-In Typescript: 
+In TypeScript: 
 
 ```typescript
 import type { Webxdc } from './webxdc.d.ts'
 ```
 
-In Javascript:
+In JavaScript:
 
 ```javascript
 /**
@@ -39,7 +39,7 @@ This works in VS Code nicely together with the `//@ts-check` comment on top of y
 
 If you want you can also type your own functions using [JSDoc comments](https://jsdoc.app/).
 
-> If you don't use VS Code you can still make use of the type checking with the Typescript compiler:
+> If you don't use VS Code you can still make use of the type checking with the TypeScript compiler:
 >
 > ```sh
 > npm i -g typescript # -g stands for global installation
@@ -55,7 +55,7 @@ If you have a type for your state update **payloads**, replace the `any` in `Web
 ```
 
 
-## Transpile Newer Javascript With Babel.js
+## Transpile Newer JavaScript With Babel.js
 
 Older devices might not have the newest javascript features/syntax in their webview, you may want to transpile your code down to an older JavaScript version eg. with [Babel](https://babeljs.io).
 
@@ -108,7 +108,7 @@ style="max-height:40vh"
 />
 </p>
 
-| Inpect HTML                                                      | Javascript Console                                               |
+| Inpect HTML                                                      | JavaScript Console                                               |
 | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
 | ![dev tools inpector](images/android_remote_debug_inspector.png) | ![dev tools js console](images/android_remote_debug_console.png) |
 
