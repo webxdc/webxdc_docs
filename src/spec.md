@@ -88,6 +88,8 @@ Each `update` which is passed to the callback comes with the following propertie
 
 - `update.summary`: optional, short text, shown beside icon (see [`sendUpdate()`](#sendupdate))
 
+Calling `setUpdateListener()` multiple times on the same webxdc object is undefined behavior.
+
 
 ### sendToChat()
 
