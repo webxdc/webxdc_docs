@@ -32,13 +32,15 @@ Send a status update to all peers.
        if needed, use eg. base64.
     - `update.info`: optional, short, informational message that will be added to the chat,
        e.g. "Alice voted" or "Bob scored 123 in MyGame".
-       usually only one line of text is shown
-       and if there are series of info messages, older ones may be dropped.
+       Do not add linebreaks; implementations will truncate the text at about 50 characters or less.
+       If there are series of info messages, older ones may be dropped.
        use this option sparingly to not spam the chat.
     - `update.document`: optional, name of the document in edit,
-       must not be used e.g. in games where the webxdc does not create documents
+       MUST NOT be used if the webxdc does not create documents, e.g. in games.
+       Do not add linebreaks; implementations will truncate the text at about 20 characters or less.
     - `update.summary`: optional, short text, shown beside the app icon;
-       it is recommended to use some aggregated value,  e.g. "8 votes", "Highscore: 123"
+       it is recommended to use some aggregated value, e.g. "8 votes", "Highscore: 123".
+       Do not add linebreaks; implementations will truncate the text at about 20 characters or less.
 
 - `descr`: short, human-readable description what this update is about.
   this is shown e.g. as a fallback text in an e-mail program.
