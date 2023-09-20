@@ -23,6 +23,8 @@ Messenger implementations expose the API through a `webxdc.js` module. To activa
 window.webxdc.sendUpdate(update, descr);
 ```
 
+Send a status update to all peers.
+
 - `update`: an object with the following properties:  
     - `update.payload`: string, number, boolean, array, object or `null`.
        MUST NOT be `undefined`.
