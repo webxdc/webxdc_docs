@@ -160,7 +160,9 @@ but it also still shows a button to open the system file picker.
   - `filter.extensions`: optional - Array of extensions the file list should be limited to.
     Extensions must start with a dot and have the format `.ext`.
     If not specified, all files are shown.
-  - `filter.mimeTypes`: optional - Array of mime types that may be used in case a file has no extension.
+  - `filter.mimeTypes`: optional - Array of mime types
+    that may be used as an additional hint eg. in case a file has no extension.
+    Files matching either `filter.mimeTypes` or `filter.extensions` are shown.
     Specifying a mime type requires to list all typical extensions as well -
     otherwise, you may miss files.
     See <https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept#unique_file_type_specifiers>
