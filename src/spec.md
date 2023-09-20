@@ -28,6 +28,8 @@ Send a status update to all peers.
 - `update`: an object with the following properties:  
     - `update.payload`: string, number, boolean, array, object or `null`.
        MUST NOT be `undefined`.
+       Binary data buffers as used in `File`, `Blob`, `Int*Array` etc. are skipped;
+       if needed, use eg. base64.
     - `update.info`: optional, short, informational message that will be added to the chat,
        e.g. "Alice voted" or "Bob scored 123 in MyGame".
        usually only one line of text is shown
