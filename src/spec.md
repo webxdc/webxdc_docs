@@ -24,7 +24,8 @@ window.webxdc.sendUpdate(update, descr);
 ```
 
 - `update`: an object with the following properties:  
-    - `update.payload`: any javascript primitive, array or object.
+    - `update.payload`: string, number, boolean, array, object or `null`.
+       MUST NOT be `undefined`.
     - `update.info`: optional, short, informational message that will be added to the chat,
        e.g. "Alice voted" or "Bob scored 123 in MyGame".
        usually only one line of text is shown
