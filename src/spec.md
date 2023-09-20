@@ -35,7 +35,9 @@ Send a status update to all peers.
        Do not add linebreaks; implementations will truncate the text at about 50 characters or less.
        If there are series of info messages, older ones may be dropped.
        use this option sparingly to not spam the chat.
-    - `update.document`: optional, name of the document in edit,
+    - `update.document`: optional, name of the document in edit
+       (eg. the title of a poll or the name of a text in an editor)
+       Implementations show the document name e.g. beside the app icon or in the title bar.
        MUST NOT be used if the webxdc does not create documents, e.g. in games.
        Do not add linebreaks; implementations will truncate the text at about 20 characters or less.
     - `update.summary`: optional, short text, shown beside the app icon;
@@ -80,8 +82,9 @@ Each `update` which is passed to the callback comes with the following propertie
 
 - `update.info`: optional, short, informational message (see [`sendUpdate()`](#sendupdate))
 
-- `update.document`: optional, document name as set by the sender, (see [`sendUpdate()`](#sendupdate)),
-  implementations show the document name e.g. beside the app icon or in the title bar
+- `update.document`: optional, document name as set by the sender, (see [`sendUpdate()`](#sendupdate)).
+  Implementations show the document name e.g. beside the app icon or in the title bar.
+  There is no need for the receiver to further process this information.
 
 - `update.summary`: optional, short text, shown beside icon (see [`sendUpdate()`](#sendupdate))
 
