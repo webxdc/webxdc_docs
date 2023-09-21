@@ -23,17 +23,26 @@ Messenger implementations expose the API through a `webxdc.js` module. To activa
 window.webxdc.sendUpdate(update, descr);
 ```
 
+Send a status update to all peers.
+
 - `update`: an object with the following properties:  
-    - `update.payload`: any javascript primitive, array or object.
+    - `update.payload`: string, number, boolean, array, object or `null`.
+       MUST NOT be `undefined`.
+       Binary data buffers as used in `File`, `Blob`, `Int*Array` etc. are skipped;
+       if needed, use eg. base64.
     - `update.info`: optional, short, informational message that will be added to the chat,
        e.g. "Alice voted" or "Bob scored 123 in MyGame".
-       usually only one line of text is shown
-       and if there are series of info messages, older ones may be dropped.
+       Do not add linebreaks; implementations will truncate the text at about 50 characters or less.
+       If there are series of info messages, older ones may be dropped.
        use this option sparingly to not spam the chat.
-    - `update.document`: optional, name of the document in edit,
-       must not be used e.g. in games where the webxdc does not create documents
+    - `update.document`: optional, name of the document in edit
+       (eg. the title of a poll or the name of a text in an editor)
+       Implementations show the document name e.g. beside the app icon or in the title bar.
+       MUST NOT be used if the webxdc does not create documents, e.g. in games.
+       Do not add linebreaks; implementations will truncate the text at about 20 characters or less.
     - `update.summary`: optional, short text, shown beside the app icon;
-       it is recommended to use some aggregated value,  e.g. "8 votes", "Highscore: 123"
+       it is recommended to use some aggregated value, e.g. "8 votes", "Highscore: 123".
+       Do not add linebreaks; implementations will truncate the text at about 20 characters or less.
 
 - `descr`: short, human-readable description what this update is about.
   this is shown e.g. as a fallback text in an e-mail program.
@@ -73,10 +82,13 @@ Each `update` which is passed to the callback comes with the following propertie
 
 - `update.info`: optional, short, informational message (see [`sendUpdate()`](#sendupdate))
 
-- `update.document`: optional, document name as set by the sender, (see [`sendUpdate()`](#sendupdate)),
-  implementations show the document name e.g. beside the app icon or in the title bar
+- `update.document`: optional, document name as set by the sender, (see [`sendUpdate()`](#sendupdate)).
+  Implementations show the document name e.g. beside the app icon or in the title bar.
+  There is no need for the receiver to further process this information.
 
 - `update.summary`: optional, short text, shown beside icon (see [`sendUpdate()`](#sendupdate))
+
+Calling `setUpdateListener()` multiple times on the same webxdc object is undefined behavior.
 
 
 ### sendToChat()
@@ -155,7 +167,9 @@ but it also still shows a button to open the system file picker.
   - `filter.extensions`: optional - Array of extensions the file list should be limited to.
     Extensions must start with a dot and have the format `.ext`.
     If not specified, all files are shown.
-  - `filter.mimeTypes`: optional - Array of mime types that may be used in case a file has no extension.
+  - `filter.mimeTypes`: optional - Array of mime types
+    that may be used as an additional hint eg. in case a file has no extension.
+    Files matching either `filter.mimeTypes` or `filter.extensions` are shown.
     Specifying a mime type requires to list all typical extensions as well -
     otherwise, you may miss files.
     See <https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept#unique_file_type_specifiers>
@@ -241,6 +255,10 @@ Webxdc apps run in a restricted environment, but the following practices are per
   e.g. with <https://babeljs.io>
 - `<a href="https://example.org/foo">` and other external links are blocked by definition;
   instead, embed content or use `mailto:` link to offer a way for contact
+- features that require user permissions
+  or are enabled through the [Permissions Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Permissions_Policy) may not work,
+  Geolocation, Camera, Microphone etc.
+- `window.open()`, `alert()`, `prompt()`, `confirm()`, is known to not work on some implementations
 
 
 ## Webxdc File Format
@@ -275,7 +293,8 @@ source_code_url = "https://example.org/orga/repo"
 
 If the ZIP-root contains an `icon.png` or `icon.jpg`,
 these files are used as the icon for the webxdc.
-The icon should be a square at reasonable width/height.
+The icon should be a square at reasonable width/height,
+usually between 128 x 128 and 512 x 512 pixel.
 Round corners, circle cut out etc. will be added by the implementations as needed;
 do not add borders or shapes to the icon therefore.
 If no icon is set, a default icon will be used.
