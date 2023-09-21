@@ -28,7 +28,7 @@ Send a status update to all peers.
 - `update`: an object with the following properties:  
     - `update.payload`: string, number, boolean, array, object or `null`.
        MUST NOT be `undefined`.
-       Everything that is not JSON serialisable will be skipped,
+       Everything that is not JSON serializable will be skipped,
        this especially affects Binary data buffers as used in `File`, `Blob`, `Int*Array` etc.;
        if needed, use eg. base64.
     - `update.info`: optional, short, informational message that will be added to the chat,
