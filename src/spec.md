@@ -255,8 +255,9 @@ Webxdc apps run in a restricted environment, but the following practices are per
   e.g. with <https://babeljs.io>
 - `<a href="https://example.org/foo">` and other external links are blocked by definition;
   instead, embed content or use `mailto:` link to offer a way for contact
-- features that require [permissions](https://developer.mozilla.org/en-US/docs/Web/HTTP/Permissions_Policy) may not work, Geolocation, Camera, Microphone etc.
-- `<frame>` or `<iframe>` may not work as expected as used by some implementations for some features
+- features that require user permissions
+  or are enabled through the [Permissions Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Permissions_Policy) may not work,
+  Geolocation, Camera, Microphone etc.
 - `window.open()`, `alert()`, `prompt()`, `confirm()`, is known to not work on some implementations
 
 
