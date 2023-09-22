@@ -28,7 +28,8 @@ Send a status update to all peers.
 - `update`: an object with the following properties:  
     - `update.payload`: string, number, boolean, array, object or `null`.
        MUST NOT be `undefined`.
-       Binary data buffers as used in `File`, `Blob`, `Int*Array` etc. are skipped;
+       Everything that is not JSON serializable will be skipped,
+       this especially affects Binary data buffers as used in `File`, `Blob`, `Int*Array` etc.;
        if needed, use eg. base64.
     - `update.info`: optional, short, informational message that will be added to the chat,
        e.g. "Alice voted" or "Bob scored 123 in MyGame".
@@ -88,7 +89,7 @@ Each `update` which is passed to the callback comes with the following propertie
 
 - `update.summary`: optional, short text, shown beside icon (see [`sendUpdate()`](#sendupdate))
 
-Calling `setUpdateListener()` multiple times on the same webxdc object is undefined behavior.
+Calling `setUpdateListener()` multiple times is undefined behavior: in current implementations only the last invocation works.
 
 
 ### sendToChat()
@@ -169,7 +170,7 @@ but it also still shows a button to open the system file picker.
     If not specified, all files are shown.
   - `filter.mimeTypes`: optional - Array of mime types
     that may be used as an additional hint eg. in case a file has no extension.
-    Files matching either `filter.mimeTypes` or `filter.extensions` are shown.
+    **Files matching either `filter.mimeTypes` or `filter.extensions` are shown**.
     Specifying a mime type requires to list all typical extensions as well -
     otherwise, you may miss files.
     See <https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept#unique_file_type_specifiers>
