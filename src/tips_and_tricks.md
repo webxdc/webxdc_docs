@@ -76,7 +76,7 @@ either because you have no computer to connect to or if you are on iOS,
 you may try [eruda.js](https://github.com/liriliri/eruda) 
 as an alternative to browser-native debugging tools.
 
-1. Download a [standalone eruda.js](https://cdn.jsdelivr.net/npm/eruda@3.0.1/eruda.js) 
+1. Download a [standalone eruda.js](https://cdn.jsdelivr.net/npm/eruda)
 
 1. Copy `eruda.js` next to your `index.html` 
 
