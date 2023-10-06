@@ -4,7 +4,7 @@
 
 Yes, you can use both [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
 and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) in your app
-but be aware of some limitations. 
+but be aware of some limitations, [especially during webxdc app simulation/development](#simdb). 
 
 LocalStorage [has a limit of 4-10MB](https://stackoverflow.com/questions/2989284/what-is-the-max-size-of-localstorage-values/) which you can fill up quickly if not careful. 
 IndexedDB is an alternative you can use that doesn't have this size limitation. 
@@ -16,7 +16,7 @@ you must [send an application update](https://docs.webxdc.org/spec.html#sendupda
 which will be safely persisted by the messenger,
 and which also allows to use an app on multiple devices. 
 
-## Why doesn't localStorage/IndexedDB work with some development simulators? 
+## Why doesn't localStorage/IndexedDB work with some development simulators? {simdb}
 
 When you run your webxdc app with the [hello simulator](https://github.com/webxdc/hello)
 then all browser tabs share the same localStorage or indexedDB instance
@@ -25,3 +25,22 @@ However, the [webxdc-dev simulator](https://github.com/webxdc/webxdc-dev)
 manages to separate storage per webxdc app instance
 because each running app uses a separate localhost port for connecting
 to the webxdc-dev simulator server. 
+
+## Are application updates guaranteed to be delivered to chat peers? 
+
+No, there is no guaranteed message delivery and also 
+no feedback on delivery status (currently). 
+There is only a "best effort" approach. 
+Messengers will typically queue messages and attempt delivery repeatedly. 
+
+However, if you need guarantees for update receipt, 
+you need to implement your own reliability protocol in your app. 
+Common techniques include assigning sequence numbers or linked IDs to all updates you send,
+and implementing a way for receivers to notify you if they have some IDs missing. 
+
+As with all "network synchronization" topics there are some theoretical limits. 
+In particular it is useful to study and think about 
+the [Two-Generals problem](https://en.wikipedia.org/wiki/Two_Generals'_Problem) 
+and learn about existing "reliability layer" protocols 
+before attempting to implement one layer yourself. 
+ 
