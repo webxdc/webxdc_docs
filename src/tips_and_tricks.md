@@ -97,7 +97,7 @@ Tap it to see the developer tools.
 
 ### Debug a webxdc app in Android via Chrome DevTools
 
-1. enable webView debugging in delta chat settings 
+1. enable webView debugging in Delta Chat settings 
    `Settings` > `Advanced` > `Developer Mode`: 
    <img alt="image of andvanced screen" src="images/android_remote_debug_enable.png" style="max-height:40vh" />
 
