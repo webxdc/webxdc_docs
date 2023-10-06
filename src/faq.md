@@ -29,18 +29,18 @@ to the webxdc-dev simulator server.
 ## Are application updates guaranteed to be delivered to chat peers? 
 
 No, there is no guaranteed message delivery and also 
-no feedback on delivery status (currently). 
+no feedback on delivery status.
 There is only a "best effort" approach. 
 Messengers will typically queue messages and attempt delivery repeatedly. 
 
-However, if you need guarantees for update receipt, 
+If you want guarantees for peers receiving updates,
 you need to implement your own reliability protocol in your app. 
 Common techniques include assigning sequence numbers or linked IDs to all updates you send,
-and implementing a way for receivers to notify you if they have some IDs missing. 
+and implementing a way for receivers to request re-sending if updates are missing. 
 
 As with all "network synchronization" topics there are some theoretical limits. 
 In particular it is useful to study and think about 
 the [Two-Generals problem](https://en.wikipedia.org/wiki/Two_Generals'_Problem) 
 and learn about existing "reliability layer" protocols 
-before attempting to implement one layer yourself. 
+before attempting to implement one yourself. 
  
