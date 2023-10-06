@@ -71,25 +71,23 @@ If you want to use a newer API make sure to check on <https://caniuse.com>. If y
 
 ## Debugging With eruda.js
 
-When you can not use [debugging inside Deltachat](#debugging-inside-delta-chat), 
+When you can not use [debugging inside Delta Chat](#debugging-inside-delta-chat), 
 either because you have no computer to connect to or if you are on iOS, 
 you may try [eruda.js](https://github.com/liriliri/eruda) 
 as an alternative to browser-native debugging tools.
 
-### Installing eruda
+1. Download a [standalone eruda.js](https://cdn.jsdelivr.net/npm/eruda@3.0.1/eruda.js) 
 
-Get `eruda.js` from https://github.com/liriliri/eruda, 
-copy it next to your `index.html` and 
-then prepend the following snippet to the head section of your index.html: 
+1. Copy `eruda.js` next to your `index.html` 
 
-```html
-<script src="eruda.js"></script>
-<script>
-  eruda.init();
-</script>
-```
+1. Prepend the following snippet to the head section of your index.html: 
 
-### Using eruda in a webxdc app view 
+    ```html
+    <script src="eruda.js"></script>
+    <script>
+      eruda.init();
+    </script>
+    ```
 
 When your webxdc app is started, 
 a floating button will appear in a corner. 
