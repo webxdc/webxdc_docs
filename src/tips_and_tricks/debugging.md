@@ -1,73 +1,4 @@
-# Tips and Tricks 
-
-
-## TypeScript support
-
-How to get autocompletion for window.webxdc api in your IDE via TypeScript.
-
-### Get the TypeScript Definitions
-
-Just copy [`webxdc.d.ts`](https://github.com/webxdc/webxdc_docs/blob/master/webxdc.d.ts) into your source dir:
-
-```typescript
-{{#include ../webxdc.d.ts:3:}}
-```
-
-you can find it also on <https://github.com/webxdc/webxdc_docs/blob/master/webxdc.d.ts> or just copy the code block above.
-
-> In the future this might become an @types npm module, but for now it is what it is: _a simple file copy with **no** automatic updates_.
-
-### Using types
-
-Start by importing the file.
-
-In TypeScript: 
-
-```typescript
-import type { Webxdc } from './webxdc.d.ts'
-```
-
-In JavaScript:
-
-```javascript
-/**
- * @typedef {import('./webxdc').Webxdc} Webxdc
- */
-```
-
-This works in VS Code nicely together with the `//@ts-check` comment on top of your source file.
-
-If you want you can also type your own functions using [JSDoc comments](https://jsdoc.app/).
-
-> If you don't use VS Code you can still make use of the type checking with the TypeScript compiler:
->
-> ```sh
-> npm i -g typescript # -g stands for global installation
-> tsc --noEmit --allowJs --lib es2015,dom *.js
-> ```
-
-### Own Payload Type
-
-If you have a type for your state update **payloads**, replace the `any` in `Webxdc<any>` with your own payload type:
-
-```typescript
-{{#include ../webxdc.d.ts:global}}
-```
-
-
-## Transpile Newer JavaScript With Babel.js
-
-Older devices might not have the newest javascript features/syntax in their webview, you may want to transpile your code down to an older JavaScript version eg. with [Babel](https://babeljs.io).
-
-Targets:
-
-- Desktop (electron -> is chrome 91)
-- iOS (iOS 11 -> webkit 604.1.38)
-- android (android 5 -> the webview system component can be updated by the user: <https://play.google.com/store/apps/details?id=com.google.android.webview>)
-
-If you want to use a newer API make sure to check on <https://caniuse.com>. If you just want to use newer JavaScript syntax, babel.js is the right tool for you - it translates new JS into older JS, that can be interpreted.
-
-
+# Debugging
 
 ## Debugging With eruda.js
 
@@ -165,30 +96,6 @@ alt="undock devtools"
 style="max-height:40vh"
 />
 </p>
-
-
-
-## Optimizing Your App Icon
-
-There are several things you can do to shrink down the size of your icon:
-
-- save without thumbnail image (in gimp it can be done in the export dialog)
-- shrink the image resolution (`256px` are enough, in some cases `128px` or even lower like `64px` can sufice)
-- change your PNG colors from `RGB` to `Indexed` (in gimp `Image` -> `Mode` -> `Indexed`, see <https://docs.gimp.org/en/gimp-image-convert-indexed.html>)
-
-
-> For `png` you can also use the `oxipng` tool (<https://github.com/shssoichiro/oxipng>), which automagically optimizes your icon's file size without quality loss:
-> ```
-> oxipng icon.png -s -o max
-> ```
-> 
-> If you have png files in your project, you should also do this them to safe even more bytes.
->
-> Noteworthy parameters:
-> - `--pretend` only calculates gains
-> - `-Z` even more compression, but takes longer
-> - for more info see `oxipng --help`# Troubleshooting
-
 
 ## I Cannot Share Variables on iOS Between Scripts!
 
