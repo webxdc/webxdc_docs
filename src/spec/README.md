@@ -5,7 +5,7 @@ This document is for app developers and outlines the [webxdc API](#webxdc-api) a
 
 ## Webxdc API
 
-Webxdc apps are shared in a chat and each device runs its own instance on the recipients device when they click "Start". The apps are network-isolated but can share state via [`sendUpdate()`](#sendupdate) and [`setUpdateListener()`](#setupdatelistener).
+Webxdc apps are shared in a chat and each device runs its own instance on the recipients device when they click "Start". The apps are network-isolated but can share state via [`sendUpdate()`](./sendUpdate.md) and [`setUpdateListener()`](./setUpdateListener.md).
 
 Messenger implementations expose the API through a `webxdc.js` module. To activate the webxdc API you need to use a script reference for `webxdc.js` in your HTML5 app:
 
@@ -23,7 +23,7 @@ Messenger implementations expose the API through a `webxdc.js` module. To activa
 - the ZIP-file MUST contain at least the file `index.html`
 - the ZIP-file MAY contain a `manifest.toml` and `icon.png` or
   `icon.jpg` files
-- if the webxdc app is started, `index.html` MUST be opened in a [restricted webview](spec.md#webview-constraints-for-running-apps) that only allows accessing 
+- if the webxdc app is started, `index.html` MUST be opened in a [restricted webview](#webview-constraints-for-running-apps) that only allows accessing
   resources from the ZIP-file.
 
 ### The manifest.toml File
@@ -72,7 +72,7 @@ When starting a web view for a webxdc app to run, messenger implementors:
   [Webxdc API](#webxdc-api) so that messages are relayed and shown in chats. 
 
 - MUST make sure the standard JavaScript API works as described at
-  [Other APIs and Tags Usage Hints](#other-apis-and-tags-usage-hints).
+  [Other APIs and Tags Usage Hints](/tips_and_tricks/compatibility.md#other-apis-and-tags-usage-hints).
 
 ### UI Interactions in Chats
 

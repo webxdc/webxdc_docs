@@ -4,7 +4,7 @@
 
 Yes, you can use both [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
 and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) in your app
-but be aware of some limitations, [especially during webxdc app simulation/development](#simdb). 
+but be aware of some limitations, [especially during webxdc app simulation/development](#simdb). <!-- XXX this link was already broken on the master branch, but maybe we can figure out what it was supposed to point to? -->
 
 LocalStorage [has a limit of 4-10MB](https://stackoverflow.com/questions/2989284/what-is-the-max-size-of-localstorage-values/) which you can fill up quickly if not careful. 
 IndexedDB is an alternative you can use that doesn't have this size limitation. 
@@ -12,7 +12,7 @@ IndexedDB is an alternative you can use that doesn't have this size limitation.
 Note that browsers might reclaim storage for both localStorage and IndexedDB
 after a longer time of not using a webxdc app. 
 If you want to safely persist data, 
-you must [send an application update](https://docs.webxdc.org/spec.html#sendupdate)
+you must [send an application update](/spec/sendUpdate.html)
 which will be safely persisted by the messenger,
 and which also allows to use an app on multiple devices. 
 
