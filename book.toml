@@ -11,3 +11,7 @@ additional-css = ["custom.css"]
 git-repository-url = "https://github.com/webxdc/webxdc_docs"
 git-repository-icon = "fa-github"
 edit-url-template = "https://github.com/webxdc/webxdc_docs/edit/master/{path}"
+
+[output.html.redirect]
+"/spec.html" = "/spec/index.html"
+"/tips_and_tricks.html" = "/tips_and_tricks/index.html"
