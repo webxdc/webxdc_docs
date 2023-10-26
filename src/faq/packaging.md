@@ -1,3 +1,4 @@
+
 # Packaging
 
 ## Optimizing Your App Icon
@@ -20,5 +21,4 @@ There are several things you can do to shrink down the size of your icon:
 > - `--pretend` only calculates gains
 > - `-Z` even more compression, but takes longer
 > - for more info see `oxipng --help`# Troubleshooting
-
 
