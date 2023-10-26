@@ -1,4 +1,4 @@
-# Frequently Asked Questions 
+# Various development questions and tips
 
 ## Can I use localStorage or IndexedDB in my webxdc app? 
 

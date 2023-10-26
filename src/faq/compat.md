@@ -1,3 +1,4 @@
+
 # Compatibility
 
 ## Other APIs and Tags Usage Hints
@@ -43,4 +44,3 @@ Targets:
 - android (android 5 -> the webview system component can be updated by the user: <https://play.google.com/store/apps/details?id=com.google.android.webview>)
 
 If you want to use a newer API make sure to check on <https://caniuse.com>. If you just want to use newer JavaScript syntax, babel.js is the right tool for you - it translates new JS into older JS, that can be interpreted.
-

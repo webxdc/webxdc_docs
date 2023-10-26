@@ -1,20 +1,13 @@
+
 # TypeScript support
 
-How to get autocompletion for window.webxdc api in your IDE via TypeScript.
+# How to get autocompletion in your IDE via TypeScript? 
 
-### Get the TypeScript Definitions
+Just copy [`webxdc.d.ts`](https://github.com/webxdc/webxdc_docs/blob/master/webxdc.d.ts) into your source dir. 
 
-Just copy [`webxdc.d.ts`](https://github.com/webxdc/webxdc_docs/blob/master/webxdc.d.ts) into your source dir:
+Or install the [webxdc-types node package](https://www.npmjs.com/package/webxdc-types#types-for-webxdc) via `npm`. 
 
-```typescript
-{{#include ../../webxdc.d.ts:3:}}
-```
-
-you can find it also on <https://github.com/webxdc/webxdc_docs/blob/master/webxdc.d.ts> or just copy the code block above.
-
-> In the future this might become an @types npm module, but for now it is what it is: _a simple file copy with **no** automatic updates_.
-
-### Using types
+### How to use webxdc types? 
 
 Start by importing the file.
 
@@ -43,7 +36,7 @@ If you want you can also type your own functions using [JSDoc comments](https://
 > tsc --noEmit --allowJs --lib es2015,dom *.js
 > ```
 
-### Own Payload Type
+### How to add your own application update payload type? 
 
 If you have a type for your state update **payloads**, replace the `any` in `Webxdc<any>` with your own payload type:
 
