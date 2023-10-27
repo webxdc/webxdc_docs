@@ -1,4 +1,4 @@
-# Various development questions and tips
+# Questions about storing application state
 
 ## Can I use localStorage or IndexedDB in my webxdc app? 
 
