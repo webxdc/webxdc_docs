@@ -13,3 +13,4 @@
   - [Debugging](./faq/debugging.md)
   - [Packaging](./faq/packaging.md)
   - [Compatibility](./faq/compat.md)
+  - [Storage](./faq/storage.md)
