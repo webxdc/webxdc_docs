@@ -3,9 +3,12 @@
 
 ## How to get autocompletion in your IDE via TypeScript? 
 
-Just copy [`webxdc.d.ts`](https://github.com/webxdc/webxdc_docs/blob/master/webxdc.d.ts) into your source dir. 
+Install the [webxdc-types node package](https://www.npmjs.com/package/webxdc-types#types-for-webxdc) via `npm`
+and follow [the instructions in its README](https://www.npmjs.com/package/webxdc-types#usage).
 
-Or install the [webxdc-types node package](https://www.npmjs.com/package/webxdc-types#types-for-webxdc) via `npm`. 
+Alternatively, copy
+[`webxdc.d.ts`](https://github.com/webxdc/webxdc_docs/blob/master/webxdc.d.ts)
+into your source dir and follow the instructions below.
 
 ### How to use webxdc types? 
 
