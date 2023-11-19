@@ -31,7 +31,7 @@ Tap it to see the developer tools.
 
 1. enable webView debugging in Delta Chat settings 
    `Settings` > `Advanced` > `Developer Mode`: 
-   <img alt="image of andvanced screen" src="images/android_remote_debug_enable.png" style="max-height:40vh" />
+   <img alt="image of andvanced screen" src="/images/android_remote_debug_enable.png" style="max-height:40vh" />
 
 1. enable developer mode and ADB debugging on your device 
    _(go to system settings, device info, click 7+ times on build number 
@@ -49,7 +49,7 @@ Tap it to see the developer tools.
 
 <p>
 <img
-src="images/android_remote_debug_list.png"
+src="/images/android_remote_debug_list.png"
 alt="screenshot of chrome dev tools device list"
 style="max-height:40vh"
 />
@@ -57,7 +57,7 @@ style="max-height:40vh"
 
 | Inpect HTML                                                      | JavaScript Console                                               |
 | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
-| ![dev tools inpector](images/android_remote_debug_inspector.png) | ![dev tools js console](images/android_remote_debug_console.png) |
+| ![dev tools inpector](/images/android_remote_debug_inspector.png) | ![dev tools js console](/images/android_remote_debug_console.png) |
 
 > Make sure to **disable adb debugging again** after you are done with debugging!
 
@@ -74,7 +74,7 @@ Start the webxdc you want to debug and press `F12` to open the developer tools:
 
 <p>
 <img
-src="images/desktop_debug_open.png"
+src="/images/desktop_debug_open.png"
 alt="screenshot of desktop webxdc window with devtool"
 style="max-height:40vh"
 />
@@ -84,7 +84,7 @@ A bit small isn't it? fix it either by resizing the window's **width** or **undo
 
 <p>
 <img
-src="images/desktop_debug_undock.png"
+src="/images/desktop_debug_undock.png"
 alt="undock devtools"
 style="max-height:40vh"
 />
@@ -92,7 +92,7 @@ style="max-height:40vh"
 
 <p>
 <img
-src="images/desktop_debug_extra_window.png"
+src="/images/desktop_debug_extra_window.png"
 alt="undock devtools"
 style="max-height:40vh"
 />
