@@ -1,7 +1,7 @@
 
 # TypeScript support
 
-# How to get autocompletion in your IDE via TypeScript? 
+## How to get autocompletion in your IDE via TypeScript? 
 
 Just copy [`webxdc.d.ts`](https://github.com/webxdc/webxdc_docs/blob/master/webxdc.d.ts) into your source dir. 
 
