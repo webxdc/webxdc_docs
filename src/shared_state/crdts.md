@@ -54,29 +54,48 @@ As a prospective user of such a library the important thing to understand is tha
 
 ## Expectations
 
-* a very broad class of data structures
-* a matter of design, no silver bullet
+CRDTs are a very broad class of data structures with wide variety of possible implementations,
+even for superficially similar types.
+What they all have in common is a guarantee of _eventual consistency_,
+that all participants in a system will agree on the final state of the structure
+as long as they are all aware of the same set of updates.
+All updates will be merged _automatically_, regardless of their order or the degree to which they intersect.
 
----
+With that said, whether or not the structure's final state matches
+the expectations of those using the application is a matter of _design_.
+If two peers concurrently increment a number from `5` to `6`,
+one system might decide that the two peers agree the new state should be `6`,
+while another might consider it appropriate to increment twice to `7`.
+It may be difficult to fix such behaviours after an app has already been released,
+but you can avoid a lot of frustration by testing a variety of concurrent
+operations in advance to ensure the system's behaviour matches your assumptions.
 
-* eventual consistency
-* automatic resolution without interactive review
-* guaranteed to converge - but on what?
-* not guaranteed to match user intuition or expectations
+In the event that one of the basic data types of a general-purpose CRDT like
+[Yjs](https://yjs.dev/) _does not_ match your expectations the library
+may still be suitable for your use.
+Different behaviours can be accomplished by composing the built-in types into more complex ones.
+_Yjs_ will treat concurrent changes to a number as two assignments.
+If you prefer for them to be treated as increments then you can instead
+encode each addition as a new member of an array of numbers to be summed.
+The higher-level value can then be derived from the array whenever it is required,
+while the lower-level representation serves as a simplified way to achieve consistency.
+It is common for collaborative applications built on CRDTs to follow this sort of _schema_ pattern,
+in which user actions are translated into operations on the shared state,
+with remote changes propagating back to the UI.
 
----
+The previous section of this chapter described [conflicts in federated systems](conflicts.html#complications-in-federation).
+A properly designed CRDTs will not only eliminate those small-scale race conditions,
+but will also enable peers to queue updates while entirely offline,
+and to merge their local state with others' when they are once again able to communicate.
+While this behaviour can be very helpful for application developers,
+it may not free you entirely from having to think about network conditions.
+_Eventually-consistent_ application state should generally be treated as
+subjective, which can be a significant shift if you are used to having a server acting as an authority.
+That means that conditional behaviour that you'd usually treat as _yes_ and _no_,
+may instead behave more like _currently_ and _not yet_.
 
-* defines a limited set of possible values and permitted operations
-* might be a subset of what you are used to in the host language
-* it is easy to confuse the CRDT implementation with other superficially similar types (e.g. numbers and tallies)
-* you may need to write a schema layer which translates user actions into operations that are supported by the CRDT
-
----
-
-* provides a subjective view, not objective
-* eliminates concerns about multiple concurrent authors perceiving inconsistent states
-* does not eliminate the need to consider network behaviour
-  * different CRDT libraries might do more or less to simplify these tasks
-* requires that we reason about state differently
-  * no => not that I know of
+This section has discussed attributes of CRDTs that are mostly theoretical.
+The next section will give more concrete examples using **Yjs**,
+with a particular focus on how it can be used to accomplish common
+goals within webxdc applications as implemented in existing webxdc platforms.
 
