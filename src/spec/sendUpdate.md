@@ -4,7 +4,7 @@
 window.webxdc.sendUpdate(update, descr);
 ```
 
-Send a status update to all peers.
+Send an update to all peers.
 
 - `update`: an object with the following properties:  
     - `update.payload`: string, number, boolean, array, object or `null`.
