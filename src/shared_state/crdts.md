@@ -18,9 +18,7 @@ An understanding of many types' behaviours will help you write software that is 
 
 _CRDTs_ go further than the basic data types that are included in almost any programming language in that they are designed to be [replicated](https://en.wikipedia.org/wiki/Replication_(computing)) across multiple processes.
 These processes might run on the same machine, but are more commonly spread across a network.
-To accomplish this they generally define additional methods to track the state of remote peers, deliver the minimal set of updates they lack, and to request updates that are absent locally.
-In order to make this process as efficient as possible many CRDT implementations output updates as a maximally compact binary format.
-Because webxdc updates cannot include binary data it is therefore necessary to convert binary updates into a format like [base64](https://developer.mozilla.org/en-US/docs/Glossary/Base64), and from base64 back to binary when remote updates are received.
+To accomplish this they generally define additional methods to track the state of remote peers, deliver the minimal set of updates those peers lack, and to indicate which updates are known so that other peers can perform the same services for us.
 
 Most importantly, CRDTs are **conflict-free**, meaning that they are designed to handle every possible combination of concurrent operations for a given data type in a [deterministic](https://en.wikipedia.org/wiki/Deterministic_system#In_computer_science) way.
 The states of peers can diverge temporarily, but a CRDT guarantees [eventual consistency](https://en.wikipedia.org/wiki/Eventual_consistency),
@@ -32,7 +30,7 @@ A [tally](https://www.merriam-webster.com/dictionary/tally) (or count) is relati
 If two people want to count the number of books on two shelves, they can each count one of the shelves and then sum their results.
 They could also call out numbers on an ongoing basis, adding both their own discoveries and those they hear to a mental sum.
 It doesn't matter in what order values are recorded because addition is [commutative](https://en.wikipedia.org/wiki/Commutative_property#Commutative_operations), at least for simple numbers.
-The important thing to understand is that a _tally_ differs from a _number_, because a number supports many operations which cannot be applied in _any order_.
+The important thing to understand is that despite any superficial similarity, a _tally_ differs from a _number_ because a number supports many operations which cannot be applied in _any order_.
 By choosing to only support addition it can be guaranteed that all peers' tallies will converge on the same final value.
 
 For a slightly more complex version of a tally we can consider a situation in which the organizers of a festival must ensure that none of its zones exceed their maximum safe occupancy.
@@ -47,9 +45,19 @@ If you have such a problem that maps well to a commutative operation then it mig
 
 In practice the order of applications will matter, especially when dealing with data structures like lists or arrays.
 If two concurrent operations append items to the end of a list then it's reasonable to insert them in an arbitrary sequence.
-Most would agree, however, that an another append operation occurring after those two would rightfully be placed at the end of the list.
-Such types must encode enough information to allow peeers to determine the correct order of a sequence, and must also define strategies for resolving any possible dispute.
-The topic of how popular CRDT libraries implement these mechanisms is very interesting, but unfortunately beyond the scope of this document.
+For example:
+
+1. _Alice_ and _Bob_ both try to add elements to their local copies of an empty list (`let list = []`)
+    * Alice does `list.push(5)`
+    * Bob does `list.push(7)`
+2. When they become aware of each others edits it would be valid to automatically resolve the concurrent changes as either `[5, 7]` or `[7, 5]`, at least under most circumstances
+3. Now, if _Charlie_ comes along, learns of both changes, and then tries to append yet another item, most would expect it to be added to the end:
+    * Charlie does `list.push(11)`
+4. Valid outcomes are either `[5, 7, 11]` or `[7, 5, 11]`
+
+As described in the last section of this chapter, there are techniques to differentiate between these two types of circumstance, identifying which operations are concurrent or consecutive.
+In order to automatically resolve such conflicts when concurrent operations do occur, such types must also define deterministic strategies to allow all participants to choose the same ordering out of a set of all possible options.
+The topic of how popular CRDT libraries implement these mechanisms is very interesting, but unfortunately beyond the scope of this particular section.
 As a prospective user of such a library the important thing to understand is that they do typically encode some opinions about the correct way to interpret such concurrent operations.
 
 ## Expectations
