@@ -1,7 +1,7 @@
 # CRDTs
 
 The previous section described a variety of errors that can occur when concurrent modifications are made to data that is stored in multiple locations.
-This section will present [**Conflict-free Replicated Data Types**](https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type), a technology designed with the explicit goal of enabling exactly these types of behaviours.
+This section will present [**Conflict-free Replicated Data Types**](https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type), a technology that automatically resolves such changes without the need for a central authority.
 It will define the specialized terminology which seems to keep many from adopting CRDTs,
 provide some basic examples,
 lay out clear expectations of what they can and cannot accomplish,
@@ -12,9 +12,10 @@ and hopefully prepare you to avoid concurrency-related bugs and enjoy the benefi
 Just like in the conventional sense of a [Data Type](https://en.wikipedia.org/wiki/Data_type),
 a CRDT can be defined by the set of its possible values,
 the set of valid operations on those values,
-and low-level representation of those values.
-There are many possible types, and while some may be completely inapplicable to a given situation, there are often many ways to accomplish any particular goal.
-An understanding of many types' behaviours will help you write software that is more suited for its tasks.
+and low-level representation of them.
+There are often many ways to represent the same information.
+Knowing the range of possible values and the exact operations required for your particular use case
+will help you choose the most effective design for the job.
 
 _CRDTs_ go further than the basic data types that are included in almost any programming language in that they are designed to be [replicated](https://en.wikipedia.org/wiki/Replication_(computing)) across multiple processes.
 These processes might run on the same machine, but are more commonly spread across a network.
