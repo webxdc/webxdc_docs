@@ -73,7 +73,7 @@ ydoc.on('update', (update) => {
     webxdc.sendUpdate({
         payload: base64,
         info: 'A new update for your Yjs app',
-    }, 'Yjs update'):
+    }, 'Yjs update');
 });
 ```
 
