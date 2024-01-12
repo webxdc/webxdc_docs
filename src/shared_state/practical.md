@@ -86,7 +86,7 @@ webxdc.setUpdateListener((update) => {
 });
 ```
 
-The underlying transport for webxdc apps typically introduces some size overhead, and Yjs is able to save spacewhen several updates are bundled together into one, so sending an update for every minor change is inefficient.
+The underlying transport for webxdc apps typically introduces some size overhead, and Yjs is able to save space when several updates are bundled together into one, so sending an update for every minor change is inefficient.
 These snippets are given as examples to help understand how Yjs-based webxdc apps work, but for practical usage you will probably want to use the [y-webxdc provider](https://codeberg.org/webxdc/y-webxdc) which maintains a queue of updates which are periodically bundled together and sent as a single update.
 
 ### Using shared types
