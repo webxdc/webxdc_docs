@@ -120,7 +120,7 @@ If Alice and Bob both tried to repeatedly set the description for a group, it mi
 5. Alejo and Binita receive each others' messages:
     * because C and D both have id `2`, Binita can conclude that Alejo was not aware of her message when he authored his
     * Alejo can conclude the same of Binita's D, but cannot determine whether she was aware of his C when she sent E. Because of this uncertainty, they should both treat these messages as having been authored concurrently, resulting in a conflict
-6. Alejo decides to resolve this conflict, authoring a new description which includes the corrected typo and all emojis added by either of them. When Binita receives it will have clearly been sent after both C and E
+6. Alejo decides to resolve this conflict, authoring a new description which includes the corrected typo and all emojis added by either of them. When Binita receives it, it will have clearly been sent after both C and E
 
 ![graph demonstrating causal ordering](../images/shared_state/causal-ordering.svg)
 
@@ -132,6 +132,7 @@ Another popular approach which is more explicit but less compact involves the us
 Instead of a single counter, a list of hashes of the preceding messages which were known at the time the message was authored.
 This makes it possible to detect when a message has not been delivered or if message history has somehow been altered (although the latter probably isn't a concern with webxdc apps).
 Variations of this technique are applied in [Git](https://git-scm.com/), [BitTorrent](https://en.wikipedia.org/wiki/BitTorrent),
+[Bitcoin](https://en.wikipedia.org/wiki/Bitcoin),
 [Matrix](https://en.wikipedia.org/wiki/Matrix_(protocol)), [Secure Scuttlebutt](https://en.wikipedia.org/wiki/Secure_Scuttlebutt),
 [IPFS](https://en.wikipedia.org/wiki/InterPlanetary_File_System), and many other protocols intended to solve a variety of problems.
 
