@@ -21,7 +21,7 @@ The library is available under the terms of the highly permissive [MIT license](
 The core of each Yjs-based application is its _document_:
 
 ```javascript
-tmport * as Y from 'yjs';
+import * as Y from 'yjs';
 
 const ydoc = new Y.Doc();
 ```
