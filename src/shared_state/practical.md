@@ -48,7 +48,7 @@ Uint8Array(20) [
 ]
 ```
 
-In some circumstances this format format could sent over the network in binary format, but [webxdc updates](http://localhost:3000/spec/sendUpdate.html) do not permit binary data in their payloads.
+In some circumstances this could sent over the network in binary format, but [webxdc updates](../spec/sendUpdate.html) do not permit binary data in their payloads.
 This makes it necessary to convert it to a serializeable string format like [Base64](https://developer.mozilla.org/en-US/docs/Glossary/Base64).
 Conversion can be done with an npm module like [js-base64](https://www.npmjs.com/package/js-base64), or via the following snippets taken from the MDN web docs:
 
