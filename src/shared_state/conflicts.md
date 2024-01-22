@@ -15,8 +15,7 @@ Concurrency can effectively be ignored from a client's perspective in schemes th
 ## Conflict resolution in webxdc applications
 
 Many webxdc applications are incapable of producing conflicts, either because they do not use the network communication APIs, or because any given data structure can only have one writer.
-It is worth considering that the webxdc host application might permit a single user to use multiple devices,
-though it is ultimately up to an app's developers whether they want to support such use-cases.
+It is worth considering that the webxdc host application might permit a single user to use multiple devices. For example, a password-manager webxdc app could be used in a "Saved Messages" or "Self-messages" chat so that only a single user's devices will share the application state.  Such a multi-device setting already constitutes a minimal P2P system where total message ordering can not be guaranteed and there is no single source of truth.  
 
 Webxdc applications can use [`webxdc.sendUpdate()`](../spec/sendUpdate.html#sendupdate) and [`setUpdateListener`](https://docs.webxdc.org/spec/setUpdateListener.html) to send and receive data to and from other devices. It then is necessary to provide some mechanism through which all clients can determine a total order for all updates, or can otherwise arrive at a shared consistent view on different devices, once all messages have been delivered.   
 A complete solution for this is non-trivial, but there are relatively simple mechanisms which can provide a [partial ordering](https://en.wikipedia.org/wiki/Partially_ordered_set) for updates.
