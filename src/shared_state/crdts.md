@@ -1,6 +1,6 @@
-# CRDTs
+# Theory of CRDTs
 
-The previous section described a variety of errors that can occur when concurrent modifications are made to data that is stored in multiple locations.
+The previous section described the circumstances under which updates to shared state can conflict, and introduced some techniques used to identify such conflicts.
 This section will present [**Conflict-free Replicated Data Types**](https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type), a technology that automatically resolves such changes without the need for a central authority.
 It will define the specialized terminology which seems to keep many from adopting CRDTs,
 provide some basic examples,
@@ -58,8 +58,7 @@ For example:
 
 As described in the last section of this chapter, there are techniques to differentiate between these two types of circumstance, identifying which operations are concurrent or consecutive.
 In order to automatically resolve such conflicts when concurrent operations do occur, such types must also define deterministic strategies to allow all participants to choose the same ordering out of a set of all possible options.
-The topic of how popular CRDT libraries implement these mechanisms is very interesting, but unfortunately beyond the scope of this particular section.
-As a prospective user of such a library the important thing to understand is that they do typically encode some opinions about the correct way to interpret such concurrent operations.
+Different CRDT libraries may use different resolution strategies, but in most cases the choice of mechanism is essentially arbitrary as long as it meets some basic conditions.
 
 ## Expectations
 
@@ -92,9 +91,8 @@ It is common for collaborative applications built on CRDTs to follow this sort o
 in which user actions are translated into operations on the shared state,
 with remote changes propagating back to the UI.
 
-The previous section of this chapter described [conflicts in federated systems](conflicts.html#complications-in-federation).
-A properly designed CRDTs will not only eliminate those small-scale race conditions,
-but will also enable peers to queue updates while entirely offline,
+A well-designed CRDTs will handle all aspects of ordering messages, including the internal implementation of a logical clock, the detection of concurrency, and the resolution of overlapping changes.
+This enables peers to queue updates while entirely offline,
 and to merge their local state with others' when they are once again able to communicate.
 While this behaviour can be very helpful for application developers,
 it may not free you entirely from having to think about network conditions.

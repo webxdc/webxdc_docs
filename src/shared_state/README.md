@@ -1,7 +1,13 @@
 # Shared state
 
-The Webxdc format simplifies the task of creating a private, offline-first, peer-to-peer application by leveraging the existing the encrypted message delivery of the underlying webxdc-enabled platform.
-One of the trade-offs of this format is that there is no central server to ensure that peers are able to synchronize program state.
+In a typical multi-user web application, clients download the app's source from a central HTTP server and rely on it to relay messages to others.
+In this [client-server model](https://en.wikipedia.org/wiki/Client%E2%80%93server_model), the server can leverage its central position of authority to ensure that all connected clients receive messages in the same order.
+
+Even though _webxdc applications_ can be used in situations where all members of a given chat are hosted by a single server, the specification does not assume this will be the case and in fact is intended to support both multi-server and fully [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer) modes of operation.
+Different clients may thus receive updates in very different orders, and consequently apply those updates in sequences that produce conflicting outcomes.
+
+There are a variety of strategies and technologies for either avoiding or resolving such conflicts.
+The webxdc specification is deliberately agnostic about their use, allowing app authors to choose the approach which is most appropriate for their needs.
 
 This chapter will:
 
