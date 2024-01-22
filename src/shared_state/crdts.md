@@ -1,4 +1,4 @@
-# Theory of CRDTs
+# Theory of Conflict-free Replicated Data Types (CRDTs)
 
 The previous section described the circumstances under which updates to shared state can conflict, and introduced some techniques used to identify such conflicts.
 This section will present [**Conflict-free Replicated Data Types**](https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type), a technology that automatically resolves such changes without the need for a central authority.
