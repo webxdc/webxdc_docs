@@ -1,9 +1,3 @@
-<!--
-
-* demonstrate how to adapt an application to use CRDTs to consistently synchronize shared state between multiple users or devices using practical examples
-
--->
-
 # Practical CRDT usage
 
 If you've read the previous two chapters then you should already have a good understanding of what a CRDT is, and the circumstances under which they can be helpful tools.
