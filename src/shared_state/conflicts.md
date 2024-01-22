@@ -48,5 +48,5 @@ Tracking causality and ruling out conflicts are an effective first line of defen
 
 With the knowledge of how conflicts can occur in distributed systems,
 and some basic techniques to reduce their frequency,
-we can now move on and introduce a technology designed to eliminate them entirely.
+we can now move on and introduce an evolving technology designed to eliminate them entirely.
 
