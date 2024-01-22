@@ -1,4 +1,4 @@
-# Shared state
+# Shared Web Application state
 
 In a typical multi-user web application, clients download the app's source from a central HTTP server and rely on it to relay messages to others.
 In this [client-server model](https://en.wikipedia.org/wiki/Client%E2%80%93server_model), the server can leverage its central position of authority to ensure that all connected clients receive messages in the same order.
