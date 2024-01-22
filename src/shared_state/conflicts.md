@@ -10,7 +10,7 @@ _Concurrent updates which affect unrelated data_ can be resolved without issue, 
 
 Concurrency can effectively be ignored from a client's perspective in schemes that use a central server as a single source of truth.
 In practice one message will always arrive slightly before another, and even if they were truly simultaneous the server could arrange them into an arbitrary order.
-Because this can be done for all messages, all updates can be said to have a [total order](https://en.wikipedia.org/wiki/Total_order), which makes it possible for all clients to compute the same results when they are applied sequentially.
+Concurrency can effectively be ignored from a client's perspective in schemes that use a central server with online clients.  Centralized web apps using an always online central HTTP server are a popular example of this model.  Centralized HTTP servers can not only guarantee a [total order](https://en.wikipedia.org/wiki/Total_order) of messages but they can also authoritatively resolve conflicts and provide the single "source for truth" for all associated web apps running on their client devices.  In a decentralized messaging model, and in particular with end-to-end encrypted messaging, both a Total Order of messages and a "single source of truth" can not be assumed. ``
 
 ## Conflict resolution in webxdc applications
 
