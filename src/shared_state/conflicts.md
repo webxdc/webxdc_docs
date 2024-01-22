@@ -18,7 +18,7 @@ Many webxdc applications are incapable of producing conflicts, either because th
 It is worth considering that the webxdc host application might permit a single user to use multiple devices,
 though it is ultimately up to an app's developers whether they want to support such use-cases.
 
-For applications that permit multiple devices to update the same values using [`webxdc.sendUpdate()`](../spec/sendUpdate.html#sendupdate) it is necessary to provide some mechanism through which all clients can determine a total order for all updates.
+Webxdc applications can use [`webxdc.sendUpdate()`](../spec/sendUpdate.html#sendupdate) and [`setUpdateListener`](https://docs.webxdc.org/spec/setUpdateListener.html) to send and receive data to and from other devices. It then is necessary to provide some mechanism through which all clients can determine a total order for all updates, or can otherwise arrive at a shared consistent view on different devices, once all messages have been delivered.   
 A complete solution for this is non-trivial, but there are relatively simple mechanisms which can provide a [partial ordering](https://en.wikipedia.org/wiki/Partially_ordered_set) for updates.
 
 ## Partial ordering
