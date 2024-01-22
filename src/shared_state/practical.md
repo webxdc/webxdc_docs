@@ -1,3 +1,9 @@
+<!--
+
+* demonstrate how to adapt an application to use CRDTs to consistently synchronize shared state between multiple users or devices using practical examples
+
+-->
+
 # Practical CRDT usage
 
 If you've read the previous two chapters then you should already have a good understanding of what a CRDT is, and the circumstances under which they can be helpful tools.
@@ -187,7 +193,7 @@ Yjs supports a number of other types related to XML:
 
 Like Text, these types are very powerful, but they can also be quite difficult to use.
 They allow you to replicate a complex XML document structure made up of tags with arbitrary attributes and nested text nodes.
-Aside from the complexity of working with an arbitrarily complex tree structure, there are also possible security implications involved, as it might be possible for other users to inject arbitrary scripts into such documents and trigger arbitrary code execution on remote devices depending on your usage.
+Aside from the complexity of working with an arbitrarily complex tree structure, there are also possible security implications involved, as it might be possible for other users to inject scripts into such documents and trigger code execution on remote devices depending on your usage.
 
 ## Testing 
 
