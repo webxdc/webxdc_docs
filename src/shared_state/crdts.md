@@ -88,7 +88,7 @@ It is common for collaborative applications built on CRDTs to follow this sort o
 in which user actions are translated into operations on the shared state,
 with remote changes propagating back to the UI.
 
-A well-designed CRDTs will handle all aspects of ordering messages, including the internal implementation of a logical clock, the detection of concurrency, and the resolution of overlapping changes.
+A well-designed CRDT will handle all aspects of ordering messages, including the internal implementation of a logical clock, the detection of concurrency, and the resolution of overlapping changes.
 This enables peers to queue updates while entirely offline,
 and to merge their local state with others' when they are once again able to communicate.
 While this behaviour can be very helpful for application developers,
