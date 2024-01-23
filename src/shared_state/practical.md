@@ -356,4 +356,8 @@ The author of Yjs has [written](https://blog.kevinjahns.de/are-crdts-suitable-fo
 
 As for webxdc-specific implementation details, try the list of [webxdc topic on the delta.chat forum](https://support.delta.chat/c/webxdc/20).
 
+There are also several existing CRDT-based webxdc apps which can be used as references:
+
+* [webxdc/editor](https://codeberg.org/webxdc/editor) (mentioned above) demonstrates the use of Yjs with [prosemirror](https://prosemirror.net/) and the [y-webxdc-provider](https://npmjs.org/package/y-webxdc)
+* [webxdc/checklist](https://codeberg.org/webxdc/checklist/) uses the [Automerge CRDT](https://automerge.org/) to implement a collaborative checklist
 
