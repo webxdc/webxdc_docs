@@ -74,9 +74,6 @@ the expectations of those using the application is a matter of _design_.
 If two peers concurrently increment a number from `5` to `6`,
 one system might decide that the two peers agree the new state should be `6`,
 while another might consider it appropriate to increment twice to `7`.
-It may be difficult to fix such behaviours after an app has already been released,
-but you can avoid a lot of frustration by testing a variety of concurrent
-operations in advance to ensure the system's behaviour matches your assumptions.
 
 In the event that one of the basic data types of a general-purpose CRDT like
 [Yjs](https://yjs.dev/) _does not_ match your expectations the library
