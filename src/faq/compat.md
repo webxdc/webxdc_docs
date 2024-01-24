@@ -11,8 +11,8 @@ Webxdc apps run in a restricted environment, but the following practices are per
 - internal links, such as `<a href="localfile.html">`
 - `mailto` links, such as `<a href="mailto:addr@example.org?body=...">`
 - `<meta name="viewport" ...>` is useful especially as webviews from different platforms have different defaults
-- `<input type="file">` allows importing of files for further processing (requires Delta Chat 1.38 or compatible);
-  see [`sendToChat()`](/spec/sendToChat.md) for a way to export files
+- `<input type="file">` allows importing of files for further
+  processing; see [`sendToChat()`](/spec/sendToChat.md) for a way to export files
 
 ### Discouraged Practises 
 

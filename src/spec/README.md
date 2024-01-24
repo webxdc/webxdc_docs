@@ -1,7 +1,6 @@
 # Webxdc Specification
 
-Webxdc is a fresh and still evolving way of running web apps in chat messengers. 
-This document is for app developers and outlines the [webxdc API](#webxdc-api) and [`.xdc` file format](#webxdc-file-format). It also describes the constraints for a [messenger implementation](#messenger-implementation) when running webxdc apps. 
+This document is for app developers and outlines the [webxdc API](#webxdc-api) and [`.xdc` file format](#webxdc-file-format). It also describes the constraints for a [messenger implementation](#messenger-implementation) for hosting and running webxdc apps. 
 
 ## Webxdc API
 
@@ -13,7 +12,10 @@ Messenger implementations expose the API through a `webxdc.js` module. To activa
 <script src="webxdc.js"></script>
 ```
 
-`webxdc.js` must not be added to your `.xdc` file as they are provided by the messenger. To simulate webxdc in a browser, use the `webxdc.js` file from [Hello](https://github.com/webxdc/hello).
+`webxdc.js` must not be added to your `.xdc` file as they are provided by the messenger. To simulate webxdc in a browser, 
+you may use the `webxdc.js` file from [Hello](https://github.com/webxdc/hello),
+or use the [webxdc-dev tool](https://github.com/webxdc/webxdc-dev) which
+allows to simulate and debug running webxdc apps without any messenger.
 
 ## Webxdc File Format
 
