@@ -4,7 +4,7 @@
 let files = await window.webxdc.importFiles(filter);
 ```
 
-`importFiles()` (requires Delta Chat 1.38 or compatible) allows a webxdc app to import files.
+`importFiles()` allows a webxdc app to import files.
 Depending on platform support, this just opens the system file picker or a custom one.
 This custom file picker should show recent attachments that were received and sent,
 to make importing of a file that you just received from someone easier

@@ -42,15 +42,21 @@ Now it's possible to share the `myapp.xdc` file in any chat: recipients can hit 
 To simulate multiple chat participants in the browser, try [Hello](https://github.com/webxdc/hello) as a minimal example; it includes everything needed to run the app and requires no build systems.
 
 
-## More examples
+## More examples and the webxdc store 
 
-Source code for apps referenced on the [webxdc home page](https://webxdc.org) can be found in the [Webxdc GitHub organization](https://github.com/webxdc).
+The [hello webxdc app](https://github.com/webxdc/hello) is a good "getting-started" app 
+for tweaking and producing modified apps that directly work in webxdc supporting messengers. 
 
+The [webxdc app store](https://webxdc.org/apps) contains working webxdc apps that you can use today. 
+Each app comes with a "source code" link so that you can learn and fork as you wish. 
+You can submit your own available FOSS app for inclusion. 
 
 ## Participating in developments 
 
-- [Webxdc GitHub organization](https://github.com/webxdc): contains many example app repositories. Please tag your own app experiments with "webxdc" so that others can find it via the [`#webxdc` Topic on GitHub](https://github.com/topics/webxdc). 
-
 - [Support Forum](https://support.delta.chat/c/webxdc/20): the webxdc category on the DeltaChat forum is a space to ask questions and announce your app projects. Log into the [forum](https://support.delta.chat) via DeltaChat, Github, or by creating a username and password there.
 
-- Announcements: Delta Chat and Webxdc-related developments can be followed on [Fediverse](https://chaos.social/@delta) or [Twitter](https://twitter.com/delta_chat). 
+- If you have any question about Webxdc support in the XMPP-based Cheogram messenger, head over
+  to the [Cheogram forum channel](https://anonymous.cheogram.com/discuss@conference.soprani.ca)
+
+- Announcements: Delta Chat and Webxdc-related developments can be
+  followed on [Fediverse](https://chaos.social/@delta)
