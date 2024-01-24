@@ -1,51 +1,95 @@
 # Theory of Conflict-free Replicated Data Types (CRDTs)
 
-The previous section described the circumstances under which updates to shared state can conflict, and introduced some techniques used to identify such conflicts.
-This section will present [**Conflict-free Replicated Data Types**](https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type), a technology that automatically resolves such changes without the need for a central authority.
-It will define the specialized terminology which seems to keep many from adopting CRDTs,
+The previous section described the circumstances
+under which updates to shared state can conflict,
+and introduced some techniques used to identify such conflicts.
+This section will present [**Conflict-free Replicated Data Types**](https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type),
+a technology that automatically resolves such changes
+without the need for a central authority.
+It will define the specialized terminology
+which seems to keep many from adopting CRDTs,
 provide some basic examples,
 lay out clear expectations of what they can and cannot accomplish,
-and hopefully prepare you to avoid concurrency-related bugs and enjoy the benefits of offline-first applications.
+and hopefully prepare you to avoid concurrency-related bugs
+and enjoy the benefits of offline-first applications.
 
 ## Terminology
 
-Just like in the conventional sense of a [Data Type](https://en.wikipedia.org/wiki/Data_type),
+Just like in the conventional sense of a
+[Data Type](https://en.wikipedia.org/wiki/Data_type),
 a CRDT can be defined by the set of its possible values,
 the set of valid operations on those values,
 and low-level representation of them.
 There are often many ways to represent the same information.
-Knowing the range of possible values and the exact operations required for your particular use case
+Knowing the range of possible values 
+and the exact operations required for your particular use case
 will help you choose the most effective design for the job.
 
-_CRDTs_ go further than the basic data types that are included in almost any programming language in that they are designed to be [replicated](https://en.wikipedia.org/wiki/Replication_(computing)) across multiple processes.
-These processes might run on the same machine, but are more commonly spread across a network.
-To accomplish this they generally define additional methods to track the state of remote peers, deliver the minimal set of updates those peers lack, and to indicate which updates are known so that other peers can perform the same services for us.
+_CRDTs_ go further than the basic data types
+that are included in almost any programming language
+in that they are designed to be
+[replicated](https://en.wikipedia.org/wiki/Replication_(computing))
+across multiple processes.
+These processes might run on the same machine,
+but are more commonly spread across a network.
+To accomplish this they generally define additional methods
+to track the state of remote peers,
+deliver the minimal set of updates those peers lack,
+and to indicate which updates are known
+so that other peers can perform the same services for us.
 
-Most importantly, CRDTs are **conflict-free**, meaning that they are designed to handle every possible combination of concurrent operations for a given data type in a [deterministic](https://en.wikipedia.org/wiki/Deterministic_system#In_computer_science) way.
-The states of peers can diverge temporarily, but a CRDT guarantees [eventual consistency](https://en.wikipedia.org/wiki/Eventual_consistency),
-that any two peers that are aware of the same set of updates will converge to have the same state.
+Most importantly, CRDTs are **conflict-free**,
+meaning that they are designed to handle
+every possible combination of concurrent operations for a given data type
+in a [deterministic](https://en.wikipedia.org/wiki/Deterministic_system#In_computer_science) way.
+The states of peers can diverge temporarily,
+but a CRDT guarantees [eventual consistency](https://en.wikipedia.org/wiki/Eventual_consistency),
+that any two peers that are aware of the same set of updates
+will converge to have the same state.
 
 ## Examples
 
-A [tally](https://www.merriam-webster.com/dictionary/tally) (or count) is relatively simple to implement compared to many other data types.
-If two people want to count the number of books on two shelves, they can each count one of the shelves and then sum their results.
-They could also call out numbers on an ongoing basis, adding both their own discoveries and those they hear to a mental sum.
-It doesn't matter in what order values are recorded because addition is [commutative](https://en.wikipedia.org/wiki/Commutative_property#Commutative_operations), at least for simple numbers.
-The important thing to understand is that despite any superficial similarity, a _tally_ differs from a _number_ because a number supports many operations which cannot be applied in _any order_.
-By choosing to only support addition it can be guaranteed that all peers' tallies will converge on the same final value.
+A [tally](https://www.merriam-webster.com/dictionary/tally) (or count)
+is relatively simple to implement compared to many other data types.
+If two people want to count the number of books on two shelves,
+they can each count one of the shelves and then sum their results.
+They could also call out numbers on an ongoing basis,
+adding both their own discoveries
+and those they hear to a mental sum.
+It doesn't matter in what order values are recorded
+because addition is [commutative](https://en.wikipedia.org/wiki/Commutative_property#Commutative_operations),
+at least for simple numbers.
+The important thing to understand is that despite any superficial similarity,
+a _tally_ differs from a _number_
+because a number supports many operations which cannot be applied in _any order_.
+By choosing to only support addition
+it can be guaranteed that all peers' tallies will converge on the same final value.
 
-For a slightly more complex version of a tally we can consider a situation in which the organizers of a festival must ensure that none of its zones exceed their maximum safe occupancy.
-A tally of the number of attendees in every zone can be kept by recording the number of people passing through entrances and exits.
-Rather than assuming that all additions pertain to a single value as in the last example, we can modify our operation to specify both _the relevant zone_ and the _change in occupancy_.
-Thus, as three people move from zone A to zone B, the checkpoint can record two events (`update('A', -3); update('B', 3)`).
-As long as all checkpoints for a given zone are able to communicate with each other with relatively little delay
-then they should be able to use the information available to them to decide whether to admit additional participants through their checkpoint.
+For a slightly more complex version of a tally
+we can consider a situation in which the organizers of a festival
+must ensure that none of its zones exceed their maximum safe occupancy.
+A tally of the number of attendees in every zone can be kept
+by recording the number of people passing through entrances and exits.
+Rather than assuming that all additions pertain to a single value as in the last example,
+we can modify our operation to specify
+both _the relevant zone_ and the _change in occupancy_.
+Thus, as three people move from zone A to zone B,
+the checkpoint can record two events (`update('A', -3); update('B', 3)`).
+As long as all checkpoints for a given zone
+are able to communicate with each other with relatively little delay
+then they should be able to use the information available to them
+to decide whether to admit additional participants through their checkpoint.
 
 These examples describe very basic CRDTs with narrowly scoped problems.
-If you have such a problem that maps well to a commutative operation then it might be worthwhile to design a specialized CRDT to solve it, and it may be reassuring to know that these data structures do not always require much complexity.
+If you have such a problem that maps well to a commutative operation
+then it might be worthwhile to design a specialized CRDT to solve it,
+and it may be reassuring to know that
+these data structures do not always require much complexity.
 
-In practice the order of applications will matter, especially when dealing with data structures like lists or arrays.
-If two concurrent operations append items to the end of a list then it's reasonable to insert them in an arbitrary sequence.
+In practice the order of applications will matter,
+especially when dealing with data structures like lists or arrays.
+If two concurrent operations append items to the end of a listi
+then it's reasonable to insert them in an arbitrary sequence.
 For example:
 
 1. _Alice_ and _Bob_ both try to add elements to their local copies of an empty list (`let list = []`)
@@ -56,9 +100,15 @@ For example:
     * Charlie does `list.push(11)`
 4. Valid outcomes are either `[5, 7, 11]` or `[7, 5, 11]`
 
-As described in the last section of this chapter, there are techniques to differentiate between these two types of circumstance, identifying which operations are concurrent or consecutive.
-In order to automatically resolve such conflicts when concurrent operations do occur, such types must also define deterministic strategies to allow all participants to choose the same ordering out of a set of all possible options.
-Different CRDT libraries may use different resolution strategies, but in most cases the choice of mechanism is essentially arbitrary as long as it meets some basic conditions.
+As described in the last section of this chapter,
+there are techniques to differentiate between these two types of circumstance,
+identifying which operations are concurrent or consecutive.
+In order to automatically resolve such conflicts when concurrent operations do occur,
+such types must also define deterministic strategies
+to allow all participants to choose the same ordering out of a set of all possible options.
+Different CRDT libraries may use different resolution strategies,
+but in most cases the choice of mechanism is essentially arbitrary
+as long as it meets some basic conditions.
 
 ## Expectations
 
@@ -88,7 +138,10 @@ It is common for collaborative applications built on CRDTs to follow this sort o
 in which user actions are translated into operations on the shared state,
 with remote changes propagating back to the UI.
 
-A well-designed CRDT will handle all aspects of ordering messages, including the internal implementation of a logical clock, the detection of concurrency, and the resolution of overlapping changes.
+A well-designed CRDT will handle all aspects of ordering messages,
+including the internal implementation of a logical clock,
+the detection of concurrency,
+and the resolution of overlapping changes.
 This enables peers to queue updates while entirely offline,
 and to merge their local state with others' when they are once again able to communicate.
 While this behaviour can be very helpful for application developers,
