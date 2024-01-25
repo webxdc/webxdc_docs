@@ -42,14 +42,11 @@ Now it's possible to share the `myapp.xdc` file in any chat: recipients can hit 
 To simulate multiple chat participants in the browser, try [Hello](https://github.com/webxdc/hello) as a minimal example; it includes everything needed to run the app and requires no build systems.
 
 
-## More examples and the webxdc store 
+## More examples in the webxdc store 
 
-The [hello webxdc app](https://github.com/webxdc/hello) is a good "getting-started" app 
-for tweaking and producing modified apps that directly work in webxdc supporting messengers. 
-
-The [webxdc app store](https://webxdc.org/apps) contains working webxdc apps that you can use today. 
+The [webxdc store](https://webxdc.org/apps) contains working webxdc apps that you can use today. 
 Each app comes with a "source code" link so that you can learn and fork as you wish. 
-You can submit your own available FOSS app for inclusion. 
+You can submit your own available FOSS app for inclusion into the curated store. 
 
 ## Participating in developments 
 
