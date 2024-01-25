@@ -2,24 +2,26 @@
 
 Webxdc is a container format for sharing and hosting HTML5 web apps in messenger chats. 
 Instead of being hosted on a central always-online HTTP server, 
-webxdc apps are stored in a messenger app by attaching a container file to a chat message,
+webxdc apps are hosted in a messenger app by attaching a container file to a chat message,
 and can be used while a device is offline even for extended periods. 
 Instead of using the HTTP protocol for querying a central server to obtain authoritative application state,
 webxdc apps send and receive messages via the messenger's [JavaScript API]
 which routes all "application updates" between users of an app.
-Webxdc app developers do not need to implement user accounts or discovery mechanisms,
+Webxdc app developers do not need to implement user authentication, discovery or bootstrapping mechanisms,
 and they do not need to implement end-to-end encryption, 
-all of which are already provided by the messenger hosting the webxdc app. 
+all of which is already provided by the messenger hosting the webxdc app. 
 
-While webxdc app development is vastly easier than developing for the HTTP Cloud
-there also are complications in arranging consistent web app state across user's devices. 
-The [Shared web application state] section 
+While webxdc app development is fundamentally easier 
+than developing for and maintaining an application-specific HTTP server 
+there are complications in arranging consistent web app state across user's devices,
+typical for any P2P system. 
+The [Shared web application state] chapter 
 provides neccessary theoretical and practical background for writing robust offline-first web apps
 without requiring a central online authority acting as the "source of truth". 
 
 If you are interested in the privacy and security guarantees of webxdc, 
 you may read [Bringing E2E privacy to the web](https://delta.chat/en/2023-05-22-webxdc-security) 
-which describes security-audited privacy guarantees not found with any other web container technology. 
+which describes security-audited privacy guarantees of webxdc not found with any other web container technology. 
 
 Removing central registries and app stores means that 
 anyone can [get started building a HTML5 app](/get_started.html), 
