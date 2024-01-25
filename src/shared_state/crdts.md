@@ -88,7 +88,7 @@ these data structures do not always require much complexity.
 
 In practice the order of applications will matter,
 especially when dealing with data structures like lists or arrays.
-If two concurrent operations append items to the end of a listi
+If two concurrent operations append items to the end of a list
 then it's reasonable to insert them in an arbitrary sequence.
 For example:
 
