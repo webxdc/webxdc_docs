@@ -95,7 +95,7 @@ function bytesToBase64(bytes) {
 }
 ```
 
-So, an update could be handled like so:
+So, an update can be handled like this:
 
 ```javascript
 ydoc.on('update', (update) => {
