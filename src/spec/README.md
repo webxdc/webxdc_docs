@@ -15,7 +15,7 @@ Messenger implementations expose the API through a `webxdc.js` module. To activa
 `webxdc.js` must not be added to your `.xdc` file as they are provided by the messenger. To simulate webxdc in a browser, 
 you may use the `webxdc.js` file from [Hello](https://github.com/webxdc/hello),
 or use the [webxdc-dev tool](https://github.com/webxdc/webxdc-dev) which
-allows to simulate and debug running webxdc apps without any messenger.
+both allow to simulate and debug webxdc apps without any messenger.
 
 ## Webxdc File Format
 

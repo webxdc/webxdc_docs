@@ -6,17 +6,17 @@ webxdc apps are hosted in a messenger app by attaching a container file to a cha
 and can be used while a device is offline even for extended periods. 
 Instead of using the HTTP protocol for querying a central server to obtain authoritative application state,
 webxdc apps send and receive messages via the messenger's [JavaScript API]
-which routes all "application updates" between users of an app.
+which routes all "application updates" between devices running a particular webxdc app. 
 Webxdc app developers do not need to implement user authentication, discovery or bootstrapping mechanisms,
 and they do not need to implement end-to-end encryption, 
-all of which is already provided by the messenger hosting the webxdc app. 
+all of which are already provided by the messenger hosting the webxdc app. 
 
 While webxdc app development is fundamentally easier 
 than developing for and maintaining an application-specific HTTP server 
 there are complications in arranging consistent web app state across user's devices,
-typical for any P2P system. 
+a typical issue for any P2P system. 
 The [Shared web application state] chapter 
-provides neccessary theoretical and practical background for writing robust offline-first web apps
+provides useful theoretical and practical background for writing robust offline-first web apps
 without requiring a central online authority acting as the "source of truth". 
 
 If you are interested in the privacy and security guarantees of webxdc, 
