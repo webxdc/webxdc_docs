@@ -8,7 +8,7 @@ Instead of being hosted on a central always-online HTTP server,
 webxdc apps are stored with the host messenger by attaching a container file to a chat message. 
 Instead of using the HTTP protocol for querying a central server to obtain authoritative application state,
 webxdc apps send and receive messages via the messenger's [JavaScript API]
-which allows to send and receive "application updates" between devices particpating in a chat. 
+which allows to send and receive "application updates" between devices participating in a chat. 
 App developers do not need to implement message transport, user authentication, 
 discovery or bootstrapping mechanisms, and they do not need to implement end-to-end encryption either. 
 All Authentication, identity management, social discovery and message transport 
@@ -18,10 +18,10 @@ capabilities of the hosting messenger.
 
 Messengers run webxdc container files in network-isolated webviews that can not perform any DNS or HTTP queries.
 Webxdc apps can only cause network messages by calling the [`sendUpdate`](./spec/sendUpdate.html)
-and [`setUpdateListener`](./spec/setUpdateListener.html) Javasript APIs,
+and [`setUpdateListener`](./spec/setUpdateListener.html) JavaScript APIs,
 implemented by the hosting messenger. 
 In ["Bringing E2E privacy to the web"](https://delta.chat/en/2023-05-22-webxdc-security) 
-Delta Chat developers described the unqiue security-audited privacy guarantees of webxdc 
+Delta Chat developers described the unique security-audited privacy guarantees of webxdc 
 not found with any other web container technology or [specification](./spec/index.html). 
 
 Waving central registries and app store dependencies "good bye!", 
@@ -50,7 +50,7 @@ The [Shared web application state] chapter
 provides useful theoretical and practical background for writing robust offline-first web apps
 without requiring a central online authority acting as the "source of truth". 
 Even if you don't study the topic in depth, reading [Shared web application state] 
-introduces you to the terminology and neccessary considerations 
+introduces you to the terminology and necessary considerations 
 for any P2P system, with a particular eye on webxdc. 
 
 
