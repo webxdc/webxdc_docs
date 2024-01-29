@@ -2,7 +2,7 @@
 authors = ["DeltaChat Contributors"]
 language = "en"
 multilingual = false
-src = "src"
+src = "./"
 title = "Webxdc"
 
 [output.html]

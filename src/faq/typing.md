@@ -44,7 +44,7 @@ If you want you can also type your own functions using [JSDoc comments](https://
 If you have a type for your state update **payloads**, replace the `any` in `Webxdc<any>` with your own payload type:
 
 ```typescript
-{{#include ../../webxdc.d.ts:global}}
+{{#include ../webxdc.d.ts:global}}
 ```
 
 
