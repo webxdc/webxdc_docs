@@ -37,6 +37,7 @@ jobs:
       - name: install mdbook
         run: |
           cargo install mdbook
+          cd src 
           mdbook build --dest-dir ../docs.webxdc.org
       - name: Upload
         uses: horochx/deploy-via-scp@v1.0.1
